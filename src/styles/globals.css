@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .bg-size-2em {
+    background-size: 100% 0.2em;
+  }
+  .bg-hundred {
+    background-size: 100% 100%;
+  }
+  .bg-near-bottom {
+    background-position: 0 88%;
+  }
+  .bg-growing-underline {
+    @apply bg-no-repeat bg-near-bottom bg-size-2em transition-all duration-200 hover:bg-hundred focus:bg-hundred;
+  }
+}
+
+html,
+body {
+  background-color: rgb(var(--color-bg-primary));
+  color: rgb(var(--color-text-primary));
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --app-bg-opacity: 1;
+  --app-text-opacity: 1;
+  --app-border-opacity: 1;
+  --app-backdrop-filter: blur(4px);
+
+  --color-bg-primary: 0, 0, 0;
+  --color-bg-secondary: 29, 29, 31;
+  --color-app-primary: 181, 0, 242;
+  --color-app-secondary: 131, 0, 242;
+  --color-app-accent: 212, 0, 242;
+  --color-app-error: 207, 102, 121;
+
+  --color-text-primary: 255, 255, 255;
+}
+
+input:focus-within ~ label,
+input:not(:placeholder-shown) ~ label {
+  @apply transform scale-75 -translate-y-6;
+}
+
+select:focus-within ~ label,
+select:not(:placeholder-shown) ~ label {
+  @apply transform scale-75 -translate-y-6;
+}
+
+/* input:focus-within ~ label {
+  @apply text-blue-500;
+} */
