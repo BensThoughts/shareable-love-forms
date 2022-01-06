@@ -9,6 +9,10 @@ import {store} from '@app/utils/store/store';
 import Head from 'next/head';
 import styled from '@emotion/styled';
 
+import {PersistGate} from 'redux-persist/integration/react';
+import {persistStore} from 'redux-persist';
+const persister = persistStore(store);
+
 const PageWrapper = styled.div`
   padding-top: 3.5rem;
   margin-top: 0rem;
@@ -42,6 +46,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <link rel="icon" href="/favicon.ico" />
     </Head>
     <Provider store={store}>
+    <PersistGate loading={null} persistor={persister}>
       <Navbar className="h-14" />
       <PageWrapper>
         <ContentWrap>
@@ -54,7 +59,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
         </FooterWrap>
       </PageWrapper>
-     
+     </PersistGate>
     </Provider>
     </>
    )
