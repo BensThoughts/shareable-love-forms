@@ -40,7 +40,7 @@ export default function FormPageLayout({
     return formState.fieldGroups[fieldGroupId];
   }
 
-  function formReducer(state: FormFieldsGroup, action: FormUpdateAction): FormFieldsGroup {
+  function fieldGroupReducer(state: FormFieldsGroup, action: FormUpdateAction): FormFieldsGroup {
     switch (action.type) {
       case 'UpdateField': {
         const fieldId = action.payload.fieldId;
@@ -68,7 +68,7 @@ export default function FormPageLayout({
       }
     }
   }
-  const [fieldGroupState, fieldGroupDispatch] = useReducer(formReducer, fieldGroupId, init);
+  const [fieldGroupState, fieldGroupDispatch] = useReducer(fieldGroupReducer, fieldGroupId, init);
 
   const dispatch = useAppDispatch();
 
