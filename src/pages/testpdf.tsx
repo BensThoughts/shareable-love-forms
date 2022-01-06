@@ -1,5 +1,11 @@
 import React from 'react';
-import { Page, Text, View, Document, StyleSheet, PDFDownloadLink } from '@react-pdf/renderer';
+import { Page, Text, View, Document, StyleSheet, PDFDownloadLink, Svg, Path } from '@react-pdf/renderer';
+import {
+  LikeToHaveIcon,
+  MaybeIcon,
+  MustHaveIcon,
+  OffLimitsIcon,
+} from '@app/components/PDF/Icons';
 
 // Create styles
 const styles = StyleSheet.create({
@@ -23,6 +29,11 @@ const styles = StyleSheet.create({
   },
   listItem: {
     fontSize: 8,
+    alignSelf: 'center',
+  },
+  inlineAnswer: {
+    display: 'flex',
+    flexDirection: 'row',
   }
 });
 
@@ -32,8 +43,31 @@ const MyDocument = () => (
     <Page size="A4" style={styles.page}>
       <View style={styles.section}>
         <Text style={styles.heading}>Commitment</Text>
-        <Text style={styles.listItem}>Having children: ❓</Text>
-        <Text style={styles.listItem}>Having a key: ✔️</Text>
+        <View style={styles.inlineAnswer}>
+          <Text style={styles.listItem}>
+            Having children:
+          </Text>
+          <MaybeIcon />
+        </View>
+        <View style={styles.inlineAnswer}>
+          <Text style={styles.listItem}>
+            Having a key:
+          </Text>
+          <MustHaveIcon />
+        </View>
+        <View style={styles.inlineAnswer}>
+          <Text style={styles.listItem}>
+            Oral sex:
+          </Text>
+          <LikeToHaveIcon />
+        </View>
+        <View style={styles.inlineAnswer}>
+          <Text style={styles.listItem}>
+            Sharing a bank account:
+          </Text>
+          <OffLimitsIcon />
+        </View>
+
       </View>
       {/* <View style={styles.section}>
         <Text>Section #2</Text>
