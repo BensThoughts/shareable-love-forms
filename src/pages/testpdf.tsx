@@ -11,7 +11,18 @@ const styles = StyleSheet.create({
   section: {
     margin: 10,
     padding: 10,
-    flexGrow: 1
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    // justifyContent: 'center',
+    flexGrow: 1,
+  },
+  heading: {
+    fontSize: 24,
+    fontWeight: 'bold',
+  },
+  listItem: {
+    fontSize: 8,
   }
 });
 
@@ -20,11 +31,13 @@ const MyDocument = () => (
   <Document>
     <Page size="A4" style={styles.page}>
       <View style={styles.section}>
-        <Text>Section #1</Text>
+        <Text style={styles.heading}>Commitment</Text>
+        <Text style={styles.listItem}>Having children: ❓</Text>
+        <Text style={styles.listItem}>Having a key: ✔️</Text>
       </View>
-      <View style={styles.section}>
+      {/* <View style={styles.section}>
         <Text>Section #2</Text>
-      </View>
+      </View> */}
     </Page>
   </Document>
 );
