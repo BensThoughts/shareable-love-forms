@@ -1,40 +1,46 @@
 import React, {useReducer, useEffect} from 'react';
 import SelectMenu from './SelectMenu';
 import { useAppDispatch, useAppSelector } from '@app/utils/store/hooks';
-import {formSelectors, FormCategory, updateFormFields} from '@app/utils/store/formsSlice';
+import {formSelectors, FormFieldsGroup, updateFieldGroup, upsertForm, FormState} from '@app/utils/store/formsSlice';
 import Link from 'next/link';
+
+type UpdateFieldAction = {
+  type: 'UpdateField',
+  payload: {
+    fieldId: string,
+    selectedResponse: string,
+  }
+};
+type SetFieldGroupAction = {
+  type: 'SetFieldGroup',
+  payload: {
+    fieldGroup: FormFieldsGroup | undefined
+  }
+}
+type FormUpdateAction = UpdateFieldAction | SetFieldGroupAction;
 
 export default function FormPageLayout({
   formId,
-  categoryId,
+  fieldGroupId,
+  // formState,
+  // fieldGroup,
 }: {
   formId: string,
-  categoryId: string,
+  fieldGroupId: string,
+  // formState: FormState,
+  // fieldGroup: FormFieldsGroup,
 }) {
-  const dispatch = useAppDispatch();
-  const formCacheState = useAppSelector((state) => formSelectors.selectById(state, formId));
-  // TODO: Dangerous use of !
-  const currentCategory = formCacheState!.categories[categoryId];
-  const fields = currentCategory?.fields;
-  const nextCategoryId = currentCategory?.nextCategoryId;
-  const previousCategoryId = currentCategory?.previousCategoryId;
-  
-  type UpdateFieldAction = {
-    type: 'UpdateField',
-    payload: {
-      fieldId: string,
-      selectedResponse: string,
+  let formState = useAppSelector((state) => formSelectors.selectById(state, formId));
+
+  function init(fieldGroupId: string): FormFieldsGroup {
+    if (!formState) {
+      // dispatch(upsertForm({form: relationshipForms.entities[formId]}))
+      throw new Error(`Error form not found with id: ${formId}`);
     }
-  };
-  type SetFieldsAction = {
-    type: 'SetFields',
+    return formState.fieldGroups[fieldGroupId];
   }
-  type FormUpdateAction = UpdateFieldAction | SetFieldsAction;
 
-
-
-  function formReducer(state: FormCategory, action: FormUpdateAction): FormCategory {
-
+  function formReducer(state: FormFieldsGroup, action: FormUpdateAction): FormFieldsGroup {
     switch(action.type) {
       case 'UpdateField': {
         const fieldId = action.payload.fieldId;
@@ -51,25 +57,29 @@ export default function FormPageLayout({
         };
       }
 
-      case 'SetFields':
-        return {
-          ...currentCategory
+      case 'SetFieldGroup': {
+        const fieldGroup = action.payload.fieldGroup;
+        if (fieldGroup === undefined) {
+          return state;
         }
+        return {
+          ...fieldGroup
+        }
+      }
     }
   }
+  const [fieldGroupState, fieldGroupDispatch] = useReducer(formReducer, fieldGroupId, init);
 
-  const [currentFormState, currentFormDispatch] = useReducer(formReducer, currentCategory);
+  const dispatch = useAppDispatch();
 
-  // TODO: currentFormState doesn't update on page transition (initialState ===
-  // TODO: currentCategory) doesn't update currentFormState.
-  // TODO: For some reason currentFormState keeps the first page it ever lands
-  // TODO: on. useEffect() is a hack to force the reducer to transition to the
-  // TODO: current page/category in the form.
-  
+  const fields = fieldGroupState.fields;
+  const nextFieldGroupId = fieldGroupState.nextFieldGroupId;
+  const previousFieldGroupId = fieldGroupState.previousFieldGroupId;
+
   useEffect(() => {
-    currentFormDispatch({type: 'SetFields'});
-  }, [currentCategory])
-
+    const fieldGroup = formState?.fieldGroups[fieldGroupId];
+    fieldGroupDispatch({type: 'SetFieldGroup', payload: {fieldGroup}})
+  }, [fieldGroupId, formState])
 
   return (
     // <form className="w-full" onSubmit={formSubmit}>
@@ -81,25 +91,25 @@ export default function FormPageLayout({
               options={fields[fieldId].responseOptions}
               selectedResponse={fields[fieldId].selectedResponse}
               onChange={(e) => {
-                currentFormDispatch({type: 'UpdateField', payload: {fieldId, selectedResponse: e}})
+                fieldGroupDispatch({type: 'UpdateField', payload: {fieldId, selectedResponse: e}})
               }}
             />
           </div>
         ))}
-        {previousCategoryId && 
-          <Link href={`/NonEscalatorRelationship/${previousCategoryId}`} passHref>
+        {previousFieldGroupId && 
+          <Link href={`/NonEscalatorRelationship/${previousFieldGroupId}`} passHref>
             <a
-              onClick={() => dispatch(updateFormFields(formId, currentFormState))}
+              onClick={() => dispatch(updateFieldGroup({formId, fieldGroup: fieldGroupState}))}
               className="block border-2 border-secondary border-solid rounded-md px-2 py-1"
             >
               Previous
             </a>
           </Link>
           }
-        {nextCategoryId && 
-          <Link href={`/NonEscalatorRelationship/${nextCategoryId}`} passHref>
+        {nextFieldGroupId && 
+          <Link href={`/NonEscalatorRelationship/${nextFieldGroupId}`} passHref>
             <a
-              onClick={() => dispatch(updateFormFields(formId, currentFormState))}
+              onClick={() => dispatch(updateFieldGroup({formId, fieldGroup: fieldGroupState}))}
               className="block border-2 border-secondary border-solid rounded-md px-2 py-1"
             >
               Next

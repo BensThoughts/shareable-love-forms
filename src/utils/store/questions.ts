@@ -1,4 +1,5 @@
 import { FormState } from '@app/utils/store/formsSlice';
+import { EntityState } from '@reduxjs/toolkit';
 
 export type ResponseOption =  'N/A' | 'Must Have' | 'Like To Have' | 'Maybe' | 'Off Limits';
 
@@ -19,11 +20,11 @@ const DEFAULT_RESPONSE: string = 'N/A';
 export const nonEscalatorMenu: FormState = {
   formId: 'NonEscalatorRelationship',
   formName: 'Non Escalator Relationship',
-  categories: {
+  fieldGroups: {
     'Commitment': {
-      categoryId: 'Commitment',
-      categoryLabel: 'Commitment',
-      nextCategoryId: 'PhysicalIntimacy',
+      fieldGroupId: 'Commitment',
+      fieldGroupLabel: 'Commitment',
+      nextFieldGroupId: 'PhysicalIntimacy',
       fields: {
         'marriage': {
           fieldId: 'marriage',
@@ -125,10 +126,10 @@ export const nonEscalatorMenu: FormState = {
       },
     },
     'PhysicalIntimacy': {
-      categoryId: 'PhysicalIntimacy',
-      categoryLabel: 'Physical Intimacy',
-      nextCategoryId: 'EmotionalIntimacy',
-      previousCategoryId: 'Commitment',
+      fieldGroupId: 'PhysicalIntimacy',
+      fieldGroupLabel: 'Physical Intimacy',
+      nextFieldGroupId: 'EmotionalIntimacy',
+      previousFieldGroupId: 'Commitment',
       fields: {
         'physical-affection' : {
           fieldId: 'physical-affection',
@@ -238,10 +239,10 @@ export const nonEscalatorMenu: FormState = {
       }
     },
     'EmotionalIntimacy': {
-      categoryId: 'EmotionalIntimacy',
-      categoryLabel: 'Emotional Intimacy',
-      nextCategoryId: 'Communication',
-      previousCategoryId: 'PhysicalIntimacy',
+      fieldGroupId: 'EmotionalIntimacy',
+      fieldGroupLabel: 'Emotional Intimacy',
+      nextFieldGroupId: 'Communication',
+      previousFieldGroupId: 'PhysicalIntimacy',
       fields: {
         'expressing-happiness': {
           fieldId: 'expressing-happiness',
@@ -316,10 +317,10 @@ export const nonEscalatorMenu: FormState = {
       },
     },
     'Communication': {
-      categoryId: 'Communication',
-      categoryLabel: 'Communication',
-      nextCategoryId: 'FinancialManagement',
-      previousCategoryId: 'EmotionalIntimacy',
+      fieldGroupId: 'Communication',
+      fieldGroupLabel: 'Communication',
+      nextFieldGroupId: 'FinancialManagement',
+      previousFieldGroupId: 'EmotionalIntimacy',
       fields: {
         'daily-check-ins': {
           fieldId: 'daily-check-ins',
@@ -401,10 +402,10 @@ export const nonEscalatorMenu: FormState = {
       },
     },
     'FinancialManagement': {
-      categoryId: 'FinancialManagement',
-      categoryLabel: 'Financial Management',
-      nextCategoryId: 'SocialIntegration',
-      previousCategoryId: 'Communication',
+      fieldGroupId: 'FinancialManagement',
+      fieldGroupLabel: 'Financial Management',
+      nextFieldGroupId: 'SocialIntegration',
+      previousFieldGroupId: 'Communication',
       fields: {
         'shared-bank-account': {
           fieldId: 'shared-bank-account',
@@ -444,9 +445,9 @@ export const nonEscalatorMenu: FormState = {
       },
     },
     'SocialIntegration': {
-      categoryId: 'SocialIntegration',
-      categoryLabel: 'Social Integration',
-      previousCategoryId: 'FinancialManagement',
+      fieldGroupId: 'SocialIntegration',
+      fieldGroupLabel: 'Social Integration',
+      previousFieldGroupId: 'FinancialManagement',
       fields: {
         'meeting-metamors': {
           fieldId: 'meeting-metamors',
@@ -481,7 +482,7 @@ export const nonEscalatorMenu: FormState = {
   }
 }
 
-export const relationshipForms = {
+export const relationshipForms: EntityState<FormState> = {
   ids: ['NonEscalatorRelationship'],
   entities: {
     'NonEscalatorRelationship': nonEscalatorMenu

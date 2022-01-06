@@ -6,7 +6,7 @@ const AnimatedBorder = styled.a`
   position: relative;
   padding: 10px;
   display: block;
-  background-color: rgb(var(--color-app-primary));
+  background-color: rgb(var(--color-bg-primary));
 
   &::after {
     content: '';

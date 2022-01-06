@@ -26,19 +26,19 @@ export type FormFields = {
   [fieldId: string]: Field;
 }
 
-export interface FormCategory {
-  categoryId: string;
-  categoryLabel: string;
-  nextCategoryId?: string;
-  previousCategoryId?: string;
+export interface FormFieldsGroup {
+  fieldGroupId: string;
+  fieldGroupLabel: string;
+  nextFieldGroupId?: string;
+  previousFieldGroupId?: string;
   fields: FormFields;
 }
 
 export interface FormState {
   formId: string;
   formName: string;
-  categories: {
-    [categoryId: string]: FormCategory;
+  fieldGroups: {
+    [fieldGroupId: string]: FormFieldsGroup;
   }
 };
 
@@ -53,37 +53,47 @@ const formsSlice = createSlice({
   name: 'forms',
   initialState,
   reducers: {
-    updateCategory(state, action: PayloadAction<{
+    updateFieldGroup(state, action: PayloadAction<{
       formId: string,
-      category: FormCategory,
+      fieldGroup: FormFieldsGroup,
     }>) {
-      const category = action.payload.category;
+      const fieldGroup = action.payload.fieldGroup;
       const formId = action.payload.formId;
 
       formsAdapter.updateOne(state, {
         id: action.payload.formId,
         changes: {
-          categories: {
-            ...state.entities[formId]?.categories,
-            [category.categoryId]: {
-              ...category,
+          fieldGroups: {
+            ...state.entities[formId]?.fieldGroups,
+            [fieldGroup.fieldGroupId]: {
+              ...fieldGroup,
             },
           }
         }
       })
     },
-
+    upsertForm(state, action: PayloadAction<{
+      form: FormState
+    }>) {
+      formsAdapter.upsertOne(state, action.payload.form);
+    }
   },
 });
 
-export const updateFormFields = createAction('forms/updateCategory', function prepare(formId: string, category: FormCategory) {
-  return {
-    payload: {
-      formId,
-      category,
-    }
-  }
-});
+export const {
+  updateFieldGroup,
+  upsertForm,
+} = formsSlice.actions;
+
+// export const updateFormFields = createAction('forms/updateCategory', function prepare(formId: string, category: FormCategory) {
+//   return {
+//     payload: {
+//       formId,
+//       category,
+//     }
+//   }
+// });
+
 
 export const formSelectors = formsAdapter.getSelectors<RootState>(
   (state) => state.forms

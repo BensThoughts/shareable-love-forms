@@ -34,27 +34,27 @@ export default function Footer({className}: FooterProps) {
     <div className={`bg-app-bg w-full flex flex-row justify-center items-center ${className}`}>
       <div className="mx-3">
         <AnimatedLinkIcon href="mailto:benjamin@bensthoughts.dev" aria-label="email me at benjamin@bensthoughts.dev">
-          <MailIcon className="w-6 h-6 text-secondary" />
+          <MailIcon className="w-6 h-6 text-icon-primary" />
         </AnimatedLinkIcon>
       </div>
       <div className="mx-3">
         <AnimatedLinkIcon href="https://github.com/bensthoughts" aria-label="Github">
-          <Github className="text-secondary" />
+          <Github className="text-icon-primary" />
         </AnimatedLinkIcon>
       </div>
       <div className="mx-3">
         <AnimatedLinkIcon href="https://twitter.com/bensthoughts" aria-label="Twitter">
-          <Twitter className="text-secondary" />
+          <Twitter className="text-icon-primary" />
         </AnimatedLinkIcon>
       </div>
       <div className="mx-3">
         <AnimatedLinkIcon href="https://www.linkedin.com/in/benjaminblumenfeldjones" aria-label="LinkedIn">
-          <Linkedin className="text-secondary" />
+          <Linkedin className="text-icon-primary" />
         </AnimatedLinkIcon>
       </div>
       <div className="mx-3">
         <AnimatedLinkIcon href="https://www.facebook.com/benjamin.blumenfeldjones.9" aria-label="Facebook">
-          <Facebook className="text-secondary" />
+          <Facebook className="text-icon-primary" />
         </AnimatedLinkIcon>
       </div>
     </div>
