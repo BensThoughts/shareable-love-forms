@@ -3,20 +3,28 @@ import {
   // createAsyncThunk,
   PayloadAction,
   createEntityAdapter,
-  createAction,
 } from '@reduxjs/toolkit';
 
 
 import {RootState} from '@app/utils/store/store';
 
-import { relationshipForms } from '@app/utils/store/questions';
+import {relationshipForms} from '@app/utils/store/questions';
 
-export type FormSelectField = {
-  fieldId: string;
-  fieldLabel: string;
-  fieldType: 'selectField',
-  responseOptions: string[];
-  selectedResponse: string;
+export type FieldType = 'selectField' | 'inputField';
+export interface IField {
+  id: string;
+  label: string;
+  type: FieldType;
+  value: string; // | number
+}
+
+export interface FormSelectField extends IField {
+  // fieldId: string;
+  // fieldLabel: string;
+  // fieldType: 'selectField',
+  valueOptions: string[];
+  // responseOptions: string[];
+  // selectedResponse: string;
   hoverOver?: string;
 }
 
@@ -68,15 +76,15 @@ const formsSlice = createSlice({
             [fieldGroup.fieldGroupId]: {
               ...fieldGroup,
             },
-          }
-        }
-      })
+          },
+        },
+      });
     },
     upsertForm(state, action: PayloadAction<{
       form: FormState
     }>) {
       formsAdapter.upsertOne(state, action.payload.form);
-    }
+    },
   },
 });
 
@@ -96,8 +104,8 @@ export const {
 
 
 export const formSelectors = formsAdapter.getSelectors<RootState>(
-  (state) => state.forms
-)
+    (state) => state.forms
+);
 
 // export const {
 //   selectAll: selectAllMyForms,

@@ -12,10 +12,8 @@ import {menuItems} from './menuItems';
 
 import {
   MenuIcon,
-  FolderIcon,
   HeartIcon,
 } from '@heroicons/react/solid';
-import AnimatedLinkWithIcon from '../../AnimatedLinkWithIcon';
 
 const Nav = styled.nav`
   /* background-color: rgba(0, 0, 0, 0); */

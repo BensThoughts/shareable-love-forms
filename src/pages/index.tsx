@@ -1,13 +1,12 @@
 import React from 'react';
-import type { NextPage } from 'next'
-import Image from 'next/image'
+import type {NextPage} from 'next';
+import Image from 'next/image';
 
-import TailwindForm from '../components/FormPageLayout';
-import { nonEscalatorMenu } from '../utils/store/questions';
+import TailwindForm from '../components/Form/FormPageLayout';
+import {nonEscalatorMenu} from '../utils/store/questions';
 
 
 const Home: NextPage = () => {
-
   // React.useEffect(() => {
 
   //   const fn = async () => {
@@ -16,26 +15,26 @@ const Home: NextPage = () => {
   //     // set it to state here
   //     const peer1 = new Peer({ initiator: true })
   //     const peer2 = new Peer();
-    
+
   //     peer1.on('signal', data => {
   //       console.log(data);
   //       peer2.signal(data);
   //     });
-    
+
   //     peer2.on('signal', data => {
   //       peer1.signal(data);
   //     });
-    
+
   //     peer1.on('connect', () => {
   //       peer1.send('hey peer2, how is it going?');
   //     });
-    
+
   //     peer2.on('data', data => {
   //       console.log('got a message from peer1: ' + data);
   //     })
   //   }
   //   fn()
-  // }, []); 
+  // }, []);
 
 
   return (
@@ -44,7 +43,7 @@ const Home: NextPage = () => {
         Shareable Love Forms
       </h1>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

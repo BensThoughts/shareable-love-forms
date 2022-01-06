@@ -1,5 +1,5 @@
 import React from 'react';
-import { Page, Text, View, Document, StyleSheet, PDFDownloadLink, Svg, Path } from '@react-pdf/renderer';
+import {Page, Text, View, Document, StyleSheet, PDFDownloadLink} from '@react-pdf/renderer';
 import {
   LikeToHaveIcon,
   MaybeIcon,
@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
   inlineAnswer: {
     display: 'flex',
     flexDirection: 'row',
-  }
+  },
 });
 
 // Create Document Component
@@ -79,11 +79,11 @@ const MyDocument = () => (
 export default function RenderedDoc() {
   return (
     <PDFDownloadLink document={<MyDocument />} fileName="somename.pdf">
-      {({ blob, url, loading, error }) =>
+      {({blob, url, loading, error}) =>
         loading ? 'Loading document...' : 'Download now!'
       }
     </PDFDownloadLink>
-  )
+  );
 }
 
 // ReactPdf.render(<MyDocument />, `${__dirname}/example.pdf`);

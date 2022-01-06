@@ -16,24 +16,24 @@ export default function FormInput({
   const [touched, setTouched] = useState(false);
 
   const [textColor, setTextColor] = useState('text-blue-500');
-  const [borderColor, setBorderColor] = useState('border-blue-500')
+  const [borderColor, setBorderColor] = useState('border-blue-500');
   const errorMessage = getFieldError(value);
   const displayError = (wasSubmitted || touched) && errorMessage;
 
   function onChange(e: React.ChangeEvent<HTMLInputElement>) {
-    setValue(e.currentTarget.value)
+    setValue(e.currentTarget.value);
     if ((wasSubmitted || touched) && getFieldError(e.currentTarget.value)) {
       setTextColor('text-red-500');
       setBorderColor('border-red-500');
     } else {
       setTextColor('text-blue-500');
-      setBorderColor('border-blue-500')
+      setBorderColor('border-blue-500');
     }
   }
 
   return (
     <div
-    className={`w-full relative my-4 border-b-2 focus-within:${borderColor}`}
+      className={`w-full relative my-4 border-b-2 focus-within:${borderColor}`}
     >
       <input
         type={type}
@@ -56,5 +56,5 @@ export default function FormInput({
         {name}{displayError ? ` (${errorMessage})` : ''}
       </label>
     </div>
-  )
+  );
 }

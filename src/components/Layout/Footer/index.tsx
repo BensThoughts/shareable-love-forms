@@ -1,4 +1,4 @@
-import { MailIcon } from '@heroicons/react/solid'
+import {MailIcon} from '@heroicons/react/solid';
 
 import {
   Twitter,
