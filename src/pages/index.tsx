@@ -1,10 +1,5 @@
 import React from 'react';
 import type {NextPage} from 'next';
-import Image from 'next/image';
-
-import TailwindForm from '../components/Form/FormPageLayout';
-import {nonEscalatorMenu} from '../utils/store/questions';
-
 
 const Home: NextPage = () => {
   // React.useEffect(() => {
