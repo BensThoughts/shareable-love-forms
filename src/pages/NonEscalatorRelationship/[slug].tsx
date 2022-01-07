@@ -1,7 +1,7 @@
 import {GetStaticPaths, GetStaticProps} from 'next';
 import GridWrapper from '../../components/GridWrapper';
 import {nonEscalatorMenu} from '../../utils/store/questions';
-import FormPageLayout from '../../components/Form/FormPageLayout';
+import FormLayout from '@app/components/Form/FormLayout';
 
 export const getStaticPaths: GetStaticPaths = (params) => {
   const paths = Object.keys(nonEscalatorMenu.fieldGroups).map((fieldGroupId) => {
@@ -48,7 +48,7 @@ export default function NonEscalatorRelationshipForm({
         <h2 className="text-2xl">
           {fieldGroupLabel}
         </h2>
-        <FormPageLayout
+        <FormLayout
           formId={formId}
           fieldGroupId={fieldGroupId}
         />
