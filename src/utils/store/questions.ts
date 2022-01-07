@@ -1,5 +1,4 @@
 import {FormState} from '@app/utils/store/formsSlice';
-import {EntityState} from '@reduxjs/toolkit';
 
 export type ResponseOption = 'N/A' | 'Must Have' | 'Like To Have' | 'Maybe' | 'Off Limits';
 
@@ -481,9 +480,6 @@ export const nonEscalatorMenu: FormState = {
   },
 };
 
-export const relationshipForms: EntityState<FormState> = {
-  ids: ['NonEscalatorRelationship'],
-  entities: {
-    'NonEscalatorRelationship': nonEscalatorMenu,
-  },
+export const relationshipForms: {[formId: string]: FormState} = {
+  'NonEscalatorRelationship': nonEscalatorMenu,
 };

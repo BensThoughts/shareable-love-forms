@@ -19,22 +19,19 @@ export interface IField {
 }
 
 export interface FormSelectField extends IField {
-  // fieldId: string;
-  // fieldLabel: string;
-  // fieldType: 'selectField',
   valueOptions: string[];
-  // responseOptions: string[];
-  // selectedResponse: string;
   hoverOver?: string;
 }
 
-type Field = FormSelectField;
+export type FormInputField = IField;
+
+type Field = FormSelectField | FormInputField;
 
 export type FormFields = {
-  [fieldId: string]: Field;
+  [id: string]: Field;
 }
 
-export interface FormFieldsGroup {
+export interface FormFieldGroup {
   fieldGroupId: string;
   fieldGroupLabel: string;
   nextFieldGroupId?: string;
@@ -46,7 +43,7 @@ export interface FormState {
   formId: string;
   formName: string;
   fieldGroups: {
-    [fieldGroupId: string]: FormFieldsGroup;
+    [fieldGroupId: string]: FormFieldGroup;
   }
 };
 
@@ -63,7 +60,7 @@ const formsSlice = createSlice({
   reducers: {
     updateFieldGroup(state, action: PayloadAction<{
       formId: string,
-      fieldGroup: FormFieldsGroup,
+      fieldGroup: FormFieldGroup,
     }>) {
       const fieldGroup = action.payload.fieldGroup;
       const formId = action.payload.formId;
