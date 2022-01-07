@@ -1,35 +1,35 @@
 import {useState, Fragment} from 'react';
 import {Listbox, Transition} from '@headlessui/react';
 import {CheckIcon, SelectorIcon} from '@heroicons/react/solid';
-import {ResponseOption} from '../utils/store/questions';
+import {ResponseOption} from '../../utils/store/questions';
 
 export default function SelectMenu({
   label,
-  selectedValue,
+  initialValue,
   options,
   onChange,
 }: {
   label: string,
   options: string[],
-  selectedValue: string,
+  initialValue: string,
   onChange(e: ResponseOption): void,
 }) {
-  const [selectedOption, setSelectedOption] = useState(selectedValue);
+  const [selectedValue, setSelectedValue] = useState(initialValue);
 
   function onSelectionChange(selection: ResponseOption) {
-    setSelectedOption(selection);
+    setSelectedValue(selection);
     onChange(selection);
   }
 
   return (
     <div className="w-96">
-      <Listbox value={selectedOption} onChange={onSelectionChange}>
+      <Listbox value={selectedValue} onChange={onSelectionChange}>
         <Listbox.Label>{label}:</Listbox.Label>
         <div className="relative mt-1">
           <Listbox.Button
             className="relative w-full py-2 pl-3 pr-10 text-left bg-app-bg-secondary rounded-lg shadow-md cursor-default focus:outline-none focus-visible:ring-opacity-75 focus-visible:ring-white focus-visible:ring-offset-orange-300 focus-visible:ring-offset-2 focus-visible:border-indigo-500 sm:text-sm"
           >
-            <span className="block truncate">{selectedOption}</span>
+            <span className="block truncate">{selectedValue}</span>
             <span className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
               <SelectorIcon
                 className="w-5 h-5 text-gray-400"
