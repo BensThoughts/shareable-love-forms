@@ -1,7 +1,6 @@
 import {configureStore, ThunkAction, Action} from '@reduxjs/toolkit';
 import {combineReducers} from 'redux';
 import {
-  // persistStore,
   persistReducer,
   FLUSH,
   REHYDRATE,
@@ -39,7 +38,7 @@ export const store = configureStore({
 // export const store = configureStore({
 //   reducer: {
 //     forms: formsReducer,
-//   }
+//   },
 // });
 
 

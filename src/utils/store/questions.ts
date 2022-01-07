@@ -446,6 +446,7 @@ export const nonEscalatorMenu: FormState = {
       fieldGroupId: 'SocialIntegration',
       fieldGroupLabel: 'Social Integration',
       previousFieldGroupId: 'FinancialManagement',
+      nextFieldGroupId: 'FinishedForm',
       fields: {
         'meeting-metamors': {
           id: 'meeting-metamors',

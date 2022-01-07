@@ -12,12 +12,6 @@ export const getStaticPaths: GetStaticPaths = (params) => {
     };
   });
 
-  paths.push({
-    params: {
-      slug: 'FinishedForm',
-    },
-  });
-
   return {
     paths,
     fallback: false,
@@ -44,25 +38,6 @@ export default function NonEscalatorRelationshipForm({
   const formId = nonEscalatorMenu.formId;
   const formName = nonEscalatorMenu.formName;
   const fieldGroupLabel = nonEscalatorMenu.fieldGroups[fieldGroupId].fieldGroupLabel;
-
-  if (fieldGroupId === 'FinishedForm') {
-    return (
-      <GridWrapper>
-        <div className="flex flex-col gap-y-6 items-center">
-          <h1 className="font-bold text-4xl">
-            {formName}
-          </h1>
-          <h2 className="text-2xl">
-            {fieldGroupLabel}
-          </h2>
-          <FormPageLayout
-            formId={formId}
-            fieldGroupId={fieldGroupId}
-          />
-        </div>
-      </GridWrapper>
-    );
-  }
 
   return (
     <GridWrapper>
