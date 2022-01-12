@@ -1,5 +1,6 @@
 import React from 'react';
 import type {NextPage} from 'next';
+import Card from '@app/components/Card/Card';
 
 const Home: NextPage = () => {
   // React.useEffect(() => {
@@ -37,6 +38,12 @@ const Home: NextPage = () => {
       <h1 className="text-2xl font-bold">
         Shareable Love Forms
       </h1>
+      <div className="max-w-md">
+        <Card title="Non Escalator Relationship Form">
+        This is a form designed to help you talk about your relationship with your partners.
+        </Card>
+      </div>
+
     </div>
   );
 };
