@@ -19,7 +19,7 @@
 
 html,
 body {
-  background-color: rgb(var(--color-bg-primary));
+  background-color: rgb(var(--color-bg-base));
   color: rgb(var(--color-text-primary));
   padding: 0;
   margin: 0;
@@ -42,8 +42,19 @@ a {
   --app-border-opacity: 1;
   --app-backdrop-filter: blur(4px);
 
-  --color-bg-primary: 0, 0, 0;
-  --color-bg-secondary: 29, 29, 31;
+  --color-bg-base: 0, 0, 0;
+
+  /* desicing on a primary bg color */
+  /* --color-bg-primary: 14, 4, 21; */
+  --color-bg-primary: 22, 21, 34;
+
+
+  /* --color-bg-secondary: 29, 29, 31; */
+  --color-bg-seconday: 27, 202, 186;
+
+  /* --color-bg-secondary: 9, 147, 236; */
+
+
   --color-app-primary: 181, 0, 242;
   --color-app-secondary: 131, 0, 242;
   --color-app-accent: 212, 0, 242;

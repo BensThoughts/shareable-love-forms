@@ -19,6 +19,7 @@ module.exports = {
         '-1': '-1',
       },
       backgroundColor: {
+        'app-bg-base': generateColorClass('color-bg-base'),
         'app-bg-primary': generateColorClass('color-bg-primary'),
         'app-bg-secondary': generateColorClass('color-bg-secondary'),
         'primary': generateColorClass('color-app-primary'),
