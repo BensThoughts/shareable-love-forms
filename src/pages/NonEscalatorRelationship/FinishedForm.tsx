@@ -1,7 +1,7 @@
-import FinishedFormLink from '@app/components/Form/FinishedFormLink';
+import FinishedFormLink from '@app/components/NonEscalatorRelationship/FinishedFormLink';
 import GridWrapper from '../../components/GridWrapper';
 import {nonEscalatorMenu} from '@app/utils/store/questions';
-import FinishedFormPDF from '@app/components/Form/FinishedFormPDF';
+import FinishedFormPDF from '@app/components/NonEscalatorRelationship/FinishedFormPDF';
 import {useAppSelector} from '@app/utils/store/hooks';
 import {formSelectors} from '@app/utils/store/formsSlice';
 
