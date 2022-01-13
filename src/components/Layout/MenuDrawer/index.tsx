@@ -1,6 +1,6 @@
 import {Fragment} from 'react';
 import {Dialog, Transition} from '@headlessui/react';
-import Button from '../../Button';
+import RoundedButton from '../../RoundedButton';
 
 type DrawerProps = {
   title?: string,
@@ -47,14 +47,14 @@ export default function MenuDrawer({
             leaveFrom="translate-x-0"
             leaveTo="-translate-x-full"
           >
-            <div className="flex flex-col justify-between bg-app-bg bg-opacity-70 backdrop-filter backdrop-blur-sm z-50 w-full max-w-sm p-6 overflow-hidden text-left align-middle shadow-xl rounded-br-md">
+            <div className="flex flex-col justify-between bg-app-bg-base bg-opacity-70 backdrop-filter backdrop-blur-sm z-50 w-full max-w-sm p-6 overflow-hidden text-left align-middle shadow-xl rounded-br-md">
               <div>
                 <Dialog.Title className="font-bold text-2xl md:text-4xl text-secondary">{title}</Dialog.Title>
                 <Dialog.Description>{description}</Dialog.Description>
                 {children}
               </div>
               <div className="self-center mt-10">
-                <Button className="bg-primary" onClick={() => setIsOpen(!isOpen)}>Close</Button>
+                <RoundedButton className="bg-primary" onClick={() => setIsOpen(!isOpen)}>Close</RoundedButton>
               </div>
             </div>
           </Transition.Child>

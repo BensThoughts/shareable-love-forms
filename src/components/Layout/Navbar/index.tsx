@@ -80,7 +80,7 @@ export default function Navbar({className, ...rest}: NavBarProps) {
         </NavLinks>
       </MenuDrawer>
       <NavHider>
-        <Nav {...rest} className={`bg-app-bg bg-opacity-70 shadow-lg ${className}`}>
+        <Nav {...rest} className={`bg-app-bg-base bg-opacity-70 shadow-lg ${className}`}>
 
           {/* Medium+ Screens */}
           <div className="hidden md:flex md:justify-between md:items-center md:w-full md:pt-0 md:mx-3">
