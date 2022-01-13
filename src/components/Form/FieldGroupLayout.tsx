@@ -3,6 +3,7 @@ import SelectMenu from './SelectMenu';
 import {FormFieldGroup, FormSelectField, FormInputField} from '@app/utils/store/formsSlice';
 import Link from 'next/link';
 import FormInput from './Input';
+import RoundedButton from '../RoundedButton';
 
 type UpdateFieldAction = {
   type: 'UpdateField',
@@ -119,22 +120,16 @@ export default function FieldGroupLayout({
       ))}
       {previousFieldGroupId &&
           <Link href={`/NonEscalatorRelationship/${previousFieldGroupId}`} passHref>
-            <a
-              onClick={() => onSubmit(fieldGroupState)}
-              className="block border-2 border-secondary border-solid rounded-md px-2 py-1"
-            >
+            <RoundedButton onClick={() => onSubmit(fieldGroupState)}>
               Previous
-            </a>
+            </RoundedButton>
           </Link>
       }
       {nextFieldGroupId &&
           <Link href={`/NonEscalatorRelationship/${nextFieldGroupId}`} passHref>
-            <a
-              onClick={() => onSubmit(fieldGroupState)}
-              className="block border-2 border-secondary border-solid rounded-md px-2 py-1"
-            >
+            <RoundedButton onClick={() => onSubmit(fieldGroupState)}>
               Next
-            </a>
+            </RoundedButton>
           </Link>
       }
     </div>
