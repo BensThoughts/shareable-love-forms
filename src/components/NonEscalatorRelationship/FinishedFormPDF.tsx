@@ -5,7 +5,7 @@ import {
   MustHaveIcon,
   OffLimitsIcon,
   // NAIcon,
-} from '@app/components/PDF/Icons';
+} from '@app/components/NonEscalatorRelationship/Icons';
 import {FormState} from '@app/utils/store/formsSlice';
 
 // const DEFAULT_RESPONSE_OPTIONS: string[]= ['N/A', 'Must Have', 'Like To Have', 'Maybe', 'Off Limits'];
