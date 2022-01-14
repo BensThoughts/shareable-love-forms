@@ -14,6 +14,7 @@
     "@icons-pack/react-simple-icons": "^4.6.1",
     "@react-pdf/renderer": "^2.0.21",
     "@reduxjs/toolkit": "^1.7.1",
+    "firebase": "^9.6.3",
     "mongodb": "^4.3.0",
     "next": "12.0.7",
     "react": "17.0.2",
