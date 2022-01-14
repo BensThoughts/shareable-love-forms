@@ -11,6 +11,11 @@ module.exports = {
     './src/components/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
+    colors: {
+      'app-bg': generateColorClass('color-bg-base'),
+      'primary': generateColorClass('color-app-primary'),
+      'secondary': generateColorClass('color-app-secondary'),
+    },
     extend: {
       transformOrigin: {
         '0': '0%',
@@ -22,10 +27,10 @@ module.exports = {
         'app-bg-base': generateColorClass('color-bg-base'),
         'app-bg-primary': generateColorClass('color-bg-primary'),
         'app-bg-secondary': generateColorClass('color-bg-secondary'),
-        'primary': generateColorClass('color-app-primary'),
-        'secondary': generateColorClass('color-app-secondary'),
-        'accent': generateColorClass('color-app-accent'),
-        'error': generateColorClass('color-app-error'),
+        // 'primary': generateColorClass('color-app-primary'),
+        // 'secondary': generateColorClass('color-app-secondary'),
+        // 'accent': generateColorClass('color-app-accent'),
+        // 'error': generateColorClass('color-app-error'),
       },
       textColor: {
         'primary': generateColorClass('color-text-primary'),
@@ -35,8 +40,8 @@ module.exports = {
         'icon-accent': generateColorClass('color-app-accent'),
       },
       borderColor: {
-        'primary': generateColorClass('color-app-primary'),
-        'secondary': generateColorClass('color-app-secondary'),
+        // 'primary': generateColorClass('color-app-primary'),
+        // 'secondary': generateColorClass('color-app-secondary'),
         'accent': generateColorClass('color-app-accent'),
       },
     },
