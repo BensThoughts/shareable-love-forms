@@ -6,8 +6,10 @@ export default function IconButton({
   ...rest
 }: React.ButtonHTMLAttributes<HTMLButtonElement>) {
   return (
-    <button className={`bg-secondary font-bold py-2 px-4 rounded inline-flex items-center ${className}`} {...rest}>
-      {children}
-    </button>
+    <div className={`p-[2px] flex justify-center items-center bg-gradient-to-tr from-primary to-secondary rounded  ${className}`}>
+      <button className={`bg-app-bg-base font-bold rounded`} {...rest}>
+        {children}
+      </button>
+    </div>
   );
 }
