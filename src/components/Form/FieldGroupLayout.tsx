@@ -112,26 +112,33 @@ export default function FieldGroupLayout({
 
   return (
     // <form className="w-full" onSubmit={formSubmit}>
-    <div className="flex flex-col gap-y-12 w-full justify-center items-center">
-      {fields && Object.keys(fields).map((id) => (
-        <div key={id}>
-          {getField(id)}
-        </div>
-      ))}
-      {previousFieldGroupId &&
+    <div className="mb-32">
+      <div className="flex flex-col gap-y-12 justify-center items-center mb-6">
+        {fields && Object.keys(fields).map((id) => (
+          <div key={id}>
+            {getField(id)}
+          </div>
+        ))}
+        <div className="flex w-full justify-between gap-6">
+          {nextFieldGroupId &&
+          <div className="ml-auto">
+            <Link href={`/NonEscalatorRelationship/${nextFieldGroupId}`} passHref>
+              <RoundedButton onClick={() => onSubmit(fieldGroupState)}>
+              Next
+              </RoundedButton>
+            </Link>
+          </div>
+          }
+          {previousFieldGroupId &&
           <Link href={`/NonEscalatorRelationship/${previousFieldGroupId}`} passHref>
             <RoundedButton onClick={() => onSubmit(fieldGroupState)}>
               Previous
             </RoundedButton>
           </Link>
-      }
-      {nextFieldGroupId &&
-          <Link href={`/NonEscalatorRelationship/${nextFieldGroupId}`} passHref>
-            <RoundedButton onClick={() => onSubmit(fieldGroupState)}>
-              Next
-            </RoundedButton>
-          </Link>
-      }
+          }
+        </div>
+      </div>
+
     </div>
     // </form>
   );
