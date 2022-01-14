@@ -1,13 +1,3 @@
-import styled from '@emotion/styled';
-// import AnimatedUnderline from './AnimatedUnderline';
-
-// const AnimationController = styled.a`
-//   &:hover ${AnimatedUnderline}::after {
-//     opacity: 1;
-//     transform: scale(1);
-//   }
-// `;
-
 type AnimatedLinkWithIconProps = {
   text: string,
   href: string,
