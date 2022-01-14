@@ -22,8 +22,8 @@ export default function SelectMenu({
   }
 
   return (
-    <div className="w-96">
-      <Listbox value={selectedValue} onChange={onSelectionChange}>
+    <Listbox value={selectedValue} onChange={onSelectionChange}>
+      <div className="w-72 md:w-96">
         <Listbox.Label>{label}:</Listbox.Label>
         <div className="relative mt-1">
           <Listbox.Button
@@ -80,7 +80,7 @@ export default function SelectMenu({
             </Listbox.Options>
           </Transition>
         </div>
-      </Listbox>
-    </div>
+      </div>
+    </Listbox>
   );
 }
