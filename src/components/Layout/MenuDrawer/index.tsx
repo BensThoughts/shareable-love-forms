@@ -54,7 +54,7 @@ export default function MenuDrawer({
                 {children}
               </div>
               <div className="self-center mt-10">
-                <RoundedButton className="bg-primary" onClick={() => setIsOpen(!isOpen)}>Close</RoundedButton>
+                <RoundedButton className="bg-app-bg-base" onClick={() => setIsOpen(!isOpen)}>Close</RoundedButton>
               </div>
             </div>
           </Transition.Child>
