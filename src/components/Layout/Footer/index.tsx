@@ -1,10 +1,10 @@
-import {MailIcon} from '@heroicons/react/solid';
+// import {MailIcon} from '@heroicons/react/solid';
 
 import {
   Twitter,
-  Linkedin,
+  // Linkedin,
   Github,
-  Facebook,
+  // Facebook,
 } from '@icons-pack/react-simple-icons';
 
 // import TransitionColor from '@app/components/Transitions/TransitionColor';
@@ -32,13 +32,13 @@ type FooterProps = {
 export default function Footer({className}: FooterProps) {
   return (
     <div className={`bg-app-bg-base w-full flex flex-row justify-center items-center ${className}`}>
-      <div className="mx-3">
+      {/* <div className="mx-3">
         <AnimatedLinkIcon href="mailto:benjamin@bensthoughts.dev" aria-label="email me at benjamin@bensthoughts.dev">
           <MailIcon className="w-6 h-6 text-icon-primary" />
         </AnimatedLinkIcon>
-      </div>
+      </div> */}
       <div className="mx-3">
-        <AnimatedLinkIcon href="https://github.com/bensthoughts" aria-label="Github">
+        <AnimatedLinkIcon href="https://github.com/bensthoughts/shareable-love-forms" aria-label="Github">
           <Github className="text-icon-primary" />
         </AnimatedLinkIcon>
       </div>
@@ -47,16 +47,11 @@ export default function Footer({className}: FooterProps) {
           <Twitter className="text-icon-primary" />
         </AnimatedLinkIcon>
       </div>
-      <div className="mx-3">
-        <AnimatedLinkIcon href="https://www.linkedin.com/in/benjaminblumenfeldjones" aria-label="LinkedIn">
-          <Linkedin className="text-icon-primary" />
-        </AnimatedLinkIcon>
-      </div>
-      <div className="mx-3">
+      {/* <div className="mx-3">
         <AnimatedLinkIcon href="https://www.facebook.com/benjamin.blumenfeldjones.9" aria-label="Facebook">
           <Facebook className="text-icon-primary" />
         </AnimatedLinkIcon>
-      </div>
+      </div> */}
     </div>
   );
 }
