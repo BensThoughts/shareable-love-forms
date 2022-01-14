@@ -2,6 +2,7 @@ import {GetStaticPaths, GetStaticProps} from 'next';
 import GridWrapper from '../../components/GridWrapper';
 import {nonEscalatorMenu} from '../../utils/store/questions';
 import FormLayout from '@app/components/Form/FormLayout';
+import FlexSection from '@app/components/FlexSection';
 
 export const getStaticPaths: GetStaticPaths = (params) => {
   const paths = Object.keys(nonEscalatorMenu.fieldGroups).map((fieldGroupId) => {
@@ -41,18 +42,20 @@ export default function NonEscalatorRelationshipForm({
 
   return (
     <GridWrapper>
-      <div className="flex flex-col gap-y-6 items-center">
+      <FlexSection>
         <h1 className="font-bold text-4xl">
           {formName}
         </h1>
         <h2 className="text-2xl">
           {fieldGroupLabel}
         </h2>
+      </FlexSection>
+      <FlexSection>
         <FormLayout
           formId={formId}
           fieldGroupId={fieldGroupId}
         />
-      </div>
+      </FlexSection>
     </GridWrapper>
   );
 }
