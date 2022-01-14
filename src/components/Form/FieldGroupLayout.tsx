@@ -120,6 +120,13 @@ export default function FieldGroupLayout({
           </div>
         ))}
         <div className="flex w-full justify-between gap-6">
+          {previousFieldGroupId &&
+          <Link href={`/NonEscalatorRelationship/${previousFieldGroupId}`} passHref>
+            <RoundedButton onClick={() => onSubmit(fieldGroupState)}>
+              Previous
+            </RoundedButton>
+          </Link>
+          }
           {nextFieldGroupId &&
           <div className="ml-auto">
             <Link href={`/NonEscalatorRelationship/${nextFieldGroupId}`} passHref>
@@ -128,13 +135,6 @@ export default function FieldGroupLayout({
               </RoundedButton>
             </Link>
           </div>
-          }
-          {previousFieldGroupId &&
-          <Link href={`/NonEscalatorRelationship/${previousFieldGroupId}`} passHref>
-            <RoundedButton onClick={() => onSubmit(fieldGroupState)}>
-              Previous
-            </RoundedButton>
-          </Link>
           }
         </div>
       </div>
