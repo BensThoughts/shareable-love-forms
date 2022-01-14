@@ -1,6 +1,9 @@
 import React from 'react';
 import type {NextPage} from 'next';
 import Card from '@app/components/Card/Card';
+import GridWrapper from '@app/components/GridWrapper';
+import Title from '@app/components/Title';
+import FlexSection from '@app/components/FlexSection';
 
 const Home: NextPage = () => {
   // React.useEffect(() => {
@@ -34,17 +37,23 @@ const Home: NextPage = () => {
 
 
   return (
-    <div className="flex flex-col gap-6 items-center">
-      <h1 className="text-2xl font-bold">
+    <GridWrapper>
+      <FlexSection>
+        <Title className="self-center">
         Shareable Love Forms
-      </h1>
-      <div className="max-w-md">
-        <Card title="Non Escalator Relationship Form">
-        This is a form designed to help you talk about your relationship with your partners.
-        </Card>
-      </div>
+        </Title>
+      </FlexSection>
 
-    </div>
+      <FlexSection>
+        <Card
+          title="Non Escalator Relationship Form"
+          className="self-center max-w-md"
+        >
+        This is a form designed to help you think and talk about what you want in a relationship.
+        </Card>
+
+      </FlexSection>
+    </GridWrapper>
   );
 };
 
