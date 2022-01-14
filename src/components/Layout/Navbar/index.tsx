@@ -70,13 +70,6 @@ export default function Navbar({className, ...rest}: NavBarProps) {
               {menuItem.name}
             </MenuItem>
           ))}
-          <a
-            href="assets/Benjamin-Blumenfeld-Jones-Resume-2021.pdf"
-            download="Benjamin Blumenfeld-Jones Resume 2021.pdf"
-            className="over:bg-primary w-full h-10 flex items-center justify-center text-xl text-secondary"
-          >
-            Resume
-          </a>
         </NavLinks>
       </MenuDrawer>
       <NavHider>
@@ -103,7 +96,7 @@ export default function Navbar({className, ...rest}: NavBarProps) {
 
             {/* <ThemeToggle /> */}
             <IconButton onClick={() => setIsOpen(!isOpen)} className="md:hidden mr-3" aria-label="navigation menu">
-              <MenuIcon className="w-5 h-5 text-icon-primary" />
+              <MenuIcon className="w-8 h-8 text-icon-primary" />
             </IconButton>
 
           </div>
