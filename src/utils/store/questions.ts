@@ -17,6 +17,7 @@ const DEFAULT_RESPONSE: string = 'N/A';
 export const nonEscalatorMenu: FormState = {
   formId: 'NonEscalatorRelationship',
   formName: 'Non Escalator Relationship',
+  formDescription: '',
   fieldGroups: {
     'Commitment': {
       fieldGroupId: 'Commitment',
