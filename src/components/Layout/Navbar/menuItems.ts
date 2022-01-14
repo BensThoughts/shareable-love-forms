@@ -11,8 +11,8 @@ export const menuItems = [
     name: 'Non-Escalator Relationship',
     href: '/NonEscalatorRelationship',
   },
-  {
-    name: 'Commitment',
-    href: '/NonEscalatorRelationship/Commitment',
-  },
+  // {
+  //   name: 'Commitment',
+  //   href: '/NonEscalatorRelationship/Commitment',
+  // },
 ];
