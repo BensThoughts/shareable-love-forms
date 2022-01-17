@@ -6,9 +6,7 @@ const FinishedFormLink = dynamic(() => import('@app/components/NonEscalatorRelat
 
 // import FinishedFormLink from '@app/components/NonEscalatorRelationship/FinishedFormLink';
 import GridWrapper from '../../components/GridWrapper';
-import type {ReactElement} from 'react';
 import {nonEscalatorMenu} from '@app/utils/store/questions';
-import FormContextLayout from '@app/components/Layout/FormContextLayout';
 // import useFormCache from '@app/utils/hooks/useFormCache';
 // import {nonEscalatorMenu} from '@app/utils/store/questions';
 // import FinishedFormPDF from '@app/components/NonEscalatorRelationship/FinishedFormPDF';
@@ -31,11 +29,11 @@ export default function NonEscalatorRelationshipFinishedFormPage() {
   );
 }
 
-NonEscalatorRelationshipFinishedFormPage.getLayout = function getLayout(page: ReactElement) {
-  return (
-    <FormContextLayout
-      initialFormState={nonEscalatorMenu}
-      page={page}
-    />
-  );
-};
+// NonEscalatorRelationshipFinishedFormPage.getLayout = function getLayout(page: ReactElement) {
+//   return (
+//     <FormContextLayout
+//       initialFormState={nonEscalatorMenu}
+//       page={page}
+//     />
+//   );
+// };

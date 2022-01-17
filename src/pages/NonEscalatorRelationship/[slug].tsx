@@ -4,12 +4,11 @@ import {nonEscalatorMenu} from '../../utils/store/questions';
 import FormLayout from '@app/components/Form/FormLayout';
 import FlexSection from '@app/components/FlexSection';
 import type {ReactElement} from 'react';
-// import SlideAnimationProvider from '@app/utils/context/SlideAnimationContext';
+import SlideAnimationProvider from '@app/utils/context/SlideAnimationContext';
 // import FormCacheProvider from '@app/utils/context/FormCacheContext';
 // import FinishedFormLink from '@app/components/NonEscalatorRelationship/FinishedFormLink';
 
 // import dynamic from 'next/dynamic';
-import FormContextLayout from '@app/components/Layout/FormContextLayout';
 // import useFormCache from '@app/utils/hooks/useFormCache';
 
 // const FinishedFormLink = dynamic(() => import('@app/components/NonEscalatorRelationship/FinishedFormLink'), {
@@ -95,9 +94,8 @@ export default function NonEscalatorRelationshipPage({
 
 NonEscalatorRelationshipPage.getLayout = function getLayout(page: ReactElement) {
   return (
-    <FormContextLayout
-      initialFormState={nonEscalatorMenu}
-      page={page}
-    />
+    <SlideAnimationProvider>
+      {page}
+    </SlideAnimationProvider>
   );
 };
