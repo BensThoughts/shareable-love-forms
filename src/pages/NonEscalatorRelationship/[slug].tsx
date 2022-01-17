@@ -5,6 +5,14 @@ import FormLayout from '@app/components/Form/FormLayout';
 import FlexSection from '@app/components/FlexSection';
 import type {ReactElement} from 'react';
 import SlideAnimationProvider from '@app/utils/context/SlideAnimationContext';
+import FormCacheProvider from '@app/utils/context/FormCacheContext';
+// import FinishedFormLink from '@app/components/NonEscalatorRelationship/FinishedFormLink';
+
+import dynamic from 'next/dynamic';
+
+const FinishedFormLink = dynamic(() => import('@app/components/NonEscalatorRelationship/FinishedFormLink'), {
+  ssr: false,
+});
 
 export const getStaticPaths: GetStaticPaths = (params) => {
   const paths = Object.keys(nonEscalatorMenu.fieldGroups).map((fieldGroupId) => {
@@ -13,6 +21,12 @@ export const getStaticPaths: GetStaticPaths = (params) => {
         slug: fieldGroupId,
       },
     };
+  });
+
+  paths.push({
+    params: {
+      slug: 'FinishedForm',
+    },
   });
 
   return {
@@ -43,7 +57,6 @@ export default function NonEscalatorRelationshipPage({
 }) {
   const formId = nonEscalatorMenu.formId;
   const formName = nonEscalatorMenu.formName;
-  const fieldGroupLabel = nonEscalatorMenu.fieldGroups[fieldGroupId].fieldGroupLabel;
 
   return (
     // <GridWrapper key={fieldGroupId}>
@@ -52,15 +65,20 @@ export default function NonEscalatorRelationshipPage({
         <h1 className="font-bold text-4xl">
           {formName}
         </h1>
-        <h2 className="text-2xl">
-          {fieldGroupLabel}
+        {nonEscalatorMenu.fieldGroups[fieldGroupId] && <h2 className="text-2xl">
+          {nonEscalatorMenu.fieldGroups[fieldGroupId].fieldGroupLabel}
         </h2>
+        }
       </FlexSection>
       <FlexSection>
-        <FormLayout
-          formId={formId}
-          fieldGroupId={fieldGroupId}
-        />
+        {fieldGroupId === 'FinishedForm' ?
+          <FinishedFormLink /> :
+          <FormLayout
+            formId={formId}
+            fieldGroupId={fieldGroupId}
+          />
+        }
+
       </FlexSection>
     </GridWrapper>
   );
@@ -68,8 +86,10 @@ export default function NonEscalatorRelationshipPage({
 
 NonEscalatorRelationshipPage.getLayout = function getLayout(page: ReactElement) {
   return (
-    <SlideAnimationProvider>
-      {page}
-    </SlideAnimationProvider>
+    <FormCacheProvider initialState={nonEscalatorMenu}>
+      <SlideAnimationProvider>
+        {page}
+      </SlideAnimationProvider>
+    </FormCacheProvider>
   );
 };

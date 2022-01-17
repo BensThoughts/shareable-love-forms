@@ -1,7 +1,8 @@
 // import {useFormQuery} from '@app/utils/hooks/query';
-import {formSelectors, updateFieldGroup, upsertForm} from '@app/utils/store/formsSlice';
-import {useAppDispatch, useAppSelector} from '@app/utils/store/hooks';
-import {relationshipForms} from '@app/utils/store/questions';
+import useFormCache from '@app/utils/hooks/useFormCache';
+// import {formSelectors, updateFieldGroup, upsertForm} from '@app/utils/store/formsSlice';
+// import {useAppDispatch, useAppSelector} from '@app/utils/store/hooks';
+// import {relationshipForms} from '@app/utils/store/questions';
 import FieldGroupLayout from './FieldGroupLayout';
 
 export default function FormLayout({
@@ -11,22 +12,35 @@ export default function FormLayout({
   formId: string,
   fieldGroupId: string,
 }) {
-  const dispatch = useAppDispatch();
-  const formState = useAppSelector((state) => formSelectors.selectById(state, formId));
+  const [formState, formDispatch] = useFormCache();
+  // console.log(tState);
 
-  if (!formState) {
-    dispatch(upsertForm({form: relationshipForms[formId]}));
-    // throw new Error(`Error form not found with id: ${formId}`);
-  }
+  // const dispatch = useAppDispatch();
+  // const formState = useAppSelector((state) => formSelectors.selectById(state, formId));
 
-  const fieldGroup = formState?.fieldGroups[fieldGroupId];
+  // if (!formState) {
+  //   dispatch(upsertForm({form: relationshipForms[formId]}));
+  //   // throw new Error(`Error form not found with id: ${formId}`);
+  // }
+
+  // const fieldGroup = formState?.fieldGroups[fieldGroupId];
+  const fieldGroup = formState.fieldGroups[fieldGroupId];
 
   return (
     <>
       {fieldGroup ?
       <FieldGroupLayout
         fieldGroup={fieldGroup}
-        onSubmit={(fieldGroup) => dispatch(updateFieldGroup({formId, fieldGroup}))}
+        onSubmit={(fieldGroup) => {
+          formDispatch({
+            type: 'UpdateFormFields',
+            payload: {
+              fieldGroupId: fieldGroup.fieldGroupId,
+              fields: fieldGroup.fields,
+            },
+          });
+          // dispatch(updateFieldGroup({formId, fieldGroup}));
+        }}
       /> :
       <div>loading</div>}
     </>
