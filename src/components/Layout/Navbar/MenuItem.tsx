@@ -25,7 +25,7 @@ const MenuItem = ({
   return (
     <Link passHref href={href} scroll={true}>
       {animatedLink ?
-        <AnimatedLink className={className} onClick={onClick}>
+        <AnimatedLink className={className} onClick={onClick} href={href}>
           {children}
         </AnimatedLink> :
         <a href={href} onClick={onClick} className={`text-primary ${className}`}>
