@@ -1,16 +1,9 @@
 import {Page, Text, View, Document, StyleSheet} from '@react-pdf/renderer';
-import {
-  LikeToHaveIcon,
-  MaybeIcon,
-  MustHaveIcon,
-  OffLimitsIcon,
-  // NAIcon,
-} from '@app/components/NonEscalatorRelationship/Icons';
 import {FormState} from '@app/utils/store/formsSlice';
-
+import FieldGroupPDF from './FieldGroupPDF';
 // const DEFAULT_RESPONSE_OPTIONS: string[]= ['N/A', 'Must Have', 'Like To Have', 'Maybe', 'Off Limits'];
 
-const RESPONSE_COLOR = 'purple';
+export const RESPONSE_COLOR = 'purple';
 
 const styles = StyleSheet.create({
   'page': {
@@ -19,48 +12,45 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
+    justifyContent: 'space-evenly',
+  },
+  'header': {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
+  'title': {
+    fontSize: 32,
+    fontWeight: 'bold',
   },
   'mainContainer': {
     display: 'flex',
     flexDirection: 'row',
+    // justifyContent: 'center',
+    alignItems: 'center',
     justifyContent: 'center',
+    // width: '100%',
   },
   'subContainer': {
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'flex-start',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    margin: '8px',
+    width: '100%',
+    // marginHorizontal: '5px',
+  },
+  'fieldGroup': {
+    margin: '10px',
+    width: '400px',
   },
   // 'fieldGroup': {
   //   display: 'flex',
   //   flexDirection: 'column',
   //   alignItems: 'center',
   // },
-  'question': {
-    fontSize: 8,
-    alignSelf: 'center',
-  },
-  'response': {
-    display: 'flex',
-    flexDirection: 'row',
-    alignItems: 'center',
-    color: RESPONSE_COLOR,
-  },
-  'completeResponse': {
-    display: 'flex',
-    flexDirection: 'row',
-    width: '100%',
-    justifyContent: 'space-between',
-    fontSize: 8,
-    margin: '2px',
-  },
-  'group': {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'flex-start',
-    width: '100%',
-    paddingLeft: '10px',
-    paddingRight: '5px',
-  },
+
+
 });
 
 export default function FinishedFormPDF({
@@ -68,26 +58,12 @@ export default function FinishedFormPDF({
 }: {
   formData: FormState
 }) {
-  function getIcon(value: string): React.ReactNode {
-    switch (value) {
-      case 'N/A':
-        return <></>;
-        // return <NAIcon stroke={RESPONSE_COLOR}></NAIcon>;
-      case 'Must Have':
-        return <MustHaveIcon stroke={RESPONSE_COLOR} />;
-      case 'Like To Have':
-        return <LikeToHaveIcon stroke={RESPONSE_COLOR} />;
-      case 'Maybe':
-        return <MaybeIcon stroke={RESPONSE_COLOR} />;
-      case 'Off Limits':
-        return <OffLimitsIcon stroke={RESPONSE_COLOR} />;
-    }
-  }
-
   const fieldGroupValues = Object.values(formData.fieldGroups);
-  const leftPage = fieldGroupValues.slice(0, 3);
-  // const middlePage = fieldGroupValues.slice(2, 4);
-  const rightPage = fieldGroupValues.slice(3, -1);
+  console.log(fieldGroupValues);
+  const pageOne = fieldGroupValues.slice(0, 2);
+  const pageTwo = fieldGroupValues.slice(2, 5);
+  const pageThree = fieldGroupValues.slice(5, 8);
+
   // const middleIndex = Math.ceil(fieldGroupValues.length / 2);
 
   // const leftPage = fieldGroupValues.splice(0, middleIndex);
@@ -95,66 +71,37 @@ export default function FinishedFormPDF({
 
   return (
     <Document>
-      <Page size="LETTER" style={styles.page}>
-        <View>
-          <Text>{formData.formName}</Text>
+      <Page size="A4" style={styles.page}>
+        <View style={styles.header}>
+          <Text style={styles.title}>{formData.formName}</Text>
         </View>
         <View style={styles.mainContainer}>
           <View style={styles.subContainer}>
-            {leftPage.map((fieldGroup) => (
-              <View key={fieldGroup.fieldGroupId} style={styles.group}>
-                <Text>{fieldGroup.fieldGroupLabel}</Text>
-                <View style={styles.group}>
-                  {Object.values(fieldGroup.fields).map((field) => (
-                    <View key={field.id} style={styles.completeResponse}>
-                      <Text style={styles.question}>{field.label}:&nbsp;</Text>
-                      <View style={styles.response}>
-                        <Text>{field.value}</Text>
-                        {getIcon(field.value)}
-                      </View>
-                      {/* {getIcon(field.value)} */}
-                    </View>
-                  ))}
-                </View>
+            {pageOne.map((fieldGroup) => (
+              <View key={fieldGroup.fieldGroupId} style={styles.fieldGroup}>
+                <FieldGroupPDF key={fieldGroup.fieldGroupId} fieldGroup={fieldGroup} />
               </View>
             ))}
           </View>
-
-          {/* <View style={styles.subContainer}>
-            {middlePage.map((fieldGroup) => (
-              <View key={fieldGroup.fieldGroupId} style={styles.group}>
-                <Text>{fieldGroup.fieldGroupLabel}</Text>
-                <View style={styles.group}>
-                  {Object.values(fieldGroup.fields).map((field) => (
-                    <View key={field.id} style={styles.completeResponse}>
-                      <Text style={styles.question}>{field.label}:&nbsp;</Text>
-                      <View style={styles.response}>
-                        <Text>{field.value}</Text>
-                        {getIcon(field.value)}
-                      </View>
-                    </View>
-                  ))}
-                </View>
+        </View>
+      </Page>
+      <Page size="A4" style={styles.page}>
+        <View style={styles.mainContainer}>
+          <View style={styles.subContainer}>
+            {pageTwo.map((fieldGroup) => (
+              <View key={fieldGroup.fieldGroupId} style={styles.fieldGroup}>
+                <FieldGroupPDF key={fieldGroup.fieldGroupId} fieldGroup={fieldGroup} />
               </View>
             ))}
-          </View> */}
-
+          </View>
+        </View>
+      </Page>
+      <Page size="A4" style={styles.page}>
+        <View style={styles.mainContainer}>
           <View style={styles.subContainer}>
-            {rightPage.map((fieldGroup) => (
-              <View key={fieldGroup.fieldGroupId} style={styles.group}>
-                <Text>{fieldGroup.fieldGroupLabel}</Text>
-                <View style={styles.group}>
-                  {Object.values(fieldGroup.fields).map((field) => (
-                    <View key={field.id} style={styles.completeResponse}>
-                      <Text style={styles.question}>{field.label}:&nbsp;</Text>
-                      <View style={styles.response}>
-                        <Text>{field.value}</Text>
-                        {getIcon(field.value)}
-                      </View>
-                      {/* {getIcon(field.value)} */}
-                    </View>
-                  ))}
-                </View>
+            {pageThree.map((fieldGroup) => (
+              <View key={fieldGroup.fieldGroupId} style={styles.fieldGroup}>
+                <FieldGroupPDF key={fieldGroup.fieldGroupId} fieldGroup={fieldGroup} />
               </View>
             ))}
           </View>
