@@ -18,16 +18,17 @@ type AppPropsWithLayout = AppProps & {
 
 import Navbar from '../components/Layout/Navbar';
 import Footer from '../components/Layout/Footer';
-// import {Provider} from 'react-redux';
-// import {store} from '@app/utils/store/store';
+
 import Head from 'next/head';
 import styled from '@emotion/styled';
 
 import {AnimatePresence} from 'framer-motion';
 
-// import {PersistGate} from 'redux-persist/integration/react';
-// import {persistStore} from 'redux-persist';
-// const persister = persistStore(store);
+import {Provider} from 'react-redux';
+import {store} from '@app/utils/store/store';
+import {PersistGate} from 'redux-persist/integration/react';
+import {persistStore} from 'redux-persist';
+const persister = persistStore(store);
 
 // import SlideAnimationProvider from '@app/utils/context/SlideAnimationContext';
 
@@ -77,17 +78,17 @@ function MyApp({
         <PageWrapper>
           <ContentWrap>
             <main className="z-0 mb-16 mt-8 max-h-full overflow-hidden">
-              {/* <Provider store={store}>
-                  <PersistGate loading={null} persistor={persister}> */}
-              <AnimatePresence
-                exitBeforeEnter={true}
-                initial={false}
-                // onExitComplete={() => window.scrollTo(0, 0)}
-              >
-                <Component {...pageProps} key={router.asPath} />
-              </AnimatePresence>
-              {/* </PersistGate>
-                </Provider> */}
+              <Provider store={store}>
+                <PersistGate loading={null} persistor={persister}>
+                  <AnimatePresence
+                    exitBeforeEnter={true}
+                    initial={false}
+                    // onExitComplete={() => window.scrollTo(0, 0)}
+                  >
+                    <Component {...pageProps} key={router.asPath} />
+                  </AnimatePresence>
+                </PersistGate>
+              </Provider>
             </main>
           </ContentWrap>
           <FooterWrap>

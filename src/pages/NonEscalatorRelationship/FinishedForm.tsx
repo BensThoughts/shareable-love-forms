@@ -16,7 +16,7 @@ import FormContextLayout from '@app/components/Layout/FormContextLayout';
 // import {formSelectors} from '@app/utils/store/formsSlice';
 
 export default function NonEscalatorRelationshipFinishedFormPage() {
-  // const formId = nonEscalatorMenu.formId;
+  const formId = nonEscalatorMenu.formId;
   // const formState = useAppSelector((state) => formSelectors.selectById(state, formId));
   // if (!formState) {
   //   return null;
@@ -24,7 +24,7 @@ export default function NonEscalatorRelationshipFinishedFormPage() {
   return (
     <GridWrapper>
       {/* <FinishedFormLink formId={formId} /> */}
-      <FinishedFormLink />
+      <FinishedFormLink formId={formId}/>
 
       {/* <FinishedFormPDF formData={formState}/> */}
     </GridWrapper>

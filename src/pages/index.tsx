@@ -1,11 +1,10 @@
-import React from 'react';
-import type {NextPage} from 'next';
+// import type {NextPage} from 'next';
 import Card from '@app/components/Card/Card';
 import GridWrapper from '@app/components/GridWrapper';
 import Title from '@app/components/Title';
 import FlexSection from '@app/components/FlexSection';
 
-const Home: NextPage = () => {
+export default function Home() {
   // React.useEffect(() => {
 
   //   const fn = async () => {
@@ -56,5 +55,3 @@ const Home: NextPage = () => {
     </GridWrapper>
   );
 };
-
-export default Home;

@@ -1,19 +1,19 @@
-// import {formSelectors} from '@app/utils/store/formsSlice';
-// import {useAppSelector} from '@app/utils/store/hooks';
-import useFormCache from '@app/utils/hooks/useFormCache';
+import {formSelectors} from '@app/utils/store/formsSlice';
+import {useAppSelector} from '@app/utils/store/hooks';
+// import useFormCache from '@app/utils/hooks/useFormCache';
 import {PDFDownloadLink} from '@react-pdf/renderer';
 import FinishedFormPDF from './FinishedFormPDF';
 
 export default function FinishedFormLink({
-  // formId,
+  formId,
 }: {
-  // formId: string
+  formId: string
 }) {
-  // const formState = useAppSelector((state) => formSelectors.selectById(state, formId));
-  // if (!formState) {
-  //   return null;
-  // }
-  const [formState] = useFormCache();
+  const formState = useAppSelector((state) => formSelectors.selectById(state, formId));
+  if (!formState) {
+    return null;
+  }
+  // const [formState] = useFormCache();
 
   return (
     <PDFDownloadLink document={<FinishedFormPDF formData={formState} />} fileName="NonEscalator Relationship Menu.pdf">
