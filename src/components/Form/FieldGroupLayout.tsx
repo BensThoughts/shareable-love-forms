@@ -1,9 +1,11 @@
-import React, {useReducer, useEffect} from 'react';
+import React, {useReducer} from 'react';
 import SelectMenu from './SelectMenu';
 import {FormFieldGroup, FormSelectField, FormInputField} from '@app/utils/store/formsSlice';
-import Link from 'next/link';
 import FormInput from './Input';
-import RoundedButton from '../RoundedButton';
+import NextLinkButton from '../NextLinkButton';
+import useSlideAnimation from '@app/utils/hooks/useSlideAnimation';
+import PageTransition from '../Layout/PageTransition';
+// import PageTransition from '../Layout/PageTransition';
 
 type UpdateFieldAction = {
   type: 'UpdateField',
@@ -55,20 +57,14 @@ export default function FieldGroupLayout({
   onSubmit,
 }: {
   onSubmit(fieldGroup: FormFieldGroup): void;
-  fieldGroup: FormFieldGroup | undefined,
+  fieldGroup: FormFieldGroup,
 }) {
-  const initialState: FormFieldGroup = {
-    fieldGroupId: 'none',
-    fieldGroupLabel: 'loading',
-    fields: {},
-  };
+  const [slideAnimationDirection, setSlideAnimationDirection] = useSlideAnimation();
+  const [fieldGroupState, fieldGroupDispatch] = useReducer(fieldGroupReducer, fieldGroup);
 
-  useEffect(() => {
-    fieldGroupDispatch({type: 'SetFieldGroup', payload: {fieldGroup}});
-  }, [fieldGroup]);
-
-
-  const [fieldGroupState, fieldGroupDispatch] = useReducer(fieldGroupReducer, initialState);
+  // useEffect(() => {
+  //   fieldGroupDispatch({type: 'SetFieldGroup', payload: {fieldGroup}});
+  // }, [fieldGroup]);
 
   if (!fieldGroup) {
     return null;
@@ -109,37 +105,45 @@ export default function FieldGroupLayout({
     }
   }
 
-
   return (
-    // <form className="w-full" onSubmit={formSubmit}>
-    <div className="mb-32">
+    <PageTransition
+      slideDirection={slideAnimationDirection}
+      className="mb-36"
+    >
       <div className="flex flex-col gap-y-12 justify-center items-center mb-6">
         {fields && Object.keys(fields).map((id) => (
           <div key={id}>
             {getField(id)}
           </div>
         ))}
-        <div className="flex w-full justify-between gap-6">
-          {previousFieldGroupId &&
-          <Link href={`/NonEscalatorRelationship/${previousFieldGroupId}`} passHref>
-            <RoundedButton onClick={() => onSubmit(fieldGroupState)}>
-              Previous
-            </RoundedButton>
-          </Link>
-          }
-          {nextFieldGroupId &&
-          <div className="ml-auto">
-            <Link href={`/NonEscalatorRelationship/${nextFieldGroupId}`} passHref>
-              <RoundedButton onClick={() => onSubmit(fieldGroupState)}>
-              Next
-              </RoundedButton>
-            </Link>
-          </div>
-          }
-        </div>
       </div>
 
-    </div>
-    // </form>
+      <div className="flex w-full justify-between gap-6">
+        {previousFieldGroupId &&
+            <NextLinkButton
+              href={`/NonEscalatorRelationship/${previousFieldGroupId}`}
+              onClick={() => {
+                setSlideAnimationDirection('right');
+                onSubmit(fieldGroupState);
+              }}
+            >
+              Previous
+            </NextLinkButton>
+        }
+        {nextFieldGroupId &&
+          <div className="ml-auto">
+            <NextLinkButton
+              href={`/NonEscalatorRelationship/${nextFieldGroupId}`}
+              onClick={() => {
+                setSlideAnimationDirection('left');
+                onSubmit(fieldGroupState);
+              }}
+            >
+              {nextFieldGroupId == 'FinishedForm' ? 'Submit' : 'Next'}
+            </NextLinkButton>
+          </div>
+        }
+      </div>
+    </PageTransition>
   );
 }
