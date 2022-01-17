@@ -3,6 +3,8 @@ import GridWrapper from '../../components/GridWrapper';
 import {nonEscalatorMenu} from '../../utils/store/questions';
 import FormLayout from '@app/components/Form/FormLayout';
 import FlexSection from '@app/components/FlexSection';
+import type {ReactElement} from 'react';
+import SlideAnimationProvider from '@app/utils/context/SlideAnimationContext';
 
 export const getStaticPaths: GetStaticPaths = (params) => {
   const paths = Object.keys(nonEscalatorMenu.fieldGroups).map((fieldGroupId) => {
@@ -63,3 +65,11 @@ export default function NonEscalatorRelationshipPage({
     </GridWrapper>
   );
 }
+
+NonEscalatorRelationshipPage.getLayout = function getLayout(page: ReactElement) {
+  return (
+    <SlideAnimationProvider>
+      {page}
+    </SlideAnimationProvider>
+  );
+};

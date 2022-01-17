@@ -4,6 +4,7 @@ import TitleCard from '@app/components/Card/TitleCard';
 import NextLinkButton from '@app/components/NextLinkButton';
 import GridWrapper from '@app/components/GridWrapper';
 import FlexSection from '@app/components/FlexSection';
+// import type {ReactElement} from 'react';
 
 export default function NonEscalatorRelationshipHomePage() {
   return (
@@ -22,3 +23,11 @@ export default function NonEscalatorRelationshipHomePage() {
     </GridWrapper>
   );
 }
+
+// NonEscalatorRelationshipHomePage.getLayout = function getLayout(page: ReactElement) {
+//   return (
+//     <div>
+//       {page}
+//     </div>
+//   );
+// };
