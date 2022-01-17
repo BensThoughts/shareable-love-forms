@@ -19,6 +19,7 @@ const persister = persistStore(store);
 
 // import {ReactQueryDevtools} from 'react-query/devtools';
 import {QueryClient, QueryClientProvider} from 'react-query';
+import SlideAnimationProvider from '@app/utils/context/SlideAnimationContext';
 const queryClient = new QueryClient();
 
 // export function reportWebVitals(metric: NextWebVitalsMetric) {
@@ -67,13 +68,15 @@ function MyApp({
             <main className="z-0 mb-16 mt-8 max-h-full overflow-hidden">
               <Provider store={store}>
                 <PersistGate loading={null} persistor={persister}>
-                  <AnimatePresence
-                    exitBeforeEnter={true}
-                    initial={false}
+                  <SlideAnimationProvider>
+                    <AnimatePresence
+                      exitBeforeEnter={true}
+                      initial={false}
                     // onExitComplete={() => window.scrollTo(0, 0)}
-                  >
-                    <Component {...pageProps} key={router.route} />
-                  </AnimatePresence>
+                    >
+                      <Component {...pageProps} key={router.asPath} />
+                    </AnimatePresence>
+                  </SlideAnimationProvider>
                 </PersistGate>
               </Provider>
             </main>
