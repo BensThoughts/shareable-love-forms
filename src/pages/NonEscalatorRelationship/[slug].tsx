@@ -24,6 +24,7 @@ export const getStaticProps: GetStaticProps = async ({params}) => {
     throw new Error(`No params in getStaticProps: ${params}`);
   }
   const fieldGroupId = params.slug as string;
+
   return {
     props: {
       fieldGroupId,
@@ -31,16 +32,19 @@ export const getStaticProps: GetStaticProps = async ({params}) => {
   };
 };
 
-export default function NonEscalatorRelationshipForm({
+// (parameter) Component: NextComponentType<NextPageContext, any, {}>
+
+export default function NonEscalatorRelationshipPage({
   fieldGroupId,
 }: {
-  fieldGroupId: string
+  fieldGroupId: string,
 }) {
   const formId = nonEscalatorMenu.formId;
   const formName = nonEscalatorMenu.formName;
   const fieldGroupLabel = nonEscalatorMenu.fieldGroups[fieldGroupId].fieldGroupLabel;
 
   return (
+    // <GridWrapper key={fieldGroupId}>
     <GridWrapper>
       <FlexSection>
         <h1 className="font-bold text-4xl">

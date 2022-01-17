@@ -5,7 +5,7 @@ import NextLinkButton from '@app/components/NextLinkButton';
 import GridWrapper from '@app/components/GridWrapper';
 import FlexSection from '@app/components/FlexSection';
 
-export default function NonEscalatorRelationshipMenu() {
+export default function NonEscalatorRelationshipHomePage() {
   return (
     <GridWrapper>
       <FlexSection>
