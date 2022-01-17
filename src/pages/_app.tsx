@@ -1,12 +1,17 @@
 import '../styles/globals.css';
 import React from 'react';
-import type {AppProps} from 'next/app';
+import type {
+  AppProps,
+  // NextWebVitalsMetric
+} from 'next/app';
 import Navbar from '../components/Layout/Navbar';
 import Footer from '../components/Layout/Footer';
 import {Provider} from 'react-redux';
 import {store} from '@app/utils/store/store';
 import Head from 'next/head';
 import styled from '@emotion/styled';
+
+import {AnimatePresence} from 'framer-motion';
 
 import {PersistGate} from 'redux-persist/integration/react';
 import {persistStore} from 'redux-persist';
@@ -15,6 +20,10 @@ const persister = persistStore(store);
 // import {ReactQueryDevtools} from 'react-query/devtools';
 import {QueryClient, QueryClientProvider} from 'react-query';
 const queryClient = new QueryClient();
+
+// export function reportWebVitals(metric: NextWebVitalsMetric) {
+//   console.log(metric);
+// }
 
 const PageWrapper = styled.div`
   padding-top: 3.5rem;
@@ -38,7 +47,11 @@ const FooterWrap = styled.div`
 
 // const Noop = ({children}: {children: React.ReactNode}) => <>{children}</>
 
-function MyApp({Component, pageProps}: AppProps) {
+function MyApp({
+  Component,
+  pageProps,
+  router,
+}: AppProps) {
   // const ContextProvider = Component.provider || Noop;
   return (
     <>
@@ -54,7 +67,13 @@ function MyApp({Component, pageProps}: AppProps) {
             <main className="z-0 mb-16 mt-8 max-h-full overflow-hidden">
               <Provider store={store}>
                 <PersistGate loading={null} persistor={persister}>
-                  <Component {...pageProps} />
+                  <AnimatePresence
+                    exitBeforeEnter={true}
+                    initial={false}
+                    // onExitComplete={() => window.scrollTo(0, 0)}
+                  >
+                    <Component {...pageProps} key={router.route} />
+                  </AnimatePresence>
                 </PersistGate>
               </Provider>
             </main>
