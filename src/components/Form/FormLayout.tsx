@@ -1,4 +1,4 @@
-import {useFormQuery} from '@app/utils/hooks/query';
+// import {useFormQuery} from '@app/utils/hooks/query';
 import {formSelectors, updateFieldGroup, upsertForm} from '@app/utils/store/formsSlice';
 import {useAppDispatch, useAppSelector} from '@app/utils/store/hooks';
 import {relationshipForms} from '@app/utils/store/questions';
@@ -14,11 +14,11 @@ export default function FormLayout({
   const dispatch = useAppDispatch();
   const formState = useAppSelector((state) => formSelectors.selectById(state, formId));
 
-  const [isLoading, error, data] = useFormQuery(formId);
+  // const [isLoading, error, data] = useFormQuery(formId);
 
-  console.log(isLoading);
-  console.log(error);
-  console.log(data);
+  // console.log(isLoading);
+  // console.log(error);
+  // console.log(data);
 
   if (!formState) {
     dispatch(upsertForm({form: relationshipForms[formId]}));
