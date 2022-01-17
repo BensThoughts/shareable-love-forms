@@ -1,18 +1,10 @@
 import {createContext, Dispatch, ReactNode, SetStateAction, useState} from 'react';
 
-export type SlideAnimationMode = 'next' | 'prev';
-
-// interface SlideAnimationContextProps {
-//   direction: SlideAnimationMode
-// }
-
-// const slideAnimationContext: SlideAnimationContextProps = {
-//   direction: 'next',
-// }
+export type SlideAnimationDirection = 'left' | 'right';
 
 export const SlideAnimationContext = createContext<{
-  slideMode: SlideAnimationMode,
-  setSlideMode: Dispatch<SetStateAction<SlideAnimationMode>>
+  slideAnimationDirection: SlideAnimationDirection,
+  setSlideAnimationDirection: Dispatch<SetStateAction<SlideAnimationDirection>>
 } | undefined>(undefined);
 
 interface SlideAnimationProviderProps {
@@ -20,10 +12,10 @@ interface SlideAnimationProviderProps {
 }
 
 const SlideAnimationProvider = ({children}: SlideAnimationProviderProps) => {
-  const [slideMode, setSlideMode] = useState<SlideAnimationMode>('next');
+  const [slideAnimationDirection, setSlideAnimationDirection] = useState<SlideAnimationDirection>('left');
 
   return (
-    <SlideAnimationContext.Provider value={{slideMode, setSlideMode}}>
+    <SlideAnimationContext.Provider value={{slideAnimationDirection, setSlideAnimationDirection}}>
       {children}
     </SlideAnimationContext.Provider>
   );

@@ -6,8 +6,8 @@ export default function useSlideAnimation() {
   if (context === undefined) {
     throw new Error('useSlideAnimation must be used within a SlideAnimationProvider');
   }
-  const slideMode = context.slideMode;
-  const setSlideMode = context.setSlideMode;
+  const slideAnimationDirection = context.slideAnimationDirection;
+  const setSlideAnimationDirection = context.setSlideAnimationDirection;
 
-  return [slideMode, setSlideMode] as const;
+  return [slideAnimationDirection, setSlideAnimationDirection] as const;
 };
