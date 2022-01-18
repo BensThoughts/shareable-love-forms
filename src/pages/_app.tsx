@@ -1,5 +1,5 @@
 import '../styles/globals.css';
-import React, {useEffect} from 'react';
+import React from 'react';
 import type {ReactElement, ReactNode} from 'react';
 import type {
   AppProps,
