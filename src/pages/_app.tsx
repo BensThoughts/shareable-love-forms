@@ -72,13 +72,13 @@ function MyApp({
   // const dispatch = useAppDispatch(upsertForm(relationshipForms['']))
 
 
-  useEffect(() => {
-    const APP_VERSION = process.env.NEXT_PUBLIC_APP_VERSION;
-    const REDUX_SCHEMA_VERSION = process.env.NEXT_PUBLIC_REDUX_SCHEMA_VERSION;
-    console.log('App Version: ' + APP_VERSION);
-    console.log('Redux Schema Version: ' + REDUX_SCHEMA_VERSION);
-    // localStorage.clear();
-  }, []);
+  // useEffect(() => {
+  //   const APP_VERSION = process.env.NEXT_PUBLIC_APP_VERSION;
+  //   const REDUX_SCHEMA_VERSION = process.env.NEXT_PUBLIC_REDUX_SCHEMA_VERSION;
+  //   console.log('App Version: ' + APP_VERSION);
+  //   console.log('Redux Schema Version: ' + REDUX_SCHEMA_VERSION);
+  //   // localStorage.clear();
+  // }, []);
 
 
   const getLayout = Component.getLayout ?? ((page) => page);
