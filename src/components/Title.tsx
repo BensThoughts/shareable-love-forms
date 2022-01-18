@@ -5,8 +5,8 @@ export default function Title({
   className,
 }: React.HTMLAttributes<HTMLHtmlElement>) {
   return (
-    <span className={`text-3xl font-bold ${className}`}>
+    <h1 className={`text-3xl font-bold ${className}`}>
       {children}
-    </span>
+    </h1>
   );
 }
