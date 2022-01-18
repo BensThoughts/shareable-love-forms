@@ -139,7 +139,7 @@ export default function FieldGroupLayout({
                 onSubmit(fieldGroupState);
               }}
             >
-              {nextFieldGroupId == 'FinishedForm' ? 'Submit' : 'Next'}
+              {nextFieldGroupId == 'finished-form' ? 'Submit' : 'Next'}
             </NextLinkButton>
           </div>
         }
