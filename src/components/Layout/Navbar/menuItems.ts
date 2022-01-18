@@ -9,7 +9,7 @@ export const menuItems = [
   // },
   {
     name: 'Non-Escalator Relationship',
-    href: '/NonEscalatorRelationship',
+    href: '/non-escalator-relationship',
   },
   // {
   //   name: 'Commitment',

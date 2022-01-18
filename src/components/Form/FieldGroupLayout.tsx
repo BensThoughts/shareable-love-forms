@@ -121,7 +121,7 @@ export default function FieldGroupLayout({
       <div className="flex w-full justify-between gap-6">
         {previousFieldGroupId &&
             <NextLinkButton
-              href={`/NonEscalatorRelationship/${previousFieldGroupId}`}
+              href={`/non-escalator-relationship/${previousFieldGroupId}`}
               onClick={() => {
                 setSlideAnimationDirection('right');
                 onSubmit(fieldGroupState);
@@ -133,7 +133,7 @@ export default function FieldGroupLayout({
         {nextFieldGroupId &&
           <div className="ml-auto">
             <NextLinkButton
-              href={`/NonEscalatorRelationship/${nextFieldGroupId}`}
+              href={`/non-escalator-relationship/${nextFieldGroupId}`}
               onClick={() => {
                 setSlideAnimationDirection('left');
                 onSubmit(fieldGroupState);

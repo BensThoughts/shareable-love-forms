@@ -43,7 +43,7 @@ export default function FieldGroupPDF({
       display: 'flex',
       flexDirection: 'row',
       width: '100%',
-      // justifyContent: 'space-between',
+      justifyContent: 'space-between',
       fontSize: 12,
       margin: '1px',
     },

@@ -1,13 +1,14 @@
 import CardFooter from './CardFooter';
 
 type CardProps = {
-  title: string,
-  footer?: React.ReactNode
+  title: string;
+  href: string;
+  footer?: React.ReactNode;
 } & React.HTMLAttributes<HTMLDivElement>
 
 export default function Card({
   title,
-  footer,
+  href,
   children,
   className,
 }: CardProps) {
@@ -18,9 +19,9 @@ export default function Card({
         <span className="">
           {children}
         </span>
-        <div>
-          <CardFooter href="NonEscalatorRelationship" />
-        </div>
+        {href && <div>
+          <CardFooter href={href} />
+        </div>}
       </div>
     </div>
   );

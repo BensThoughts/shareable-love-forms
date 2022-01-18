@@ -1,5 +1,5 @@
 import '../styles/globals.css';
-import React from 'react';
+import React, {useEffect} from 'react';
 import type {ReactElement, ReactNode} from 'react';
 import type {
   AppProps,
@@ -28,7 +28,9 @@ import {Provider} from 'react-redux';
 import {store} from '@app/utils/store/store';
 import {PersistGate} from 'redux-persist/integration/react';
 import {persistStore} from 'redux-persist';
+
 const persister = persistStore(store);
+
 
 // import SlideAnimationProvider from '@app/utils/context/SlideAnimationContext';
 
@@ -64,7 +66,21 @@ function MyApp({
   pageProps,
   router,
 }: AppPropsWithLayout) {
-  // const ContextProvider = Component.provider || Noop;
+  /**
+   * TODO: Remove, this is a temp solution because there is only one form
+   */
+  // const dispatch = useAppDispatch(upsertForm(relationshipForms['']))
+
+
+  useEffect(() => {
+    const APP_VERSION = process.env.NEXT_PUBLIC_APP_VERSION;
+    const REDUX_SCHEMA_VERSION = process.env.NEXT_PUBLIC_REDUX_SCHEMA_VERSION;
+    console.log('App Version: ' + APP_VERSION);
+    console.log('Redux Schema Version: ' + REDUX_SCHEMA_VERSION);
+    // localStorage.clear();
+  }, []);
+
+
   const getLayout = Component.getLayout ?? ((page) => page);
 
   return getLayout(

@@ -15,14 +15,14 @@ const DEFAULT_RESPONSE: string = 'N/A';
 
 
 export const nonEscalatorMenu: FormState = {
-  formId: 'NonEscalatorRelationship',
+  formId: 'non-escalator-relationship',
   formName: 'Non Escalator Relationship',
   formDescription: '',
   fieldGroups: {
-    'Commitment': {
-      fieldGroupId: 'Commitment',
+    'commitment': {
+      fieldGroupId: 'commitment',
       fieldGroupLabel: 'Commitment',
-      nextFieldGroupId: 'PhysicalIntimacy',
+      nextFieldGroupId: 'physical-intimacy',
       fields: {
         'marriage': {
           id: 'marriage',
@@ -123,11 +123,11 @@ export const nonEscalatorMenu: FormState = {
         },
       },
     },
-    'PhysicalIntimacy': {
-      fieldGroupId: 'PhysicalIntimacy',
+    'physical-intimacy': {
+      fieldGroupId: 'physical-intimacy',
       fieldGroupLabel: 'Physical Intimacy',
-      nextFieldGroupId: 'EmotionalIntimacy',
-      previousFieldGroupId: 'Commitment',
+      nextFieldGroupId: 'emotional-intimacy',
+      previousFieldGroupId: 'commitment',
       fields: {
         'physical-affection': {
           id: 'physical-affection',
@@ -236,11 +236,11 @@ export const nonEscalatorMenu: FormState = {
         },
       },
     },
-    'EmotionalIntimacy': {
-      fieldGroupId: 'EmotionalIntimacy',
+    'emotional-intimacy': {
+      fieldGroupId: 'emotional-intimacy',
       fieldGroupLabel: 'Emotional Intimacy',
-      nextFieldGroupId: 'Communication',
-      previousFieldGroupId: 'PhysicalIntimacy',
+      nextFieldGroupId: 'communication',
+      previousFieldGroupId: 'physical-intimacy',
       fields: {
         'expressing-happiness': {
           id: 'expressing-happiness',
@@ -314,11 +314,11 @@ export const nonEscalatorMenu: FormState = {
         },
       },
     },
-    'Communication': {
-      fieldGroupId: 'Communication',
+    'communication': {
+      fieldGroupId: 'communication',
       fieldGroupLabel: 'Communication',
-      nextFieldGroupId: 'FinancialManagement',
-      previousFieldGroupId: 'EmotionalIntimacy',
+      nextFieldGroupId: 'financial-management',
+      previousFieldGroupId: 'emotional-intimacy',
       fields: {
         'daily-check-ins': {
           id: 'daily-check-ins',
@@ -399,11 +399,11 @@ export const nonEscalatorMenu: FormState = {
         },
       },
     },
-    'FinancialManagement': {
-      fieldGroupId: 'FinancialManagement',
+    'financial-management': {
+      fieldGroupId: 'financial-management',
       fieldGroupLabel: 'Financial Management',
-      nextFieldGroupId: 'SocialIntegration',
-      previousFieldGroupId: 'Communication',
+      nextFieldGroupId: 'social-integration',
+      previousFieldGroupId: 'communication',
       fields: {
         'shared-bank-account': {
           id: 'shared-bank-account',
@@ -442,11 +442,11 @@ export const nonEscalatorMenu: FormState = {
         },
       },
     },
-    'SocialIntegration': {
-      fieldGroupId: 'SocialIntegration',
+    'social-integration': {
+      fieldGroupId: 'social-integration',
       fieldGroupLabel: 'Social Integration',
-      previousFieldGroupId: 'FinancialManagement',
-      nextFieldGroupId: 'QualityTime',
+      previousFieldGroupId: 'financial-management',
+      nextFieldGroupId: 'quality-time',
       fields: {
         'meeting-metamors': {
           id: 'meeting-metamors',
@@ -534,11 +534,11 @@ export const nonEscalatorMenu: FormState = {
         },
       },
     },
-    'QualityTime': {
-      fieldGroupId: 'QualityTime',
+    'quality-time': {
+      fieldGroupId: 'quality-time',
       fieldGroupLabel: 'Quality Time',
-      nextFieldGroupId: 'Autonomy',
-      previousFieldGroupId: 'SocialIntegration',
+      nextFieldGroupId: 'autonomy',
+      previousFieldGroupId: 'social-integration',
       fields: {
         'regularly-scheduled-time-together': {
           id: 'regularly-scheduled-time-together',
@@ -584,11 +584,11 @@ export const nonEscalatorMenu: FormState = {
         },
       },
     },
-    'Autonomy': {
-      fieldGroupId: 'Autonomy',
+    'autonomy': {
+      fieldGroupId: 'autonomy',
       fieldGroupLabel: 'Autonomy',
-      nextFieldGroupId: 'FinishedForm',
-      previousFieldGroupId: 'QualityTime',
+      nextFieldGroupId: 'finished-form',
+      previousFieldGroupId: 'quality-time',
       fields: {
         'balance-of-time-together-and-apart': {
           id: 'balance-of-time-together-and-apart',
@@ -638,5 +638,5 @@ export const nonEscalatorMenu: FormState = {
 };
 
 export const relationshipForms: {[formId: string]: FormState} = {
-  'NonEscalatorRelationship': nonEscalatorMenu,
+  'non-escalator-relationship': nonEscalatorMenu,
 };

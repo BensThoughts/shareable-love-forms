@@ -5,6 +5,8 @@ import FormLayout from '@app/components/Form/FormLayout';
 import FlexSection from '@app/components/FlexSection';
 import type {ReactElement} from 'react';
 import SlideAnimationProvider from '@app/utils/context/SlideAnimationContext';
+import {useAppDispatch, useAppSelector} from '@app/utils/store/hooks';
+import {formSelectors, upsertForm} from '@app/utils/store/formsSlice';
 // import FormCacheProvider from '@app/utils/context/FormCacheContext';
 // import FinishedFormLink from '@app/components/NonEscalatorRelationship/FinishedFormLink';
 
@@ -56,6 +58,12 @@ export default function NonEscalatorRelationshipPage({
 }: {
   fieldGroupId: string,
 }) {
+  const form = useAppSelector((state) => formSelectors.selectById(state, nonEscalatorMenu.formId));
+  const dispatch = useAppDispatch();
+  if (!form) {
+    dispatch(upsertForm({form: nonEscalatorMenu}));
+  }
+
   const formId = nonEscalatorMenu.formId;
   const formName = nonEscalatorMenu.formName;
   const formLabel = nonEscalatorMenu.fieldGroups[fieldGroupId].fieldGroupLabel;
