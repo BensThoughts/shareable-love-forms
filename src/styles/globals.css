@@ -56,8 +56,11 @@ a {
 
 
   --color-app-primary: 181, 0, 242;
+  /* --color-app-primary: 235, 0, 242; */
   --color-app-secondary: 131, 0, 242;
-  --color-app-accent: 212, 0, 242;
+  --color-app-accent: 235, 0, 242;
+
+  /* --color-app-accent: 212, 0, 242; */
   --color-app-error: 207, 102, 121;
 
   --color-text-primary: 255, 255, 255;
