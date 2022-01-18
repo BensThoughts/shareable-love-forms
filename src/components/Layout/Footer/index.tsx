@@ -5,6 +5,7 @@ import {
   // Linkedin,
   Github,
   // Facebook,
+  Instagram,
 } from '@icons-pack/react-simple-icons';
 
 // import TransitionColor from '@app/components/Transitions/TransitionColor';
@@ -39,12 +40,17 @@ export default function Footer({className}: FooterProps) {
       </div> */}
       <div className="mx-3">
         <AnimatedLinkIcon href="https://github.com/bensthoughts/shareable-love-forms" aria-label="Github">
-          <Github className="text-icon-primary" />
+          <Github className="text-icon-accent" />
         </AnimatedLinkIcon>
       </div>
       <div className="mx-3">
         <AnimatedLinkIcon href="https://twitter.com/bensthoughts" aria-label="Twitter">
-          <Twitter className="text-icon-primary" />
+          <Twitter className="text-icon-accent" />
+        </AnimatedLinkIcon>
+      </div>
+      <div className="mx-3">
+        <AnimatedLinkIcon href="https://www.instagram.com/sex.coach.charity" aria-label="Github">
+          <Instagram className="text-icon-accent" />
         </AnimatedLinkIcon>
       </div>
       {/* <div className="mx-3">
