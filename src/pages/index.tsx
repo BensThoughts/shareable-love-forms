@@ -1,10 +1,9 @@
 // import type {NextPage} from 'next';
 import Card from '@app/components/Card/Card';
 import GridWrapper from '@app/components/GridWrapper';
-import Title from '@app/components/Title';
 import FlexSection from '@app/components/FlexSection';
-import HeartSVG from '@app/components/Layout/Background/HeartSVG';
-import SharableSVG from '@app/components/Layout/Background/SharableSVG';
+import LogoSVG from '@app/components/Layout/Background/LogoSVG';
+import TitleCard from '@app/components/Card/TitleCard';
 
 export default function Home() {
   // React.useEffect(() => {
@@ -40,18 +39,19 @@ export default function Home() {
   return (
     <GridWrapper>
       <FlexSection>
-        <div className='flex gap-6 justify-center items-center'>
-          {/* <Title className='relative top-28 left-10'>Sharable</Title> */}
-          <SharableSVG />
-
-          <HeartSVG width={350} height={350} />
-          <Title className='relative bottom-20'>Forms</Title>
-        </div>
-
+        <LogoSVG
+          // width={600}
+          // height={600}
+          className="w-[20rem] h-[16rem] sm:w-auto sm:h-auto"
+        />
       </FlexSection>
       <FlexSection>
+        <TitleCard title="About">
+          Sharable love forms is a website focused on forms that can help you with your love life. Pick from a form
+          below, fill it out, and then share the results with a partner. Form results can be downloaded as a PDF file,
+          or shared as a link.
+        </TitleCard>
       </FlexSection>
-
       <FlexSection>
         <Card
           title="Non Escalator Relationship Form"
