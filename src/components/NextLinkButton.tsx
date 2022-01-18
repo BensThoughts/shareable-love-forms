@@ -1,15 +1,15 @@
 import Link from 'next/link';
 
-type NextLinkButton = {
+type NextLinkButtonProps = {
   href: string,
 } & React.AnchorHTMLAttributes<HTMLAnchorElement>;
 
-export default function RoundedButton({
+export default function NextLinkButton({
   href,
   className,
   children,
   ...rest
-}: NextLinkButton) {
+}: NextLinkButtonProps) {
   return (
     <Link href={href} passHref scroll={true}>
       <a href={href} className={`block border-2 border-secondary border-solid rounded-md px-2 py-1 ${className}`} {...rest}>
