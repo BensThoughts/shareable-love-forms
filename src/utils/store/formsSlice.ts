@@ -106,6 +106,14 @@ export const formSelectors = formsAdapter.getSelectors<RootState>(
 );
 
 // export const {
+//   selectAll,
+//   selectById,
+//   selectEntities,
+//   selectIds,
+//   selectTotal,
+// } = formsAdapter.getSelectors<RootState>((state) => state.forms);
+
+// export const {
 //   selectAll: selectAllMyForms,
 //   selectById: selectMyFormById,
 //   selectEntities: selectMyFormEntities,

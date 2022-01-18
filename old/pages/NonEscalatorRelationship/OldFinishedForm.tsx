@@ -1,6 +1,6 @@
 import FinishedFormLink from '@app/components/NonEscalatorRelationship/FinishedFormLink';
 import GridWrapper from '../../../src/components/GridWrapper';
-// import {nonEscalatorMenu} from '@app/utils/store/questions';
+import {nonEscalatorMenu} from '@app/utils/store/questions';
 // import FinishedFormPDF from '@app/components/NonEscalatorRelationship/FinishedFormPDF';
 // import {useAppSelector} from '@app/utils/store/hooks';
 // import {formSelectors} from '@app/utils/store/formsSlice';
@@ -14,7 +14,7 @@ export default function NonEscalatorRelationshipFinishedFormPage() {
   return (
     <GridWrapper>
       {/* <FinishedFormLink formId={formId} /> */}
-      <FinishedFormLink />
+      <FinishedFormLink formId={nonEscalatorMenu.formId} />
 
       {/* <FinishedFormPDF formData={formState}/> */}
     </GridWrapper>
