@@ -5,10 +5,7 @@ import {
   createEntityAdapter,
 } from '@reduxjs/toolkit';
 
-
-import {RootState} from '@app/utils/store/store';
-
-import {relationshipForms} from '@app/utils/store/questions';
+import {AppState} from '@app/utils/store/store';
 
 export type FieldType = 'selectField' | 'inputField';
 export interface IField {
@@ -17,7 +14,6 @@ export interface IField {
   type: FieldType;
   value: string; // | number
 }
-
 export interface FormSelectField extends IField {
   valueOptions: string[];
   hoverOver?: string;
@@ -48,12 +44,12 @@ export interface FormState {
   }
 };
 
-const formsAdapter = createEntityAdapter<FormState>({
+export const formsAdapter = createEntityAdapter<FormState>({
   selectId: (form) => form.formId,
   // sortComparer: (a, b) => b.formName.localeCompare(a.formName),
 });
 
-const initialState = formsAdapter.getInitialState(relationshipForms);
+const initialState = formsAdapter.getInitialState();
 
 const formsSlice = createSlice({
   name: 'forms',
@@ -91,33 +87,15 @@ export const {
   upsertForm,
 } = formsSlice.actions;
 
-// export const updateFormFields = createAction('forms/updateCategory', function prepare(formId: string, category: FormCategory) {
-//   return {
-//     payload: {
-//       formId,
-//       category,
-//     }
-//   }
-// });
+const {
+  // selectAll: selectAllMyForms,
+  selectById: selectFormById,
+  // selectEntities: selectFormEntities,
+  // selectIds: selectFormIds,
+} = formsAdapter.getSelectors((state: AppState) => state.forms);
 
-
-export const formSelectors = formsAdapter.getSelectors<RootState>(
-    (state) => state.forms
-);
-
-// export const {
-//   selectAll,
-//   selectById,
-//   selectEntities,
-//   selectIds,
-//   selectTotal,
-// } = formsAdapter.getSelectors<RootState>((state) => state.forms);
-
-// export const {
-//   selectAll: selectAllMyForms,
-//   selectById: selectMyFormById,
-//   selectEntities: selectMyFormEntities,
-//   selectIds: selectMyFormIds,
-// } = formsAdapter.getSelectors((state: RootState) => state.forms);
+export {selectFormById};
 
 export default formsSlice.reducer;
+
+export type FormsSliceState = ReturnType<typeof formsSlice.getInitialState>;
