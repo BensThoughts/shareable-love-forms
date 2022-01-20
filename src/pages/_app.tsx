@@ -27,17 +27,7 @@ import {AnimatePresence} from 'framer-motion';
 import {Provider} from 'react-redux';
 import {store} from '@app/utils/store/store';
 import {PersistGate} from 'redux-persist/integration/react';
-import {persistStore} from 'redux-persist';
-
-const persister = persistStore(store);
-
-
-// import SlideAnimationProvider from '@app/utils/context/SlideAnimationContext';
-
-
-// export function reportWebVitals(metric: NextWebVitalsMetric) {
-//   console.log(metric);
-// }
+import {persistor} from '@app/utils/store/store';
 
 const PageWrapper = styled.div`
   padding-top: 3.5rem;
@@ -59,19 +49,11 @@ const FooterWrap = styled.div`
   grid-row: 2 / 3;
 `;
 
-// const Noop = ({children}: {children: React.ReactNode}) => <>{children}</>
-
 function MyApp({
   Component,
   pageProps,
   router,
 }: AppPropsWithLayout) {
-  /**
-   * TODO: Remove, this is a temp solution because there is only one form
-   */
-  // const dispatch = useAppDispatch(upsertForm(relationshipForms['']))
-
-
   // useEffect(() => {
   //   const APP_VERSION = process.env.NEXT_PUBLIC_APP_VERSION;
   //   const REDUX_SCHEMA_VERSION = process.env.NEXT_PUBLIC_REDUX_SCHEMA_VERSION;
@@ -79,7 +61,6 @@ function MyApp({
   //   console.log('Redux Schema Version: ' + REDUX_SCHEMA_VERSION);
   //   // localStorage.clear();
   // }, []);
-
 
   const getLayout = Component.getLayout ?? ((page) => page);
 
@@ -93,9 +74,9 @@ function MyApp({
         <Navbar className="h-14" />
         <PageWrapper>
           <ContentWrap>
-            <main className="z-0 mb-16 mt-8 max-h-full overflow-hidden">
+            <main className="z-0 max-h-full mt-8 mb-16 overflow-hidden">
               <Provider store={store}>
-                <PersistGate loading={null} persistor={persister}>
+                <PersistGate loading={null} persistor={persistor}>
                   <AnimatePresence
                     exitBeforeEnter={true}
                     initial={false}

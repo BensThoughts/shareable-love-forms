@@ -1,8 +1,12 @@
-import {configureStore, ThunkAction, Action} from '@reduxjs/toolkit';
+import {
+  configureStore,
+  ThunkAction,
+  Action,
+} from '@reduxjs/toolkit';
 import {combineReducers} from 'redux';
 import {
   persistReducer,
-  // createMigrate,
+  createMigrate,
   FLUSH,
   REHYDRATE,
   PAUSE,
@@ -15,22 +19,19 @@ import storage from 'redux-persist/lib/storage';
 
 
 import formsReducer from '@app/utils/store/formsSlice';
+import {persistStore} from 'redux-persist';
+import persistMigrations from './migrations';
 
-// export const migrations = {
-//   0: (state: RootState) => {
-//     return {...state};
-//   },
-// };
+const PERSISTED_KEYS: string[] = ['forms'];
 
 const persistConfig = {
   key: 'root',
-  version: -1,
+  version: 3,
   storage,
-  blacklist: [],
-  // migrate: createMigrate(migrations, {debug: true})
+  whitelist: PERSISTED_KEYS,
+  migrate: createMigrate(persistMigrations, {debug: true}),
   // stateReconciler: autoMergeLevel2,
 };
-
 
 const rootReducer = combineReducers({
   forms: formsReducer,
@@ -41,24 +42,26 @@ const persistedReducer = persistReducer(persistConfig, rootReducer);
 export const store = configureStore({
   reducer: persistedReducer,
   middleware: (getDefaultMiddleware) => getDefaultMiddleware({
+    thunk: true,
+    immutableCheck: true,
     serializableCheck: {
       ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
     },
   }),
+  devTools: process.env.NODE_ENV === 'development',
 });
 
-// export const store = configureStore({
-//   reducer: {
-//     forms: formsReducer,
-//   },
-// });
-
+export type AppState = ReturnType<typeof store.getState>;
 
 export type AppDispatch = typeof store.dispatch;
-export type RootState = ReturnType<typeof store.getState>;
 export type AppThunk<ReturnType = void> = ThunkAction<
   ReturnType,
-  RootState,
+  AppState,
   unknown,
   Action<string>
 >;
+
+export const persistor = persistStore(store);
+
+export default store;
+
