@@ -48,7 +48,7 @@ export default function Home() {
       <FlexSection>
         <TitleCard title="About">
           Sharable love forms is a website focused on forms that can help you with your love life. Pick from a form
-          below, fill it out, and then share the results with a partner. Form results can be downloaded as a PDF file,
+          below, fill it out, and then share the results. Form results can be downloaded as a PDF file,
           or shared as a link.
         </TitleCard>
       </FlexSection>
