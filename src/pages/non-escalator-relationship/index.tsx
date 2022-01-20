@@ -5,10 +5,10 @@ import NextLinkButton from '@app/components/NextLinkButton';
 import GridWrapper from '@app/components/GridWrapper';
 import FlexSection from '@app/components/FlexSection';
 import {useAppDispatch, useAppSelector} from '@app/utils/store/hooks';
-import {formSelectors, upsertForm} from '@app/utils/store/formsSlice';
+import {selectFormById, upsertForm} from '@app/utils/store/formsSlice';
 
 export default function NonEscalatorRelationshipHomePage() {
-  const form = useAppSelector((state) => formSelectors.selectById(state, nonEscalatorMenu.formId));
+  const form = useAppSelector((state) => selectFormById(state, nonEscalatorMenu.formId));
   const dispatch = useAppDispatch();
   if (!form) {
     dispatch(upsertForm({form: nonEscalatorMenu}));

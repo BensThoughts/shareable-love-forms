@@ -6,7 +6,7 @@ import FlexSection from '@app/components/FlexSection';
 import type {ReactElement} from 'react';
 import SlideAnimationProvider from '@app/utils/context/SlideAnimationContext';
 import {useAppDispatch, useAppSelector} from '@app/utils/store/hooks';
-import {formSelectors, upsertForm} from '@app/utils/store/formsSlice';
+import {selectFormById, upsertForm} from '@app/utils/store/formsSlice';
 // import FormCacheProvider from '@app/utils/context/FormCacheContext';
 // import FinishedFormLink from '@app/components/NonEscalatorRelationship/FinishedFormLink';
 
@@ -58,7 +58,7 @@ export default function NonEscalatorRelationshipPage({
 }: {
   fieldGroupId: string,
 }) {
-  const form = useAppSelector((state) => formSelectors.selectById(state, nonEscalatorMenu.formId));
+  const form = useAppSelector((state) => selectFormById(state, nonEscalatorMenu.formId));
   const dispatch = useAppDispatch();
   if (!form) {
     dispatch(upsertForm({form: nonEscalatorMenu}));
@@ -72,7 +72,7 @@ export default function NonEscalatorRelationshipPage({
     // <GridWrapper key={fieldGroupId}>
     <GridWrapper>
       <FlexSection>
-        <h1 className="font-bold text-4xl">
+        <h1 className="text-4xl font-bold">
           {formName}
         </h1>
         <h2 className="text-2xl">
