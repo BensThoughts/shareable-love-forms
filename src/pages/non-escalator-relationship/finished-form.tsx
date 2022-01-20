@@ -7,6 +7,8 @@ const FinishedFormLink = dynamic(() => import('@app/components/NonEscalatorRelat
 // import FinishedFormLink from '@app/components/NonEscalatorRelationship/FinishedFormLink';
 import GridWrapper from '../../components/GridWrapper';
 import {nonEscalatorMenu} from '@app/utils/store/questions';
+import FlexSection from '@app/components/FlexSection';
+import TitleCard from '@app/components/Card/TitleCard';
 // import useFormCache from '@app/utils/hooks/useFormCache';
 // import {nonEscalatorMenu} from '@app/utils/store/questions';
 // import FinishedFormPDF from '@app/components/NonEscalatorRelationship/FinishedFormPDF';
@@ -22,7 +24,17 @@ export default function NonEscalatorRelationshipFinishedFormPage() {
   return (
     <GridWrapper>
       {/* <FinishedFormLink formId={formId} /> */}
-      <FinishedFormLink formId={formId}/>
+      <FlexSection>
+        <TitleCard title="Results" className="flex flex-col gap-4">
+          <div>
+          Click the button below after your results have been processed to open
+          a PDF that displays your answers. The PDF can be downloaded from there.
+          </div>
+
+          <FinishedFormLink formId={formId}/>
+
+        </TitleCard>
+      </FlexSection>
 
       {/* <FinishedFormPDF formData={formState}/> */}
     </GridWrapper>
