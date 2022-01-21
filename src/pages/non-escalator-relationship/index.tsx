@@ -1,31 +1,29 @@
-import {nonEscalatorMenu} from '../../utils/store/questions';
 import NonEscalatorHowTo from '@app/components/NonEscalatorRelationship/NonEscalatorHowTo';
 import TitleCard from '@app/components/Card/TitleCard';
 import NextLinkButton from '@app/components/NextLinkButton';
 import GridWrapper from '@app/components/GridWrapper';
 import FlexSection from '@app/components/FlexSection';
-import {useAppDispatch, useAppSelector} from '@app/utils/store/hooks';
-import {selectFormById, upsertForm} from '@app/utils/store/features/forms/formsSlice';
+import BootstrapForm from '@app/utils/store/features/forms/BootstrapForm';
+
+export const NON_ESCALATOR_FORM_ID = 'non-escalator-relationship';
+export const NON_ESCALATOR_FORM_NAME = 'Non Escalator Relationship';
 
 export default function NonEscalatorRelationshipHomePage() {
-  const form = useAppSelector((state) => selectFormById(state, nonEscalatorMenu.formId));
-  const dispatch = useAppDispatch();
-  if (!form) {
-    dispatch(upsertForm({form: nonEscalatorMenu}));
-  }
   return (
-    <GridWrapper>
-      <FlexSection>
-        <TitleCard title={nonEscalatorMenu.formName}>
-          <NonEscalatorHowTo />
-        </TitleCard>
-      </FlexSection>
-      <FlexSection>
-        <NextLinkButton href="non-escalator-relationship/commitment" className="max-w-md">
+    <BootstrapForm formId={NON_ESCALATOR_FORM_ID}>
+      <GridWrapper>
+        <FlexSection>
+          <TitleCard title={NON_ESCALATOR_FORM_NAME}>
+            <NonEscalatorHowTo />
+          </TitleCard>
+        </FlexSection>
+        <FlexSection>
+          <NextLinkButton href="non-escalator-relationship/commitment" className="max-w-md">
           Start
-        </NextLinkButton>
-      </FlexSection>
+          </NextLinkButton>
+        </FlexSection>
+      </GridWrapper>
+    </BootstrapForm>
 
-    </GridWrapper>
   );
 }
