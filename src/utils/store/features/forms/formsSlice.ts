@@ -79,12 +79,18 @@ const formsSlice = createSlice({
     }>) {
       formsAdapter.upsertOne(state, action.payload.form);
     },
+    setOneForm(state, action: PayloadAction<{
+      form: FormState
+    }>) {
+      formsAdapter.setOne(state, action.payload.form);
+    },
   },
 });
 
 export const {
   updateFieldGroup,
   upsertForm,
+  setOneForm,
 } = formsSlice.actions;
 
 const {
