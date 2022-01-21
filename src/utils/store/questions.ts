@@ -14,7 +14,7 @@ const DEFAULT_RESPONSE_OPTIONS: ResponseOption[] = ['N/A', 'Must Have', 'Like To
 const DEFAULT_RESPONSE: string = 'N/A';
 
 
-export const nonEscalatorMenu: FormState = {
+const nonEscalatorMenu: FormState = {
   formId: 'non-escalator-relationship',
   formName: 'Non Escalator Relationship',
   formDescription: '',
@@ -639,6 +639,10 @@ export const nonEscalatorMenu: FormState = {
   },
 };
 
-export const relationshipForms: {[formId: string]: FormState} = {
+const relationshipForms: {[formId: string]: FormState} = {
   'non-escalator-relationship': nonEscalatorMenu,
 };
+
+export function getForm(formId: string): FormState | undefined {
+  return relationshipForms[formId];
+}

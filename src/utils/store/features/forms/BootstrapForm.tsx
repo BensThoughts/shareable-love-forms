@@ -1,7 +1,7 @@
 import {useAppDispatch, useAppSelector} from '@app/utils/store/hooks';
 import {selectFormById, setOneForm} from './formsSlice';
 
-import {relationshipForms} from '../../questions'; // This will eventually be async on a server
+import {getForm} from '../../questions'; // This will eventually be async on a server
 
 export default function BootstrapForm({
   formId,
@@ -13,7 +13,9 @@ export default function BootstrapForm({
   const reduxForm = useAppSelector((state) => selectFormById(state, formId));
   const dispatch = useAppDispatch();
 
-  if (!relationshipForms[formId]) {
+  const serverForm = getForm('non-escalator-relationship');
+
+  if (!serverForm) {
     console.error('Form not found: ' + formId);
     return (
       <div>
@@ -21,7 +23,7 @@ export default function BootstrapForm({
       </div>
     );
   }
-  const serverForm = relationshipForms[formId];
+  // const serverForm = relationshipForms[formId];
 
   if (!reduxForm || reduxForm.formVersion != serverForm.formVersion) {
     // dispatch(upsertForm({form: serverForm}));
