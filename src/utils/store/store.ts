@@ -18,7 +18,7 @@ import storage from 'redux-persist/lib/storage';
 // import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2';
 
 
-import formsReducer from '@app/utils/store/formsSlice';
+import formsReducer from '@app/utils/store/features/forms/formsSlice';
 import {persistStore} from 'redux-persist';
 import persistMigrations from './migrations';
 

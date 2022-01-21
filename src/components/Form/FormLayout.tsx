@@ -1,7 +1,7 @@
 // import {useFormQuery} from '@app/utils/hooks/query';
 // import useFormCache from '@app/utils/hooks/useFormCache';
 
-import {selectFormById, updateFieldGroup, upsertForm} from '@app/utils/store/formsSlice';
+import {selectFormById, updateFieldGroup, upsertForm} from '@app/utils/store/features/forms/formsSlice';
 import {useAppDispatch, useAppSelector} from '@app/utils/store/hooks';
 import {relationshipForms} from '@app/utils/store/questions';
 

@@ -1,4 +1,4 @@
-import {FormState} from '@app/utils/store/formsSlice';
+import {FormState} from '@app/utils/store/features/forms/formsSlice';
 
 export type ResponseOption = 'N/A' | 'Must Have' | 'Like To Have' | 'Maybe' | 'Off Limits';
 

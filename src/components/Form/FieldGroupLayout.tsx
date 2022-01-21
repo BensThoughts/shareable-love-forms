@@ -1,6 +1,6 @@
 import React, {useReducer} from 'react';
 import SelectMenu from './SelectMenu';
-import {FormFieldGroup, FormSelectField, FormInputField} from '@app/utils/store/formsSlice';
+import {FormFieldGroup, FormSelectField, FormInputField} from '@app/utils/store/features/forms/formsSlice';
 import FormInput from './Input';
 import NextLinkButton from '../NextLinkButton';
 import useSlideAnimation from '@app/utils/hooks/useSlideAnimation';
