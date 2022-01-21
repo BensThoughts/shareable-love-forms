@@ -27,6 +27,7 @@ export const nonEscalatorMenu: FormState = {
         'marriage': {
           id: 'marriage',
           label: 'Marriage',
+          description: 'Marriage is a legal union between 2 people',
           type: 'selectField',
           valueOptions: DEFAULT_RESPONSE_OPTIONS,
           value: DEFAULT_RESPONSE},
@@ -120,6 +121,7 @@ export const nonEscalatorMenu: FormState = {
           type: 'selectField',
           valueOptions: DEFAULT_RESPONSE_OPTIONS,
           value: DEFAULT_RESPONSE,
+          description: 'health challenges could be mental or physical',
         },
       },
     },

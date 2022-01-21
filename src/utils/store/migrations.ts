@@ -20,23 +20,42 @@ const persistMigrations: MigrationManifest = {
       ...originState,
     };
   },
-  // 1: (state: PersistedState): AppStateV1 => {
-  //   console.log('Migrating to AppStateV1');
-  //   const prevState = state as AppStateV0;
-  //   return {
-  //     ...prevState,
-  //     forms: {
-  //       ...prevState.formsV2,
-  //     },
-  //   };
-  // },
+  1: (state: PersistedState): undefined => {
+    console.log('Migrating to AppStateV1');
+    return undefined;
+  },
+
+  /**
+   * * Use this to do a complete state wipe
+   *
+   * 1: (state: PersistedState): undefined => {
+   *  console.log('Migrating to AppStateV1');
+   *  return undefined;
+   * },
+   */
+
+
+  /**
+   * * Demo of complex Migration:
+   *
+   * 1: (state: PersistedState): AppStateV1 => {
+   *  console.log('Migrating to AppStateV1');
+   *  const prevState = state as AppStateV0;
+   *  return {
+   *    ...prevState,
+   *    forms: {
+   *      ...prevState.formsV2,
+   *    },
+   *  };
+   *},
+  */
 };
 
 export default persistMigrations;
 
 
-/*
-    Demo Migration States Below
+/**
+ * * Demo Migration States Below
  */
 
 // type AppStateV0 = {
@@ -63,10 +82,6 @@ export default persistMigrations;
 
 // type AppStateV3 = AppState;
 
-// interface MigManifest extends MigrationManifest {
-//   'forms': (state: FormState) => FormState
-//   '_persist': (state: PersistedState) => PersistedState
-// }
 
 // const persistMigrations: MigrationManifest = {
 //   1: (state: PersistedState): AppStateV1 => {

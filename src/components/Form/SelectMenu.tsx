@@ -2,14 +2,17 @@ import {useState, Fragment} from 'react';
 import {Listbox, Transition} from '@headlessui/react';
 import {CheckIcon, SelectorIcon} from '@heroicons/react/solid';
 import {ResponseOption} from '../../utils/store/questions';
+import Tooltip from './Tooltip';
 
 export default function SelectMenu({
   label,
+  description,
   initialValue,
   options,
   onChange,
 }: {
   label: string,
+  description?: string,
   options: string[],
   initialValue: string,
   onChange(e: ResponseOption): void,
@@ -24,13 +27,21 @@ export default function SelectMenu({
   return (
     <Listbox value={selectedValue} onChange={onSelectionChange}>
       <div className="w-72 md:w-96">
-        <Listbox.Label>{label}:</Listbox.Label>
+        <Listbox.Label>
+          <div className="flex gap-2 items-center">
+            <span className="align-middle">{label}</span>
+            {description && <Tooltip description={description} />}
+            {/* <DescriptionPopover title="Word" description="The definition of a word" /> */}
+            {/* <InformationCircleIcon className='inline-block w-6 h-6 text-icon-secondary'/> */}
+          </div>
+
+        </Listbox.Label>
         <div className="relative mt-1">
           <Listbox.Button
-            className="relative w-full py-2 pl-3 pr-10 text-left bg-app-bg-primary rounded-lg shadow-md cursor-default focus:outline-none focus-visible:ring-opacity-75 focus-visible:ring-white focus-visible:ring-offset-orange-300 focus-visible:ring-offset-2 focus-visible:border-indigo-500 sm:text-sm"
+            className="relative py-2 pr-10 pl-3 w-full text-left rounded-lg shadow-md cursor-default bg-app-bg-primary focus:outline-none focus-visible:ring-opacity-75 focus-visible:ring-white focus-visible:ring-offset-orange-300 focus-visible:ring-offset-2 focus-visible:border-indigo-500 sm:text-sm"
           >
             <span className="block truncate">{selectedValue}</span>
-            <span className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
+            <span className="flex absolute inset-y-0 right-0 items-center pr-2 pointer-events-none">
               <SelectorIcon
                 className="w-5 h-5 text-gray-400"
                 aria-hidden="true"
@@ -44,7 +55,7 @@ export default function SelectMenu({
             leaveTo="opacity-0"
           >
             <Listbox.Options
-              className="z-10 absolute w-full py-1 mt-1 overflow-auto text-base bg-app-bg-primary rounded-md shadow-lg max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm"
+              className="overflow-auto absolute z-10 py-1 mt-1 w-full max-h-60 text-base rounded-md ring-1 ring-black ring-opacity-5 shadow-lg bg-app-bg-primary focus:outline-none sm:text-sm"
             >
               {options.map((option, optionIdx) => (
                 <Listbox.Option

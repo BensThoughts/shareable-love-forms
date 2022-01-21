@@ -26,7 +26,7 @@ const PERSISTED_KEYS: string[] = ['forms'];
 
 const persistConfig = {
   key: 'root',
-  version: 0,
+  version: 1,
   storage,
   whitelist: PERSISTED_KEYS,
   migrate: createMigrate(persistMigrations, {debug: true}),

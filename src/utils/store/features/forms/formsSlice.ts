@@ -11,6 +11,7 @@ export type FieldType = 'selectField' | 'inputField';
 export interface IField {
   id: string;
   label: string;
+  description?: string;
   type: FieldType;
   value: string; // | number
 }

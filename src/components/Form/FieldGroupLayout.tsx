@@ -82,6 +82,7 @@ export default function FieldGroupLayout({
         return (
           <SelectMenu
             label={field.label}
+            description={field.description}
             options={field.valueOptions}
             initialValue={field.value}
             onChange={(e) => {
