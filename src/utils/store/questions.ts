@@ -18,6 +18,8 @@ export const nonEscalatorMenu: FormState = {
   formId: 'non-escalator-relationship',
   formName: 'Non Escalator Relationship',
   formDescription: '',
+  formVersion: 0,
+  formLastUpdatedDate: '2022-01-21',
   fieldGroups: {
     'commitment': {
       fieldGroupId: 'commitment',
