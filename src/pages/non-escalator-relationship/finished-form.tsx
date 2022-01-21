@@ -6,9 +6,11 @@ const FinishedFormLink = dynamic(() => import('@app/components/NonEscalatorRelat
 
 // import FinishedFormLink from '@app/components/NonEscalatorRelationship/FinishedFormLink';
 import GridWrapper from '../../components/GridWrapper';
-import {nonEscalatorMenu} from '@app/utils/store/questions';
+// import {nonEscalatorMenu} from '@app/utils/store/questions';
 import FlexSection from '@app/components/FlexSection';
 import TitleCard from '@app/components/Card/TitleCard';
+import BootstrapForm from '@app/utils/store/features/forms/BootstrapForm';
+import {NON_ESCALATOR_FORM_ID} from './index';
 // import useFormCache from '@app/utils/hooks/useFormCache';
 // import {nonEscalatorMenu} from '@app/utils/store/questions';
 // import FinishedFormPDF from '@app/components/NonEscalatorRelationship/FinishedFormPDF';
@@ -16,30 +18,39 @@ import TitleCard from '@app/components/Card/TitleCard';
 // import {formSelectors} from '@app/utils/store/formsSlice';
 
 export default function NonEscalatorRelationshipFinishedFormPage() {
-  const formId = nonEscalatorMenu.formId;
   // const formState = useAppSelector((state) => formSelectors.selectById(state, formId));
   // if (!formState) {
   //   return null;
   // }
   return (
-    <GridWrapper>
-      {/* <FinishedFormLink formId={formId} /> */}
-      <FlexSection>
-        <TitleCard title="Results" className="flex flex-col gap-4">
-          <div>
+    <BootstrapForm formId={NON_ESCALATOR_FORM_ID}>
+      <GridWrapper>
+        {/* <FinishedFormLink formId={formId} /> */}
+        <FlexSection>
+          <TitleCard title="Results" className="flex flex-col gap-4">
+            <div>
           Click the button below after your results have been processed to open
           a PDF that displays your answers. The PDF can be downloaded from there.
-          </div>
+            </div>
 
-          <FinishedFormLink formId={formId}/>
+            <FinishedFormLink formId={NON_ESCALATOR_FORM_ID}/>
 
-        </TitleCard>
-      </FlexSection>
+          </TitleCard>
+        </FlexSection>
 
-      {/* <FinishedFormPDF formData={formState}/> */}
-    </GridWrapper>
+        {/* <FinishedFormPDF formData={formState}/> */}
+      </GridWrapper>
+    </BootstrapForm>
   );
 }
+
+// NonEscalatorRelationshipFinishedFormPage.getLayout = function getLayout(page: ReactElement) {
+//   return (
+//     <BootstrapForm formId={nonEscalatorMenu.formId}>
+//       {page}
+//     </BootstrapForm>
+//   );
+// };
 
 // NonEscalatorRelationshipFinishedFormPage.getLayout = function getLayout(page: ReactElement) {
 //   return (

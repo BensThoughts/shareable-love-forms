@@ -1,12 +1,19 @@
 import {GetStaticPaths, GetStaticProps} from 'next';
 import GridWrapper from '../../components/GridWrapper';
-import {nonEscalatorMenu} from '../../utils/store/questions';
 import FormLayout from '@app/components/Form/FormLayout';
 import FlexSection from '@app/components/FlexSection';
 import type {ReactElement} from 'react';
 import SlideAnimationProvider from '@app/utils/context/SlideAnimationContext';
-import {useAppDispatch, useAppSelector} from '@app/utils/store/hooks';
-import {selectFormById, upsertForm} from '@app/utils/store/features/forms/formsSlice';
+import {useAppSelector} from '@app/utils/store/hooks';
+import {selectFormById} from '@app/utils/store/features/forms/formsSlice';
+import LoadingSpinner from '@app/components/LoadingSpinner';
+import Title from '@app/components/Title';
+
+// import {nonEscalatorMenu} from '../../utils/store/questions'; // Will get moved to async server calls
+import BootstrapForm from '@app/utils/store/features/forms/BootstrapForm';
+import {NON_ESCALATOR_FORM_ID, NON_ESCALATOR_FORM_NAME} from './index';
+import {getForm} from '@app/utils/store/questions';
+
 // import FormCacheProvider from '@app/utils/context/FormCacheContext';
 // import FinishedFormLink from '@app/components/NonEscalatorRelationship/FinishedFormLink';
 
@@ -18,7 +25,12 @@ import {selectFormById, upsertForm} from '@app/utils/store/features/forms/formsS
 // });
 
 export const getStaticPaths: GetStaticPaths = (params) => {
-  const paths = Object.keys(nonEscalatorMenu.fieldGroups).map((fieldGroupId) => {
+  const form = getForm(NON_ESCALATOR_FORM_ID);
+  if (!form) {
+    throw new Error('Form ID not fount: ' + NON_ESCALATOR_FORM_ID);
+  }
+
+  const paths = Object.keys(form.fieldGroups).map((fieldGroupId) => {
     return {
       params: {
         slug: fieldGroupId,
@@ -58,38 +70,50 @@ export default function NonEscalatorRelationshipPage({
 }: {
   fieldGroupId: string,
 }) {
-  const form = useAppSelector((state) => selectFormById(state, nonEscalatorMenu.formId));
-  const dispatch = useAppDispatch();
+  const form = useAppSelector((state) => selectFormById(state, NON_ESCALATOR_FORM_ID));
+
   if (!form) {
-    dispatch(upsertForm({form: nonEscalatorMenu}));
+    return (
+      <BootstrapForm formId={NON_ESCALATOR_FORM_ID}>
+        <GridWrapper>
+          <FlexSection>
+            <Title>Loading Form</Title>
+            <LoadingSpinner
+              // className="w-10 h-10"
+              // borderSize={4}
+            />
+          </FlexSection>
+        </GridWrapper>
+      </BootstrapForm>
+    );
   }
 
-  const formId = nonEscalatorMenu.formId;
-  const formName = nonEscalatorMenu.formName;
-  const formLabel = nonEscalatorMenu.fieldGroups[fieldGroupId].fieldGroupLabel;
+  const fieldGroupLabel = form.fieldGroups[fieldGroupId].fieldGroupLabel;
 
   return (
     // <GridWrapper key={fieldGroupId}>
-    <GridWrapper>
-      <FlexSection>
-        <h1 className="text-4xl font-bold">
-          {formName}
-        </h1>
-        <h2 className="text-2xl">
-          {formLabel}
-        </h2>
-      </FlexSection>
-      <FlexSection>
-        {/* {fieldGroupId === 'FinishedForm' ?
+    <BootstrapForm formId={NON_ESCALATOR_FORM_ID}>
+      <GridWrapper>
+        <FlexSection>
+          <h1 className="text-4xl font-bold">
+            {NON_ESCALATOR_FORM_NAME}
+          </h1>
+          <h2 className="text-2xl">
+            {fieldGroupLabel}
+          </h2>
+        </FlexSection>
+        <FlexSection>
+          {/* {fieldGroupId === 'FinishedForm' ?
           <FinishedFormLink /> : */}
-        <FormLayout
-          formId={formId}
-          fieldGroupId={fieldGroupId}
-        />
-        {/* } */}
+          <FormLayout
+            formId={NON_ESCALATOR_FORM_ID}
+            fieldGroupId={fieldGroupId}
+          />
+          {/* } */}
 
-      </FlexSection>
-    </GridWrapper>
+        </FlexSection>
+      </GridWrapper>
+    </BootstrapForm>
   );
 }
 
