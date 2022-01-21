@@ -2,17 +2,12 @@ import {useState, Fragment} from 'react';
 import {Listbox, Transition} from '@headlessui/react';
 import {CheckIcon, SelectorIcon} from '@heroicons/react/solid';
 import {ResponseOption} from '../../utils/store/questions';
-import Tooltip from './Tooltip';
 
 export default function SelectMenu({
-  label,
-  description,
   initialValue,
   options,
   onChange,
 }: {
-  label: string,
-  description?: string,
   options: string[],
   initialValue: string,
   onChange(e: ResponseOption): void,
@@ -27,15 +22,6 @@ export default function SelectMenu({
   return (
     <Listbox value={selectedValue} onChange={onSelectionChange}>
       <div className="w-72 md:w-96">
-        <Listbox.Label>
-          <div className="flex gap-2 items-center">
-            <span className="align-middle">{label}</span>
-            {description && <Tooltip description={description} />}
-            {/* <DescriptionPopover title="Word" description="The definition of a word" /> */}
-            {/* <InformationCircleIcon className='inline-block w-6 h-6 text-icon-secondary'/> */}
-          </div>
-
-        </Listbox.Label>
         <div className="relative mt-1">
           <Listbox.Button
             className="relative py-2 pr-10 pl-3 w-full text-left rounded-lg shadow-md cursor-default bg-app-bg-primary focus:outline-none focus-visible:ring-opacity-75 focus-visible:ring-white focus-visible:ring-offset-orange-300 focus-visible:ring-offset-2 focus-visible:border-indigo-500 sm:text-sm"

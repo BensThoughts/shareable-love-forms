@@ -11,13 +11,12 @@ export type FieldType = 'selectField' | 'inputField';
 export interface IField {
   id: string;
   label: string;
-  description?: string;
+  tooltipText?: string;
   type: FieldType;
   value: string; // | number
 }
 export interface FormSelectField extends IField {
   valueOptions: string[];
-  hoverOver?: string;
 }
 
 export type FormInputField = IField;

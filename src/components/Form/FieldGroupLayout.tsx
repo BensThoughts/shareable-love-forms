@@ -5,6 +5,7 @@ import FormInput from './Input';
 import NextLinkButton from '../NextLinkButton';
 import useSlideAnimation from '@app/utils/hooks/useSlideAnimation';
 import PageTransition from '../Layout/PageTransition';
+import Label from './Label';
 // import PageTransition from '../Layout/PageTransition';
 
 type UpdateFieldAction = {
@@ -80,15 +81,16 @@ export default function FieldGroupLayout({
       case 'selectField': {
         const field = fields[id] as FormSelectField;
         return (
-          <SelectMenu
-            label={field.label}
-            description={field.description}
-            options={field.valueOptions}
-            initialValue={field.value}
-            onChange={(e) => {
-              fieldGroupDispatch({type: 'UpdateField', payload: {fieldId: id, value: e}});
-            }}
-          />
+          <>
+            <Label label={field.label} tooltipText={field.tooltipText} />
+            <SelectMenu
+              options={field.valueOptions}
+              initialValue={field.value}
+              onChange={(e) => {
+                fieldGroupDispatch({type: 'UpdateField', payload: {fieldId: id, value: e}});
+              }}
+            />
+          </>
         );
       }
       case 'inputField': {
@@ -119,7 +121,7 @@ export default function FieldGroupLayout({
         ))}
       </div>
 
-      <div className="flex w-full justify-between gap-6">
+      <div className="flex gap-6 justify-between w-full">
         {previousFieldGroupId &&
             <NextLinkButton
               href={`/non-escalator-relationship/${previousFieldGroupId}`}

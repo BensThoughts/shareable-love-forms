@@ -1,18 +1,18 @@
 import {InformationCircleIcon} from '@heroicons/react/solid';
-import React, {useState, useRef} from 'react';
+import React, {useState, useRef, useEffect} from 'react';
 import {usePopper} from 'react-popper';
 // import styled from 'styled-components';
 import styled from '@emotion/styled';
 
 const Tooltip = ({
-  description,
+  text,
 }: {
-  description: string;
+  text: string;
 }) => {
   const [showPopper, setShowPopper] = useState(false);
 
   const buttonRef = useRef(null);
-  const popperRef = useRef(null);
+  const popperRef = useRef<HTMLDivElement>(null);
   // the ref for the arrow must be a callback ref
   const [arrowRef, setArrowRef] = useState<HTMLDivElement | null>(null);
 
@@ -38,36 +38,35 @@ const Tooltip = ({
       }
   );
 
-  // const wrapperRef = useRef<React.MutableRefObject<HTMLDivElement>>(null);
-  // function useOutsideAlert(ref: React.RefObject<React.MutableRefObject<HTMLDivElement>>) {
-  //   useEffect(() => {
-  //     function handleClickOutside(event) {
-  //       if (ref.current && !ref.current.contains(event.target)) {
-  //         console.log('Clicked outside!');
-  //         setShowPopper(false);
-  //       }
-  //     }
-  //     document.addEventListener('mousedown', handleClickOutside);
-  //     return () => {
-  //       document.removeEventListener('mousedown', handleClickOutside);
-  //     };
-  //   }, [ref]);
-  // }
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      // TODO: Not sure if as Node is good here
+      if (popperRef.current && !popperRef.current.contains(event.target as Node)) {
+        setShowPopper(false);
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside);
 
-  // useOutsideAlert(wrapperRef);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [popperRef]);
 
   return (
-    // <div ref={wrapperRef}
-    //   onMouseOver={() => setShowPopper(true)}
-    //   onMouseOut={() => setShowPopper(false)}
-    // >
     <>
-      <button ref={buttonRef}
-        onClick={() => setShowPopper(!showPopper)}
-      >
-        <InformationCircleIcon className='w-6 h-6 text-icon-secondary'/>
+      <div>
+        <button
+          ref={buttonRef}
+          onClick={() => setShowPopper(true)}
+          style={{
+            overflow: 'hidden',
+            display: 'block',
+          }}
+        >
+          <InformationCircleIcon className='w-6 h-6 text-icon-secondary'/>
+        </button>
+      </div>
 
-      </button>
       { showPopper ? (
 
         <PopperContainer
@@ -82,14 +81,12 @@ const Tooltip = ({
 
           {/* <div className="flex flex-col gap-2 justify-between p-4 w-full h-full rounded-md bg-app-bg-primary"> */}
           <div className="p-2 w-full h-full rounded-md bg-app-bg-primary">
-            <p>{description}</p>
-
+            <p>{text}</p>
           </div>
 
           {/* </div> */}
           {/* </div> */}
         </PopperContainer>
-
 
       ) : null }
     </>
@@ -111,7 +108,7 @@ const PopperContainer = styled.div`
   background: linear-gradient(to right top, rgb(var(--color-app-accent)), rgb(var(--color-app-secondary)));
   padding: 3px;
   text-align: center;
-  z-index: 999;
+  z-index: 101;
   /* border: 2px solid rgb(var(--color-app-primary)); */
 
 
@@ -119,7 +116,6 @@ const PopperContainer = styled.div`
     position: absolute;
     width: 10px;
     height: 10px;
-    z-index: 9;
     &:after {
       content: " ";
       border: 2px solid rgb(var(--color-app-primary));
@@ -132,7 +128,6 @@ const PopperContainer = styled.div`
       transform: rotate(45deg);
       width: 10px;
       height: 10px;
-      z-index: 9;
     }
   }
 
