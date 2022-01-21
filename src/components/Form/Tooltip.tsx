@@ -38,23 +38,45 @@ const Tooltip = ({
       }
   );
 
-  return (
-    <>
+  // const wrapperRef = useRef<React.MutableRefObject<HTMLDivElement>>(null);
+  // function useOutsideAlert(ref: React.RefObject<React.MutableRefObject<HTMLDivElement>>) {
+  //   useEffect(() => {
+  //     function handleClickOutside(event) {
+  //       if (ref.current && !ref.current.contains(event.target)) {
+  //         console.log('Clicked outside!');
+  //         setShowPopper(false);
+  //       }
+  //     }
+  //     document.addEventListener('mousedown', handleClickOutside);
+  //     return () => {
+  //       document.removeEventListener('mousedown', handleClickOutside);
+  //     };
+  //   }, [ref]);
+  // }
 
-      <div ref={buttonRef}
+  // useOutsideAlert(wrapperRef);
+
+  return (
+    // <div ref={wrapperRef}
+    //   onMouseOver={() => setShowPopper(true)}
+    //   onMouseOut={() => setShowPopper(false)}
+    // >
+    <>
+      <button ref={buttonRef}
         onClick={() => setShowPopper(!showPopper)}
-        // onMouseOver={() => setShowPopper(true)}
-        // onMouseOut={() => setShowPopper(false)}
       >
         <InformationCircleIcon className='w-6 h-6 text-icon-secondary'/>
 
-      </div>
+      </button>
       { showPopper ? (
+
         <PopperContainer
+          as="div"
           ref={popperRef}
           style={styles.popper}
           {...attributes.popper}
         >
+
           <div ref={setArrowRef} style={styles.arrow} id="arrow" />
           {/* <div className="w-full h-full bg-gradient-to-tr rounded-md shadow-md from-primary to-secondary" */}
 
@@ -66,8 +88,9 @@ const Tooltip = ({
 
           {/* </div> */}
           {/* </div> */}
-
         </PopperContainer>
+
+
       ) : null }
     </>
   );
