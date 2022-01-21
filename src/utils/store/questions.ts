@@ -453,6 +453,7 @@ const nonEscalatorMenu: FormState = {
         'meeting-metamors': {
           id: 'meeting-metamors',
           label: 'Meeting metamors (partners other partners)',
+          tooltipText: `a metamour is your lover's lover`,
           type: 'selectField',
           valueOptions: DEFAULT_RESPONSE_OPTIONS,
           value: DEFAULT_RESPONSE,
@@ -488,6 +489,7 @@ const nonEscalatorMenu: FormState = {
         'positive-relationships-with-metamors': {
           id: 'positive-relationships-with-metamors',
           label: 'Positive relationships with metamors',
+          tooltipText: `a metamour is your lover's lover`,
           type: 'selectField',
           valueOptions: DEFAULT_RESPONSE_OPTIONS,
           value: DEFAULT_RESPONSE,
@@ -530,6 +532,7 @@ const nonEscalatorMenu: FormState = {
         'joint-vacations-with-family-metamors': {
           id: 'joint-vacations-with-family-metamors',
           label: 'Joint vacations with family/ metamors',
+          tooltipText: `a metamour is your lover's lover`,
           type: 'selectField',
           valueOptions: DEFAULT_RESPONSE_OPTIONS,
           value: DEFAULT_RESPONSE,
