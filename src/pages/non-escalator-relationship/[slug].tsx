@@ -78,10 +78,10 @@ export default function NonEscalatorRelationshipPage({
     <BootstrapForm formId={NON_ESCALATOR_FORM_ID}>
       <GridWrapper>
         <FlexSection>
-          <h1 className="text-4xl font-bold">
+          <Title>
             {NON_ESCALATOR_FORM_NAME}
-          </h1>
-          <h2 className="text-2xl">
+          </Title>
+          <h2 className="text-2xl text-center">
             {fieldGroupLabel}
           </h2>
         </FlexSection>
