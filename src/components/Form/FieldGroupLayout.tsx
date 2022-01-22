@@ -1,11 +1,12 @@
 import React, {useReducer} from 'react';
 import SelectMenu from './SelectMenu';
-import {FormFieldGroup, FormSelectField, FormInputField} from '@app/utils/store/features/forms/formsSlice';
+import {FormFieldGroup, FormSelectField, FormInputField, updateFieldGroup} from '@app/utils/store/features/forms/formsSlice';
 import FormInput from './Input';
 import NextLinkButton from '../NextLinkButton';
 import useSlideAnimation from '@app/utils/hooks/useSlideAnimation';
 import PageTransition from '../Layout/PageTransition';
 import Label from './Label';
+import {useAppDispatch} from '@app/utils/store/hooks';
 // import PageTransition from '../Layout/PageTransition';
 
 type UpdateFieldAction = {
@@ -54,14 +55,15 @@ function fieldGroupReducer(state: FormFieldGroup, action: FormUpdateAction): For
 }
 
 export default function FieldGroupLayout({
+  formId,
   fieldGroup,
-  onSubmit,
 }: {
-  onSubmit(fieldGroup: FormFieldGroup): void;
-  fieldGroup: FormFieldGroup,
+  formId: string;
+  fieldGroup: FormFieldGroup;
 }) {
+  const appDispatch = useAppDispatch();
   const [slideAnimationDirection, setSlideAnimationDirection] = useSlideAnimation();
-  const [fieldGroupState, fieldGroupDispatch] = useReducer(fieldGroupReducer, fieldGroup);
+  const [localFieldGroupState, localFieldGroupDispatch] = useReducer(fieldGroupReducer, fieldGroup);
 
   // useEffect(() => {
   //   fieldGroupDispatch({type: 'SetFieldGroup', payload: {fieldGroup}});
@@ -71,9 +73,9 @@ export default function FieldGroupLayout({
     return null;
   }
 
-  const fields = fieldGroupState.fields;
-  const nextFieldGroupId = fieldGroupState.nextFieldGroupId;
-  const previousFieldGroupId = fieldGroupState.previousFieldGroupId;
+  const fields = localFieldGroupState.fields;
+  const nextFieldGroupId = localFieldGroupState.nextFieldGroupId;
+  const previousFieldGroupId = localFieldGroupState.previousFieldGroupId;
 
   function getField(id: string): React.ReactNode {
     const type = fields[id].type;
@@ -87,7 +89,7 @@ export default function FieldGroupLayout({
               options={field.valueOptions}
               initialValue={field.value}
               onChange={(e) => {
-                fieldGroupDispatch({type: 'UpdateField', payload: {fieldId: id, value: e}});
+                localFieldGroupDispatch({type: 'UpdateField', payload: {fieldId: id, value: e}});
               }}
             />
           </>
@@ -127,7 +129,7 @@ export default function FieldGroupLayout({
               href={`/non-escalator-relationship/${previousFieldGroupId}`}
               onClick={() => {
                 setSlideAnimationDirection('right');
-                onSubmit(fieldGroupState);
+                appDispatch(updateFieldGroup({formId, fieldGroup: localFieldGroupState}));
               }}
             >
               Previous
@@ -139,7 +141,7 @@ export default function FieldGroupLayout({
               href={`/non-escalator-relationship/${nextFieldGroupId}`}
               onClick={() => {
                 setSlideAnimationDirection('left');
-                onSubmit(fieldGroupState);
+                appDispatch(updateFieldGroup({formId, fieldGroup: localFieldGroupState}));
               }}
             >
               {nextFieldGroupId == 'finished-form' ? 'Submit' : 'Next'}

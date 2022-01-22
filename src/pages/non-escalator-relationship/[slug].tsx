@@ -1,6 +1,5 @@
 import {GetStaticPaths, GetStaticProps} from 'next';
 import GridWrapper from '../../components/GridWrapper';
-import FormLayout from '@app/components/Form/FormLayout';
 import FlexSection from '@app/components/FlexSection';
 import type {ReactElement} from 'react';
 import SlideAnimationProvider from '@app/utils/context/SlideAnimationContext';
@@ -9,20 +8,10 @@ import {selectFormById} from '@app/utils/store/features/forms/formsSlice';
 import LoadingSpinner from '@app/components/LoadingSpinner';
 import Title from '@app/components/Title';
 
-// import {nonEscalatorMenu} from '../../utils/store/questions'; // Will get moved to async server calls
 import BootstrapForm from '@app/utils/store/features/forms/BootstrapForm';
 import {NON_ESCALATOR_FORM_ID, NON_ESCALATOR_FORM_NAME} from './index';
 import {getForm} from '@app/utils/store/questions';
-
-// import FormCacheProvider from '@app/utils/context/FormCacheContext';
-// import FinishedFormLink from '@app/components/NonEscalatorRelationship/FinishedFormLink';
-
-// import dynamic from 'next/dynamic';
-// import useFormCache from '@app/utils/hooks/useFormCache';
-
-// const FinishedFormLink = dynamic(() => import('@app/components/NonEscalatorRelationship/FinishedFormLink'), {
-//   ssr: false,
-// });
+import FieldGroupLayout from '@app/components/Form/FieldGroupLayout';
 
 export const getStaticPaths: GetStaticPaths = (params) => {
   const form = getForm(NON_ESCALATOR_FORM_ID);
@@ -62,9 +51,6 @@ export const getStaticProps: GetStaticProps = async ({params}) => {
     },
   };
 };
-
-// (parameter) Component: NextComponentType<NextPageContext, any, {}>
-
 export default function NonEscalatorRelationshipPage({
   fieldGroupId,
 }: {
@@ -78,20 +64,17 @@ export default function NonEscalatorRelationshipPage({
         <GridWrapper>
           <FlexSection>
             <Title>Loading Form</Title>
-            <LoadingSpinner
-              // className="w-10 h-10"
-              // borderSize={4}
-            />
+            <LoadingSpinner size='large' />
           </FlexSection>
         </GridWrapper>
       </BootstrapForm>
     );
   }
 
-  const fieldGroupLabel = form.fieldGroups[fieldGroupId].fieldGroupLabel;
+  const fieldGroup = form.fieldGroups[fieldGroupId];
+  const fieldGroupLabel = fieldGroup.fieldGroupLabel;
 
   return (
-    // <GridWrapper key={fieldGroupId}>
     <BootstrapForm formId={NON_ESCALATOR_FORM_ID}>
       <GridWrapper>
         <FlexSection>
@@ -103,26 +86,15 @@ export default function NonEscalatorRelationshipPage({
           </h2>
         </FlexSection>
         <FlexSection>
-          {/* {fieldGroupId === 'FinishedForm' ?
-          <FinishedFormLink /> : */}
-          <FormLayout
+          <FieldGroupLayout
             formId={NON_ESCALATOR_FORM_ID}
-            fieldGroupId={fieldGroupId}
+            fieldGroup={fieldGroup}
           />
-          {/* } */}
-
         </FlexSection>
       </GridWrapper>
     </BootstrapForm>
   );
 }
-
-// NonEscalatorRelationshipPage.getLayout = function getLayout(page: ReactElement) {
-//   return (
-//     <FormContextLayout page={page} initialFormState={nonEscalatorMenu} />
-//   );
-// };
-
 
 NonEscalatorRelationshipPage.getLayout = function getLayout(page: ReactElement) {
   return (
