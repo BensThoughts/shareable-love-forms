@@ -85,7 +85,7 @@ export default function NonEscalatorRelationshipPage({
             {fieldGroupLabel}
           </h2>
         </FlexSection>
-        <FlexSection>
+        <FlexSection className="mb-[105px]">
           <FieldGroupLayout
             formId={NON_ESCALATOR_FORM_ID}
             fieldGroup={fieldGroup}
