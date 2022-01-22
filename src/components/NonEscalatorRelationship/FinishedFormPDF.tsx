@@ -59,7 +59,6 @@ export default function FinishedFormPDF({
   formData: FormState
 }) {
   const fieldGroupValues = Object.values(formData.fieldGroups);
-  console.log(fieldGroupValues);
   const pageOne = fieldGroupValues.slice(0, 2);
   const pageTwo = fieldGroupValues.slice(2, 5);
   const pageThree = fieldGroupValues.slice(5, 8);
