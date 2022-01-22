@@ -37,9 +37,9 @@ export interface FormFieldGroup {
 
 export interface FormState {
   formId: string;
-  formName: string;
   formVersion: number;
   formLastUpdatedDate: string;
+  formName: string;
   formDescription: string;
   fieldGroups: {
     [fieldGroupId: string]: FormFieldGroup;
