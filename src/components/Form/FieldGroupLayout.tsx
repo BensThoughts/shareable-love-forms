@@ -114,16 +114,17 @@ export default function FieldGroupLayout({
     <PageTransition
       slideDirection={slideAnimationDirection}
     >
-      <div className="flex flex-col gap-y-12 justify-center items-center mb-6">
-        {fields && Object.keys(fields).map((id) => (
-          <div key={id}>
-            {getField(id)}
-          </div>
-        ))}
-      </div>
+      <div className="flex flex-col gap-20">
+        <div className="flex flex-col gap-y-12 justify-center items-center">
+          {fields && Object.keys(fields).map((id) => (
+            <div key={id}>
+              {getField(id)}
+            </div>
+          ))}
+        </div>
 
-      <div className="flex gap-6 justify-between w-full">
-        {previousFieldGroupId &&
+        <div className="flex gap-6 justify-between w-full">
+          {previousFieldGroupId &&
             <NextLinkButton
               href={`/non-escalator-relationship/${previousFieldGroupId}`}
               onClick={() => {
@@ -133,8 +134,8 @@ export default function FieldGroupLayout({
             >
               Previous
             </NextLinkButton>
-        }
-        {nextFieldGroupId &&
+          }
+          {nextFieldGroupId &&
           <div className="ml-auto">
             <NextLinkButton
               href={`/non-escalator-relationship/${nextFieldGroupId}`}
@@ -146,8 +147,10 @@ export default function FieldGroupLayout({
               {nextFieldGroupId == 'finished-form' ? 'Submit' : 'Next'}
             </NextLinkButton>
           </div>
-        }
+          }
+        </div>
       </div>
+
     </PageTransition>
   );
 }
