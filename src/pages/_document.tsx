@@ -10,7 +10,9 @@ class MyDocument extends Document {
     return (
       // <Html style={{scrollBehavior: 'smooth'}}>
       <Html>
-        <Head />
+        <Head>
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
         <body>
           <Main />
           <NextScript />
