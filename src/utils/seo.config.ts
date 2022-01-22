@@ -7,7 +7,7 @@ const seoConfig = {
     description: 'Easy to share forms about relationships and love',
     images: [
       {
-        url: 'https://res.cloudinary.com/bensthoughts/image/upload/v1642892051/shareable-love-forms/opengraph/Logo_-_OpenGraph_x2spbt.png',
+        url: 'https://res.cloudinary.com/bensthoughts/image/upload/v1642892524/shareable-love-forms/opengraph/Logo_-_OpenGraph_o1csth.png',
         width: 1200,
         height: 627,
         alt: 'Shareable Love Forms Header Image',
