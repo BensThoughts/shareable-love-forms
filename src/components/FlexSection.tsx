@@ -5,7 +5,7 @@ export default function FlexSection({
   className,
 }: React.HTMLAttributes<HTMLHtmlElement>) {
   return (
-    <section className={`flex flex-col items-center gap-6 w-full ${className}`}>
+    <section className={`flex flex-col items-center gap-6 w-full ${className ? className : ''}`}>
       {children}
     </section>
   );

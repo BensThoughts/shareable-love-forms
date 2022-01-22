@@ -18,7 +18,7 @@ export default function AnimatedLinkWithIcon({
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className={`flex gap-2 text-primary items-center justify-center bg-growing-underline ${className}`}
+      className={`flex gap-2 text-primary items-center justify-center bg-growing-underline ${className ? className : ''}`}
       {...rest}
     >
       {iconPosition === 'left' && <span className="inline-block">{icon}</span>}

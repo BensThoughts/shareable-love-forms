@@ -28,7 +28,7 @@ export default function LoadingSpinner({
 
   return (
     <div className="flex justify-center items-center">
-      <div className={`rounded-full border-l-2 animate-spin ${length} ${border} border-primary ${className}`}></div>
+      <div className={`rounded-full border-l-2 animate-spin ${length} ${border} border-primary ${className ? className : ''}`}></div>
     </div>
   );
 }

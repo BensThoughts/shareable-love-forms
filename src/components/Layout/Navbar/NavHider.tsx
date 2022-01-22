@@ -26,7 +26,7 @@ export default function NavHider({className, children}: NavHiderProps) {
       leaveFrom="translate-y-0"
       leaveTo="-translate-y-full"
     >
-      <NavHiderWrapper className={`fixed inset-0 h-14 max-h-14 ${className}`}>
+      <NavHiderWrapper className={`fixed inset-0 h-14 max-h-14 ${className ? className : ''}`}>
         {children}
       </NavHiderWrapper>
     </Transition>

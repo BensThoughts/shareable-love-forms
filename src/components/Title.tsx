@@ -5,8 +5,11 @@ export default function Title({
   className,
 }: React.HTMLAttributes<HTMLHtmlElement>) {
   return (
-    <h1 className={`text-3xl font-bold ${className}`}>
-      {children}
-    </h1>
+    <div className="flex justify-center items-center w-full">
+      <h1 className={`text-3xl font-bold ${className ? className : ''}`}>
+        {children}
+      </h1>
+    </div>
+
   );
 }

@@ -32,7 +32,7 @@ type FooterProps = {
 
 export default function Footer({className}: FooterProps) {
   return (
-    <div className={`bg-app-bg-base w-full flex flex-row justify-center items-center ${className}`}>
+    <div className={`bg-app-bg-base w-full flex flex-row justify-center items-center ${className ? className : ''}`}>
       {/* <div className="mx-3">
         <AnimatedLinkIcon href="mailto:benjamin@bensthoughts.dev" aria-label="email me at benjamin@bensthoughts.dev">
           <MailIcon className="w-6 h-6 text-icon-primary" />

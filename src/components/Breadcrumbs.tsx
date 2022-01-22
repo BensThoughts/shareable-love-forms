@@ -32,7 +32,7 @@ export default function Breadcrumbs({className, ...rest}: React.HTMLAttributes<H
   // }
 
   return (
-    <div aria-label="breadcrumbs" className={`flex ${className}`} {...rest}>
+    <div aria-label="breadcrumbs" className={`flex ${className ? className : ''}`} {...rest}>
       <div className="font-mono">
         <Link href="/" scroll={true} passHref>
           <AnimatedLink href="/">HOME</AnimatedLink>
