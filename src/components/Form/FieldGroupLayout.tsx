@@ -113,7 +113,6 @@ export default function FieldGroupLayout({
   return (
     <PageTransition
       slideDirection={slideAnimationDirection}
-      className="mb-36"
     >
       <div className="flex flex-col gap-y-12 justify-center items-center mb-6">
         {fields && Object.keys(fields).map((id) => (

@@ -7,7 +7,7 @@ export default function PageTransition({
 }: {
   slideDirection: 'left' | 'right',
   children: React.ReactNode,
-  className: string,
+  className?: string,
 }) {
   const animationInverse = slideDirection === 'left' ? 1 : -1;
 
