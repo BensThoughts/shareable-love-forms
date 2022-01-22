@@ -59,13 +59,13 @@ export default function Navbar({className, ...rest}: NavBarProps) {
   return (
     <>
       <MenuDrawer isOpen={isOpen} setIsOpen={setIsOpen} title="Menu">
-        <NavLinks className="flex flex-col items-center justify-end content-between pt-0 w-full mt-7">
+        <NavLinks className="flex flex-col justify-end content-between items-center pt-0 mt-7 w-full">
           {menuItems.map((menuItem) => (
             <MenuItem
               key={menuItem.href}
               href={menuItem.href}
               onClick={() => setIsOpen(false)}
-              className="hover:bg-primary w-full h-10 flex items-center justify-center text-xl"
+              className="flex justify-center items-center w-full h-10 text-xl hover:bg-primary"
             >
               {menuItem.name}
             </MenuItem>
@@ -77,25 +77,25 @@ export default function Navbar({className, ...rest}: NavBarProps) {
 
           {/* Medium+ Screens */}
           <div className="hidden md:flex md:justify-between md:items-center md:w-full md:pt-0 md:mx-3">
-            <div className="flex items-center gap-x-4">
+            <div className="flex gap-x-4 items-center">
               <HeartIcon className="w-6 h-6 text-icon-secondary" />
-              <div className="flex items-center content-between pt-0 gap-4">
+              <div className="flex gap-4 content-between items-center pt-0">
                 {menuItems.map((menuItem) => (
                   <MenuItem animatedLink key={menuItem.href} href={menuItem.href}>{menuItem.name}</MenuItem>
                 ))}
               </div>
             </div>
-            <div className="flex items-center justify-end gap-x-4">
+            <div className="flex gap-x-4 justify-end items-center">
               <Breadcrumbs className="hidden lg:flex" />
               {/* <ThemeToggle /> */}
             </div>
           </div>
 
           {/* Small- Screens */}
-          <div className="flex md:hidden w-full justify-between items-center mx-3">
+          <div className="flex justify-between items-center mx-3 w-full md:hidden">
 
             {/* <ThemeToggle /> */}
-            <IconButton onClick={() => setIsOpen(!isOpen)} className="md:hidden mr-3" aria-label="navigation menu">
+            <IconButton onClick={() => setIsOpen(!isOpen)} className="mr-3 md:hidden" aria-label="navigation menu">
               <MenuIcon className="w-8 h-8 text-icon-primary" />
             </IconButton>
 
