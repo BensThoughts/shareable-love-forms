@@ -74,7 +74,7 @@ function MyApp({
         <Navbar className="h-14" />
         <PageWrapper>
           <ContentWrap>
-            <main className="z-0 max-h-full mt-8 mb-16 overflow-hidden">
+            <main className="overflow-hidden z-0 mt-8 mb-16 max-h-full">
               <Provider store={store}>
                 <PersistGate loading={null} persistor={persistor}>
                   <AnimatePresence
