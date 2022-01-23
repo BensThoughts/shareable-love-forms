@@ -1,8 +1,11 @@
-import FinishedFormLink from '@app/components/NonEscalatorRelationship/FinishedFormLink';
+import dynamic from 'next/dynamic';
+const FinishedFormLink = dynamic(() => import('../../components/NonEscalatorRelationship/FinishedFormLink'), {
+  ssr: false,
+});
 
 // import FinishedFormLink from '@app/components/NonEscalatorRelationship/FinishedFormLink';
+
 import GridWrapper from '../../components/GridWrapper';
-// import {nonEscalatorMenu} from '@app/utils/store/questions';
 import FlexSection from '@app/components/FlexSection';
 import TitleCard from '@app/components/Card/TitleCard';
 import BootstrapForm from '@app/utils/store/features/forms/BootstrapForm';
@@ -11,11 +14,7 @@ import {selectFormById} from '@app/utils/store/features/forms/formsSlice';
 import {useAppSelector} from '@app/utils/store/hooks';
 import LoadingSpinner from '@app/components/LoadingSpinner';
 import Title from '@app/components/Title';
-// import useFormCache from '@app/utils/hooks/useFormCache';
-// import {nonEscalatorMenu} from '@app/utils/store/questions';
-// import FinishedFormPDF from '@app/components/NonEscalatorRelationship/FinishedFormPDF';
-// import {useAppSelector} from '@app/utils/store/hooks';
-// import {formSelectors} from '@app/utils/store/formsSlice';
+
 
 export default function NonEscalatorRelationshipFinishedFormPage() {
   const form = useAppSelector((state) => selectFormById(state, NON_ESCALATOR_FORM_ID));
@@ -45,7 +44,16 @@ export default function NonEscalatorRelationshipFinishedFormPage() {
                 a PDF that displays your answers. The PDF can be downloaded from there.
               </div>
               <div>
-                <FinishedFormLink form={form}/>
+                {!FinishedFormLink ?
+                <div className="flex justify-center">
+                  <div className="flex items-center justify-center border-2 border-secondary rounded-md w-[170px] h-[40px] py-1 px-2">
+                    <div className="flex gap-4 justify-center items-center">
+                      <div className="">Loading Results</div>
+                      <LoadingSpinner size='small' />
+                    </div>
+                  </div>
+                </div> :
+                <FinishedFormLink form={form}/>}
               </div>
             </div>
           </TitleCard>
