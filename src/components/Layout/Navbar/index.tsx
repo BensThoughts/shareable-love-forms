@@ -59,13 +59,13 @@ export default function Navbar({className, ...rest}: NavBarProps) {
   return (
     <>
       <MenuDrawer isOpen={isOpen} setIsOpen={setIsOpen} title="Menu">
-        <NavLinks className="flex flex-col justify-end content-between items-center pt-0 mt-7 w-full">
+        <NavLinks className="flex flex-col gap-4 justify-end content-between items-center pt-0 mt-7 w-full">
           {menuItems.map((menuItem) => (
             <MenuItem
               key={menuItem.href}
               href={menuItem.href}
               onClick={() => setIsOpen(false)}
-              className="flex justify-center items-center w-full h-10 text-xl hover:bg-primary"
+              className="flex justify-center items-center w-full h-10 text-xl text-center hover:bg-primary"
             >
               {menuItem.name}
             </MenuItem>
