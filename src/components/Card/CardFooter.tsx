@@ -7,10 +7,10 @@ export default function CardFooter({
   href: string,
 }) {
   return (
-    <div className="flex w-full justify-end">
+    <div className="flex justify-end w-full">
       <Link href={href} passHref scroll={true}>
         <a href={href} className="">
-          <span className="inline-block">goto <ChevronDoubleRightIcon className="h-5 w-5 inline-block" /></span>
+          <span className="inline-block text-neutral-lightest">goto <ChevronDoubleRightIcon className="inline-block w-5 h-5" /></span>
         </a>
       </Link>
     </div>

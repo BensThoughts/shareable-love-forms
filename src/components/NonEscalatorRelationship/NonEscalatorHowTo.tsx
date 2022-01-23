@@ -1,7 +1,7 @@
 export default function NonEscalatorHowTo() {
   return (
     <div className="flex flex-col gap-2">
-      <h2 className="text-xl">About The Form</h2>
+      <h2 className="text-xl text-neutral-lightest">About The Form</h2>
       <span>
       This form is designed help you determine what you need, want, and will not accept in a romantic relationship.
       You can use it on your own to get a better understanding of what you want in your next romantic relationship.

@@ -12,12 +12,15 @@ export default function TitleCard({
 }: TitleCardProps) {
   return (
     <div className="max-w-3xl rounded-md p-[3px] ">
-      <div className="flex p-4 flex-col gap-2 bg-app-bg-primary">
-        <div className="border-b-8 border-secondary p-2">
-          <Title>{title}</Title>
+      <div className="flex flex-col gap-2 p-4 bg-app-bg-primary">
+        <div className="p-2 border-b-8 border-secondary">
+          <Title className="text-neutral-lightest">{title}</Title>
         </div>
         <div className="p-2">
-          {children}
+          <span className="text-neutral-lighter">
+            {children}
+
+          </span>
         </div>
         <div>
           {footer}
