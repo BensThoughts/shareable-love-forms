@@ -4,6 +4,8 @@ import GridWrapper from '@app/components/GridWrapper';
 import FlexSection from '@app/components/FlexSection';
 import LogoSVG from '@app/components/Layout/Background/LogoSVG';
 import TitleCard from '@app/components/Card/TitleCard';
+import {ChevronDoubleRightIcon} from '@heroicons/react/solid';
+import Link from 'next/link';
 
 export default function Home() {
   // React.useEffect(() => {
@@ -56,9 +58,15 @@ export default function Home() {
         <Card
           title="Non Escalator Relationship Form"
           className="self-center max-w-md"
-          href='/non-escalator-relationship'
         >
         This is a form designed to help you think and talk about what you want in a relationship.
+          <div className="flex justify-end w-full">
+            <Link href="/non-escalator-relationship" passHref scroll={true}>
+              <a>
+                <span className="inline-block text-neutral-lightest">goto <ChevronDoubleRightIcon className="inline-block w-5 h-5" /></span>
+              </a>
+            </Link>
+          </div>
         </Card>
 
       </FlexSection>
