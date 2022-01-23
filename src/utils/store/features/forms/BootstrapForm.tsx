@@ -1,7 +1,7 @@
 import {useAppDispatch, useAppSelector} from '@app/utils/store/hooks';
 import {selectFormById, setOneForm} from './formsSlice';
 
-import {getForm} from '../../questions'; // This will eventually be async on a server
+import {getForm} from '../../nonEscalatorFormData'; // This will eventually be async on a server
 
 export default function BootstrapForm({
   formId,

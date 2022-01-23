@@ -10,7 +10,7 @@ import Title from '@app/components/Title';
 
 import BootstrapForm from '@app/utils/store/features/forms/BootstrapForm';
 import {NON_ESCALATOR_FORM_ID, NON_ESCALATOR_FORM_NAME} from './index';
-import {getForm} from '@app/utils/store/questions';
+import {getForm} from '@app/utils/store/nonEscalatorFormData';
 import FieldGroupLayout from '@app/components/Form/FieldGroupLayout';
 
 export const getStaticPaths: GetStaticPaths = (params) => {
