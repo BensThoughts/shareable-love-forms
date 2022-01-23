@@ -15,6 +15,11 @@ module.exports = {
       'app-bg': generateColorClass('color-bg-base'),
       'primary': generateColorClass('color-app-primary'),
       'secondary': generateColorClass('color-app-secondary'),
+      'neutral-medium': generateColorClass('color-neutral-medium'),
+      'neutral-light': generateColorClass('color-neutral-light'),
+      'neutral-lighter': generateColorClass('color-neutral-lighter'),
+      'neutral-lightest': generateColorClass('color-neutral-lightest'),
+      'neutral-white': generateColorClass('color-neutral-white'),
     },
     extend: {
       transformOrigin: {

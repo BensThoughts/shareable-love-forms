@@ -42,18 +42,23 @@ a {
   --app-border-opacity: 1;
   --app-backdrop-filter: blur(4px);
 
-  --color-bg-base: 0, 0, 0;
+  /* New Color System */
+  --color-neutral-black: 0, 0, 0;
+  --color-neutral-dark: 22, 21, 34;
+  --color-neutral-medium: 29, 29, 31;
+  --color-neutral-light: 99, 99, 105;
+  --color-neutral-lighter: 202, 202, 206;
+  --color-neutral-lightest: 242, 242, 243;
+  --color-neutral-white: 255, 255, 255;
 
-  /* desicing on a primary bg color */
+
+  /* Old Color System */
+  --color-bg-base: 0, 0, 0;
   /* --color-bg-primary: 14, 4, 21; */
   --color-bg-primary: 22, 21, 34;
-
-
   --color-bg-secondary: 29, 29, 31;
   /* --color-bg-secondary: 27, 202, 186; */
-
   /* --color-bg-secondary: 9, 147, 236; */
-
 
   --color-app-primary: 181, 0, 242;
   /* --color-app-primary: 235, 0, 242; */
