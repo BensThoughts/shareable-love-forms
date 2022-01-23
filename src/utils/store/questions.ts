@@ -141,7 +141,7 @@ const nonEscalatorMenu: FormState = {
         'pda': {
           id: 'pda',
           label: 'PDA',
-          tooltipText: 'Public Display of Affection',
+          tooltipText: 'PDA: Public Display of Affection',
           type: 'selectField',
           valueOptions: DEFAULT_RESPONSE_OPTIONS,
           value: DEFAULT_RESPONSE,
@@ -198,6 +198,7 @@ const nonEscalatorMenu: FormState = {
         'penetration': {
           id: 'penetration',
           label: 'Penetration/PIV',
+          tooltipText: 'PIV: Penis in Vagina',
           type: 'selectField',
           valueOptions: DEFAULT_RESPONSE_OPTIONS,
           value: DEFAULT_RESPONSE,
@@ -219,7 +220,7 @@ const nonEscalatorMenu: FormState = {
         'regular-sti-testing': {
           id: 'regular-sti-testing',
           label: 'Regular STI testing',
-          tooltipText: 'Sexually Transmitted Infection',
+          tooltipText: 'STI: Sexually Transmitted Infection',
           type: 'selectField',
           valueOptions: DEFAULT_RESPONSE_OPTIONS,
           value: DEFAULT_RESPONSE,
@@ -452,9 +453,9 @@ const nonEscalatorMenu: FormState = {
       previousFieldGroupId: 'financial-management',
       nextFieldGroupId: 'quality-time',
       fields: {
-        'meeting-metamors': {
-          id: 'meeting-metamors',
-          label: 'Meeting metamors (partners other partners)',
+        'meeting-metamours': {
+          id: 'meeting-metamours',
+          label: 'Meeting metamours',
           tooltipText: `A metamour is your lover's other lover`,
           type: 'selectField',
           valueOptions: DEFAULT_RESPONSE_OPTIONS,
@@ -488,9 +489,9 @@ const nonEscalatorMenu: FormState = {
           valueOptions: DEFAULT_RESPONSE_OPTIONS,
           value: DEFAULT_RESPONSE,
         },
-        'positive-relationships-with-metamors': {
-          id: 'positive-relationships-with-metamors',
-          label: 'Positive relationships with metamors',
+        'positive-relationships-with-metamours': {
+          id: 'positive-relationships-with-metamours',
+          label: 'Positive relationships with metamours',
           tooltipText: `A metamour is your lover's other lover`,
           type: 'selectField',
           valueOptions: DEFAULT_RESPONSE_OPTIONS,
@@ -531,9 +532,9 @@ const nonEscalatorMenu: FormState = {
           valueOptions: DEFAULT_RESPONSE_OPTIONS,
           value: DEFAULT_RESPONSE,
         },
-        'joint-vacations-with-family-metamors': {
-          id: 'joint-vacations-with-family-metamors',
-          label: 'Joint vacations with family/ metamors',
+        'joint-vacations-with-family-metamours': {
+          id: 'joint-vacations-with-family-metamours',
+          label: 'Joint vacations with family/ metamours',
           tooltipText: `A metamour is your lover's other lover`,
           type: 'selectField',
           valueOptions: DEFAULT_RESPONSE_OPTIONS,
