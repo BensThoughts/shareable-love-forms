@@ -8,7 +8,7 @@ export default function Label({
   tooltipText?: string;
 }) {
   return (
-    <div className="flex gap-2 items-center max-w-[288px]">
+    <div className="flex gap-2 items-center max-w-[280px] md:max-w-[380px]">
       <span className="align-middle">{label}</span>
       {tooltipText && <Tooltip text={tooltipText} />}
       {/* <DescriptionPopover title="Word" description="The definition of a word" /> */}
