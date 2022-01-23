@@ -63,7 +63,7 @@ export default function NonEscalatorRelationshipPage({
       <BootstrapForm formId={NON_ESCALATOR_FORM_ID}>
         <GridWrapper>
           <FlexSection>
-            <Title>Loading Form</Title>
+            <Title className="text-center">Loading Form</Title>
             <LoadingSpinner size='large' />
           </FlexSection>
         </GridWrapper>
@@ -78,7 +78,7 @@ export default function NonEscalatorRelationshipPage({
     <BootstrapForm formId={NON_ESCALATOR_FORM_ID}>
       <GridWrapper>
         <FlexSection>
-          <Title>
+          <Title className="text-center">
             {NON_ESCALATOR_FORM_NAME}
           </Title>
           <h2 className="text-2xl text-center">
