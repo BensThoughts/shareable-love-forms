@@ -42,7 +42,7 @@ export default function Breadcrumbs({className, ...rest}: React.HTMLAttributes<H
         <Link href="/" scroll={true} passHref>
           <NextAnimatedLink href="/">Home</NextAnimatedLink>
         </Link>
-        &nbsp;/&nbsp;
+        &nbsp;&nbsp;/&nbsp;&nbsp;
       </div>
       {breadcrumbs.map((breadcrumb, i) => {
         if (breadcrumb.href != '/') {
@@ -56,7 +56,7 @@ export default function Breadcrumbs({className, ...rest}: React.HTMLAttributes<H
                   {convertBreadcrumb(breadcrumb.breadcrumb)}
                 </AnimatedLink>
               </Link> */}
-              &nbsp;{breadcrumb.breadcrumb === '' ? '' : '/'}&nbsp;
+              &nbsp;&nbsp;{breadcrumb.breadcrumb === '' ? '' : '/'}&nbsp;&nbsp;
             </div>
           );
         } else {
