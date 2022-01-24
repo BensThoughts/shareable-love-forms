@@ -34,6 +34,7 @@ import seoConfig from '@app/utils/seo.config';
 const PageWrapper = styled.div`
   padding-top: 3.5rem;
   margin-top: 0rem;
+  min-height: 100vh;
   display: grid;
   grid-template-rows: 1fr 4rem;
 `;
