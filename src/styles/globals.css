@@ -20,7 +20,7 @@
 html,
 body {
   background-color: rgb(var(--color-bg-base));
-  color: rgb(var(--color-text-primary));
+  /* color: rgb(var(--color-text-primary)); */
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
