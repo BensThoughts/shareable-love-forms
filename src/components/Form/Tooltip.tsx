@@ -80,7 +80,7 @@ const Tooltip = ({
           {/* <div className="w-full h-full bg-gradient-to-tr rounded-md shadow-md from-primary to-secondary" */}
 
           {/* <div className="flex flex-col gap-2 justify-between p-4 w-full h-full rounded-md bg-app-bg-primary"> */}
-          <div className="p-2 w-full h-full rounded-md bg-app-bg-primary">
+          <div className="p-2 w-full h-full rounded-md bg-app-bg-primary text-neutral-lightest">
             <p>{text}</p>
           </div>
 

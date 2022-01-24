@@ -1,7 +1,7 @@
 import React, {MouseEventHandler, ReactNode} from 'react';
 import Link from 'next/link';
 // import Link from '@app/components/Link';
-import AnimatedLink from '../../AnimatedLink';
+import AnimatedLink from '@app/components/AnimatedLink';
 // import AnimatedUnderline from '@app/components/AnimatedUnderline';
 // import AnimatedLink from '@app/components/AnimatedLink';
 
@@ -28,7 +28,7 @@ const MenuItem = ({
         <AnimatedLink className={className} onClick={onClick} href={href}>
           {children}
         </AnimatedLink> :
-        <a href={href} onClick={onClick} className={`text-primary ${className ? className : ''}`}>
+        <a href={href} onClick={onClick} className={className}>
           {children}
         </a>
       }

@@ -65,7 +65,7 @@ export default function Navbar({className, ...rest}: NavBarProps) {
               key={menuItem.href}
               href={menuItem.href}
               onClick={() => setIsOpen(false)}
-              className="flex justify-center items-center w-full h-10 text-xl text-center hover:bg-primary"
+              className="flex justify-center items-center w-full h-10 text-xl text-center hover:bg-primary text-neutral-white"
             >
               {menuItem.name}
             </MenuItem>
@@ -81,12 +81,12 @@ export default function Navbar({className, ...rest}: NavBarProps) {
               <HeartIcon className="w-6 h-6 text-icon-secondary" />
               <div className="flex gap-4 content-between items-center pt-0">
                 {menuItems.map((menuItem) => (
-                  <MenuItem animatedLink key={menuItem.href} href={menuItem.href}>{menuItem.name}</MenuItem>
+                  <MenuItem animatedLink className="text-neutral-white" key={menuItem.href} href={menuItem.href}>{menuItem.name}</MenuItem>
                 ))}
               </div>
             </div>
             <div className="flex gap-x-4 justify-end items-center">
-              <Breadcrumbs className="hidden lg:flex" />
+              <Breadcrumbs className="hidden lg:flex text-neutral-white" />
               {/* <ThemeToggle /> */}
             </div>
           </div>
