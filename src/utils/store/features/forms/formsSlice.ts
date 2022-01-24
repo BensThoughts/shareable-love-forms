@@ -51,7 +51,10 @@ export const formsAdapter = createEntityAdapter<FormState>({
   // sortComparer: (a, b) => b.formName.localeCompare(a.formName),
 });
 
-const initialState = formsAdapter.getInitialState();
+const initialState = formsAdapter.getInitialState({
+  schemaVersion: 0,
+  schemaVersionDate: '2022-01-23',
+});
 
 const formsSlice = createSlice({
   name: 'forms',
@@ -106,4 +109,4 @@ export {selectFormById};
 
 export default formsSlice.reducer;
 
-export type FormsSliceState = ReturnType<typeof formsSlice.getInitialState>;
+export type FormsSlice = ReturnType<typeof formsSlice.getInitialState>;
