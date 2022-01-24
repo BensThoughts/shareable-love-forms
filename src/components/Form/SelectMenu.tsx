@@ -22,9 +22,9 @@ export default function SelectMenu({
   return (
     <Listbox value={selectedValue} onChange={onSelectionChange}>
       <div className="w-72 md:w-96">
-        <div className="relative mt-1">
+        <div className="relative">
           <Listbox.Button
-            className="relative py-2 pr-10 pl-3 w-full text-left rounded-lg shadow-md cursor-default bg-app-bg-primary focus:outline-none focus-visible:ring-opacity-75 focus-visible:ring-white focus-visible:ring-offset-orange-300 focus-visible:ring-offset-2 focus-visible:border-indigo-500 sm:text-sm"
+            className="relative py-2 pr-10 pl-3 w-full text-left rounded-lg cursor-default text-neutral-lightest bg-neutral-medium focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-opacity-80 focus-visible:ring-offset-4 focus-visible:ring-offset-app-bg focus:outline-none sm:text-sm"
           >
             <span className="block truncate">{selectedValue}</span>
             <span className="flex absolute inset-y-0 right-0 items-center pr-2 pointer-events-none">
@@ -41,12 +41,12 @@ export default function SelectMenu({
             leaveTo="opacity-0"
           >
             <Listbox.Options
-              className="overflow-auto absolute z-10 py-1 mt-1 w-full max-h-60 text-base rounded-md ring-1 ring-black ring-opacity-5 shadow-lg bg-app-bg-primary focus:outline-none sm:text-sm"
+              className="overflow-auto absolute z-10 py-1 mt-1 w-full max-h-60 text-base rounded-md bg-neutral-medium focus:outline-none sm:text-sm"
             >
               {options.map((option, optionIdx) => (
                 <Listbox.Option
                   key={optionIdx}
-                  className={({active}) => `${active ? 'text-secondary bg-secondary' : 'text-primary'}
+                  className={({active}) => `${active ? 'text-neutral-lightest bg-secondary' : 'text-neutral-lighter'}
                       cursor-default select-none relative py-2 pl-10 pr-4
                   `}
                   value={option}
