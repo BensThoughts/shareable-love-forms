@@ -6,7 +6,7 @@ import {
   // PDFDownloadLink,
   BlobProvider,
 } from '@react-pdf/renderer';
-import LoadingSpinner from '../LoadingSpinner';
+import LoadingSpinner from '../../LoadingSpinner';
 import FinishedFormPDF from './FinishedFormPDF';
 
 export default function FinishedFormLink({
