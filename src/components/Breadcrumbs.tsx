@@ -5,7 +5,11 @@ import Link from 'next/link';
 import AnimatedLink from './AnimatedLink';
 
 const convertBreadcrumb = (crumb: string) => {
-  return crumb.replace(/-/g, ' ').toUpperCase();
+  const words = crumb.replace(/-/g, ' ').split(' ');
+
+  return words.map((word) => {
+    return word[0].toUpperCase() + word.substring(1);
+  }).join(' ');
 };
 
 type BreadcrumbsType = { breadcrumb: string, href: string }[];
@@ -33,16 +37,16 @@ export default function Breadcrumbs({className, ...rest}: React.HTMLAttributes<H
 
   return (
     <div aria-label="breadcrumbs" className={`flex ${className ? className : ''}`} {...rest}>
-      <div className="font-mono">
+      <div className="">
         <Link href="/" scroll={true} passHref>
-          <AnimatedLink href="/">HOME</AnimatedLink>
+          <AnimatedLink href="/">Home</AnimatedLink>
         </Link>
         &nbsp;/&nbsp;
       </div>
       {breadcrumbs.map((breadcrumb, i) => {
         if (breadcrumb.href != '/') {
           return (
-            <div key={breadcrumb.href} className="font-mono">
+            <div key={breadcrumb.href} className="">
               <Link href={breadcrumb.href} scroll={true} passHref>
                 <AnimatedLink href={breadcrumb.href}>
                   {convertBreadcrumb(breadcrumb.breadcrumb)}
