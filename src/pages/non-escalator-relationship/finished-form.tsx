@@ -1,6 +1,11 @@
 import dynamic from 'next/dynamic';
-const FinishedFormLink = dynamic(() => import('../../components/NonEscalatorRelationship/FinishedFormLink'), {
+const FinishedFormLink = dynamic(() => import('../../components/NonEscalatorRelationship/PDF/FinishedFormLink'), {
   ssr: false,
+  loading: () => (
+    <div className="flex justify-center w-full">
+      <DownloadButtonPDF isLoading />
+    </div>
+  ),
 });
 
 // import FinishedFormLink from '@app/components/NonEscalatorRelationship/FinishedFormLink';
@@ -14,6 +19,7 @@ import {selectFormById} from '@app/utils/store/features/forms/formsSlice';
 import {useAppSelector} from '@app/utils/store/hooks';
 import LoadingSpinner from '@app/components/LoadingSpinner';
 import Title from '@app/components/Title';
+import DownloadButtonPDF from '@app/components/NonEscalatorRelationship/PDF/DownloadButtonPDF';
 
 
 export default function NonEscalatorRelationshipFinishedFormPage() {
@@ -44,16 +50,7 @@ export default function NonEscalatorRelationshipFinishedFormPage() {
                 a PDF that displays your answers. The PDF can be downloaded from there.
               </div>
               <div>
-                {!FinishedFormLink ?
-                <div className="flex justify-center">
-                  <div className="flex items-center justify-center border-2 border-secondary rounded-md w-[170px] h-[40px] py-1 px-2">
-                    <div className="flex gap-4 justify-center items-center">
-                      <div className="">Loading Results</div>
-                      <LoadingSpinner size='small' />
-                    </div>
-                  </div>
-                </div> :
-                <FinishedFormLink form={form}/>}
+                <FinishedFormLink form={form}/>
               </div>
             </div>
           </TitleCard>

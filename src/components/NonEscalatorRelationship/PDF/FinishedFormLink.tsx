@@ -6,7 +6,7 @@ import {
   // PDFDownloadLink,
   BlobProvider,
 } from '@react-pdf/renderer';
-import LoadingSpinner from '../../LoadingSpinner';
+import DownloadButtonPDF from './DownloadButtonPDF';
 import FinishedFormPDF from './FinishedFormPDF';
 
 export default function FinishedFormLink({
@@ -27,21 +27,15 @@ export default function FinishedFormLink({
       <BlobProvider document={<FinishedFormPDF formData={form} />}>
         {({blob, url, loading, error}) =>
       loading ?
-      <div className="flex items-center justify-center border-2 border-secondary rounded-md w-[170px] h-[40px] py-1 px-2">
-        <div className="flex gap-4 justify-center items-center">
-          <div className="">Loading Results</div>
-          <LoadingSpinner size='small' />
-        </div>
-      </div> :
+        <DownloadButtonPDF isLoading /> :
         <a
           href={url as string}
           target="_blank"
           rel="noreferrer noopener"
           // download="NonEscalator Relationship Menu.pdf"
-          className="">
-          <div className="flex items-center justify-center border-2 border-secondary rounded-md w-[170px] h-[40px] py-1 px-2">
-            Download Results
-          </div>
+          className=""
+        >
+          <DownloadButtonPDF isLoading={false} />
         </a>
         }
       </BlobProvider>
