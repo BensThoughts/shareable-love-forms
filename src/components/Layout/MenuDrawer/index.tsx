@@ -22,20 +22,20 @@ export default function MenuDrawer({
       <Dialog
         unmount={false}
         onClose={() => setIsOpen(false)}
-        className="fixed z-50 inset-0 overflow-y-auto"
+        className="overflow-y-auto fixed inset-0 z-50"
       >
         <div className="flex w-3/4">
           <Transition.Child
             as={Fragment}
             enter="transition-opacity ease-in duration-300"
             enterFrom="opacity-0"
-            enterTo="opacity-30"
-            entered="opacity-30"
+            enterTo="opacity-[.64]"
+            entered="opacity-[.64]"
             leave="transition-opacity ease-out duration-300"
-            leaveFrom="opacity-30"
+            leaveFrom="opacity-[.64]"
             leaveTo="opacity-0"
           >
-            <Dialog.Overlay className="z-40 fixed inset-0 bg-black" />
+            <Dialog.Overlay className="fixed inset-0 z-40 bg-neutral-black" />
           </Transition.Child>
 
           <Transition.Child
@@ -47,14 +47,14 @@ export default function MenuDrawer({
             leaveFrom="translate-x-0"
             leaveTo="-translate-x-full"
           >
-            <div className="flex flex-col justify-between bg-app-bg-base bg-opacity-70 backdrop-filter backdrop-blur-sm z-50 w-full max-w-sm p-6 overflow-hidden text-left align-middle shadow-xl rounded-br-md">
+            <div className="flex overflow-hidden z-50 flex-col justify-between p-6 w-full max-w-sm text-left align-middle bg-opacity-70 rounded-br-md shadow-xl backdrop-filter backdrop-blur-sm bg-neutral-dark">
               <div>
-                <Dialog.Title className="font-bold text-2xl md:text-4xl text-secondary">{title}</Dialog.Title>
+                <Dialog.Title className="text-2xl font-bold md:text-4xl text-secondary">{title}</Dialog.Title>
                 <Dialog.Description>{description}</Dialog.Description>
                 {children}
               </div>
               <div className="self-center mt-10">
-                <RoundedButton className="bg-app-bg-base" onClick={() => setIsOpen(!isOpen)}>Close</RoundedButton>
+                <RoundedButton className="bg-app-bg text-neutral-lightest" onClick={() => setIsOpen(!isOpen)}>Close</RoundedButton>
               </div>
             </div>
           </Transition.Child>

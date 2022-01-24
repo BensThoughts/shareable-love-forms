@@ -12,7 +12,7 @@ export default function TitleCard({
 }: TitleCardProps) {
   return (
     <div className="max-w-3xl rounded-md p-[3px] ">
-      <div className="flex flex-col gap-2 p-4 bg-app-bg-primary">
+      <div className="flex flex-col gap-2 p-4 bg-neutral-dark">
         <div className="p-2 border-b-8 border-secondary">
           <Title className="text-neutral-lightest">{title}</Title>
         </div>
@@ -27,6 +27,5 @@ export default function TitleCard({
         </div>
       </div>
     </div>
-
   );
 }

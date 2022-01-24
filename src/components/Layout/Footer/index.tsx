@@ -32,7 +32,7 @@ type FooterProps = {
 
 export default function Footer({className}: FooterProps) {
   return (
-    <div className={`bg-app-bg-base w-full flex flex-row justify-center items-center ${className ? className : ''}`}>
+    <div className={`bg-app-bg w-full flex flex-row justify-center items-center ${className ? className : ''}`}>
       {/* <div className="mx-3">
         <AnimatedLinkIcon href="mailto:benjamin@bensthoughts.dev" aria-label="email me at benjamin@bensthoughts.dev">
           <MailIcon className="w-6 h-6 text-icon-primary" />
@@ -40,17 +40,17 @@ export default function Footer({className}: FooterProps) {
       </div> */}
       <div className="mx-3">
         <AnimatedLinkIcon href="https://github.com/bensthoughts/shareable-love-forms" aria-label="Github">
-          <Github className="text-icon-accent" />
+          <Github className="text-accent" />
         </AnimatedLinkIcon>
       </div>
       <div className="mx-3">
         <AnimatedLinkIcon href="https://twitter.com/bensthoughts" aria-label="Twitter">
-          <Twitter className="text-icon-accent" />
+          <Twitter className="text-accent" />
         </AnimatedLinkIcon>
       </div>
       <div className="mx-3">
         <AnimatedLinkIcon href="https://www.instagram.com/sex.coach.charity" aria-label="Github">
-          <Instagram className="text-icon-accent" />
+          <Instagram className="text-accent" />
         </AnimatedLinkIcon>
       </div>
       {/* <div className="mx-3">

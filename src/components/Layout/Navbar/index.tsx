@@ -49,8 +49,6 @@ const NavLinks = styled.div`
   will-change: background; */
 `;
 
-// bg-app-bg shadow-lg backdrop-filter bg-opacity-70 backdrop-blur-sm
-
 type NavBarProps = {
   className?: string;
 }
@@ -75,12 +73,12 @@ export default function Navbar({className, ...rest}: NavBarProps) {
         </NavLinks>
       </MenuDrawer>
       <NavHider>
-        <Nav {...rest} className={`bg-app-bg-base bg-opacity-70 shadow-lg ${className ? className : ''}`}>
+        <Nav {...rest} className={`bg-neutral-dark bg-opacity-70 shadow-lg ${className ? className : ''}`}>
 
           {/* Medium+ Screens */}
           <div className="hidden md:flex md:justify-between md:items-center md:w-full md:pt-0 md:mx-3">
             <div className="flex gap-x-4 items-center">
-              <HeartIcon className="w-6 h-6 text-icon-secondary" />
+              <HeartIcon className="w-6 h-6 text-secondary" />
               <div className="flex gap-4 content-between items-center pt-0">
                 {menuItems.map((menuItem) => (
                   <NextAnimatedLink
@@ -104,7 +102,7 @@ export default function Navbar({className, ...rest}: NavBarProps) {
 
             {/* <ThemeToggle /> */}
             <IconButton onClick={() => setIsOpen(!isOpen)} className="mr-3 md:hidden" aria-label="navigation menu">
-              <MenuIcon className="w-8 h-8 text-icon-primary" />
+              <MenuIcon className="w-8 h-8 text-primary" />
             </IconButton>
 
           </div>

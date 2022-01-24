@@ -63,7 +63,7 @@ const Tooltip = ({
             display: 'block',
           }}
         >
-          <InformationCircleIcon className='w-6 h-6 text-icon-secondary'/>
+          <InformationCircleIcon className='w-6 h-6 text-secondary'/>
         </button>
       </div>
 
@@ -80,7 +80,7 @@ const Tooltip = ({
           {/* <div className="w-full h-full bg-gradient-to-tr rounded-md shadow-md from-primary to-secondary" */}
 
           {/* <div className="flex flex-col gap-2 justify-between p-4 w-full h-full rounded-md bg-app-bg-primary"> */}
-          <div className="p-2 w-full h-full rounded-md bg-app-bg-primary text-neutral-lightest">
+          <div className="p-2 w-full h-full rounded-md bg-neutral-dark text-neutral-lightest">
             <p>{text}</p>
           </div>
 
