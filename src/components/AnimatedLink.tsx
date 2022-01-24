@@ -3,13 +3,12 @@ import AnimatedUnderline from './AnimatedUnderline';
 
 type AProps = {
   children: React.ReactNode;
-  className?: string;
+  // className?: string;
   onClick?: MouseEventHandler<HTMLAnchorElement>
 } & React.AnchorHTMLAttributes<HTMLAnchorElement>
 
 const AnimatedLink = forwardRef<HTMLAnchorElement, AProps>(({
   children,
-  className = '',
   onClick,
   href,
   ...rest
@@ -18,7 +17,6 @@ const AnimatedLink = forwardRef<HTMLAnchorElement, AProps>(({
     <a
       href={href}
       onClick={onClick}
-      className={className}
       ref={ref}
       {...rest}
     >

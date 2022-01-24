@@ -2,7 +2,8 @@ import React, {useState, useEffect} from 'react';
 import {useRouter} from 'next/router';
 import Link from 'next/link';
 
-import AnimatedLink from './AnimatedLink';
+// import AnimatedLink from './AnimatedLink';
+import NextAnimatedLink from './NextAnimatedLink';
 
 const convertBreadcrumb = (crumb: string) => {
   const words = crumb.replace(/-/g, ' ').split(' ');
@@ -39,7 +40,7 @@ export default function Breadcrumbs({className, ...rest}: React.HTMLAttributes<H
     <div aria-label="breadcrumbs" className={`flex ${className ? className : ''}`} {...rest}>
       <div className="">
         <Link href="/" scroll={true} passHref>
-          <AnimatedLink href="/">Home</AnimatedLink>
+          <NextAnimatedLink href="/">Home</NextAnimatedLink>
         </Link>
         &nbsp;/&nbsp;
       </div>
@@ -47,11 +48,14 @@ export default function Breadcrumbs({className, ...rest}: React.HTMLAttributes<H
         if (breadcrumb.href != '/') {
           return (
             <div key={breadcrumb.href} className="">
-              <Link href={breadcrumb.href} scroll={true} passHref>
+              <NextAnimatedLink href={breadcrumb.href}>
+                {convertBreadcrumb(breadcrumb.breadcrumb)}
+              </NextAnimatedLink>
+              {/* <Link href={breadcrumb.href} scroll={true} passHref>
                 <AnimatedLink href={breadcrumb.href}>
                   {convertBreadcrumb(breadcrumb.breadcrumb)}
                 </AnimatedLink>
-              </Link>
+              </Link> */}
               &nbsp;{breadcrumb.breadcrumb === '' ? '' : '/'}&nbsp;
             </div>
           );
