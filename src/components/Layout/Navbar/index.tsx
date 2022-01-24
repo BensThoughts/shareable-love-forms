@@ -5,7 +5,7 @@ import styled from '@emotion/styled';
 import Breadcrumbs from '../../Breadcrumbs';
 import MenuDrawer from '../MenuDrawer';
 import IconButton from '../../IconButton';
-import MenuItem from './MenuItem';
+// import MenuItem from './MenuItem';
 import NavHider from './NavHider';
 
 import {menuItems} from './menuItems';
@@ -14,6 +14,8 @@ import {
   MenuIcon,
   HeartIcon,
 } from '@heroicons/react/solid';
+import NextLink from '@app/components/NextLink';
+import NextAnimatedLink from '@app/components/NextAnimatedLink';
 
 const Nav = styled.nav`
   /* background-color: rgba(0, 0, 0, 0); */
@@ -61,14 +63,14 @@ export default function Navbar({className, ...rest}: NavBarProps) {
       <MenuDrawer isOpen={isOpen} setIsOpen={setIsOpen} title="Menu">
         <NavLinks className="flex flex-col gap-4 justify-end content-between items-center pt-0 mt-7 w-full">
           {menuItems.map((menuItem) => (
-            <MenuItem
+            <NextLink
               key={menuItem.href}
               href={menuItem.href}
               onClick={() => setIsOpen(false)}
               className="flex justify-center items-center w-full h-10 text-xl text-center hover:bg-primary text-neutral-white"
             >
               {menuItem.name}
-            </MenuItem>
+            </NextLink>
           ))}
         </NavLinks>
       </MenuDrawer>
@@ -81,7 +83,13 @@ export default function Navbar({className, ...rest}: NavBarProps) {
               <HeartIcon className="w-6 h-6 text-icon-secondary" />
               <div className="flex gap-4 content-between items-center pt-0">
                 {menuItems.map((menuItem) => (
-                  <MenuItem animatedLink className="text-neutral-white" key={menuItem.href} href={menuItem.href}>{menuItem.name}</MenuItem>
+                  <NextAnimatedLink
+                    key={menuItem.href}
+                    href={menuItem.href}
+                    className="text-neutral-white"
+                  >
+                    {menuItem.name}
+                  </NextAnimatedLink>
                 ))}
               </div>
             </div>
