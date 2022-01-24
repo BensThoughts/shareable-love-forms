@@ -23,9 +23,8 @@ export default function FinishedFormLink({
   // const [formState] = useFormCache();
 
   return (
-    <div className="flex justify-center">
-      <BlobProvider document={<FinishedFormPDF formData={form} />}>
-        {({blob, url, loading, error}) =>
+    <BlobProvider document={<FinishedFormPDF formData={form} />}>
+      {({blob, url, loading, error}) =>
       loading ?
         <DownloadButtonPDF isLoading /> :
         <a
@@ -37,8 +36,7 @@ export default function FinishedFormLink({
         >
           <DownloadButtonPDF isLoading={false} />
         </a>
-        }
-      </BlobProvider>
-    </div>
+      }
+    </BlobProvider>
   );
 }

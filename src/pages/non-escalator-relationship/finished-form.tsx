@@ -2,9 +2,7 @@ import dynamic from 'next/dynamic';
 const FinishedFormLink = dynamic(() => import('../../components/NonEscalatorRelationship/PDF/FinishedFormLink'), {
   ssr: false,
   loading: () => (
-    <div className="flex justify-center w-full">
-      <DownloadButtonPDF isLoading />
-    </div>
+    <DownloadButtonPDF isLoading />
   ),
 });
 
@@ -49,7 +47,7 @@ export default function NonEscalatorRelationshipFinishedFormPage() {
                 Click the button below after your results have been processed to open
                 a PDF that displays your answers. The PDF can be downloaded from there.
               </div>
-              <div>
+              <div className="flex justify-center w-full">
                 <FinishedFormLink form={form}/>
               </div>
             </div>
