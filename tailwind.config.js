@@ -15,6 +15,7 @@ module.exports = {
       'app-bg': generateColorClass('color-bg-base'),
       'primary': generateColorClass('color-app-primary'),
       'secondary': generateColorClass('color-app-secondary'),
+      'accent': generateColorClass('color-app-accent'),
       'neutral-medium': generateColorClass('color-neutral-medium'),
       'neutral-light': generateColorClass('color-neutral-light'),
       'neutral-lighter': generateColorClass('color-neutral-lighter'),
