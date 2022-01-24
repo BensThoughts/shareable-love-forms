@@ -40,7 +40,7 @@ export default function Home() {
 
   return (
     <GridWrapper>
-      <FlexSection>
+      <FlexSection className="mt-12">
         <LogoSVG
           // width={600}
           // height={600}
