@@ -19,6 +19,8 @@ import storage from 'redux-persist/lib/storage';
 
 
 import formsReducer from '@app/utils/store/features/forms/formsSlice';
+import userReducer from '@app/utils/store/features/user/userSlice';
+
 import {persistStore} from 'redux-persist';
 import persistMigrations from './migrations';
 
@@ -26,7 +28,7 @@ const PERSISTED_KEYS: string[] = ['forms'];
 
 const persistConfig = {
   key: 'root',
-  version: 1,
+  version: 0,
   storage,
   whitelist: PERSISTED_KEYS,
   migrate: createMigrate(persistMigrations, {debug: true}),
@@ -35,6 +37,7 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
   forms: formsReducer,
+  user: userReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
