@@ -19,7 +19,8 @@ class MyDocument extends Document {
       // <Html style={{scrollBehavior: 'smooth'}}>
       <Html>
         <Head>
-          <link rel="icon" href="/favicon.ico" />
+          <link rel="shortcut icon" href="/favicon.ico?v=8" />
+          {/* <link rel="mask-icon" href="/HeartIcon.svg" /> */}
           <script dangerouslySetInnerHTML={{__html: gtmHead}} />
         </Head>
         <body>
