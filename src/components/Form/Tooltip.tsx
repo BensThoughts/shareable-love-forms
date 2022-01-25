@@ -58,6 +58,7 @@ const Tooltip = ({
         <button
           ref={buttonRef}
           onClick={() => setShowPopper(true)}
+          className="rounded-full outline-none focus-visible:ring-2 focus-visible:ring-primary"
           style={{
             overflow: 'hidden',
             display: 'block',
