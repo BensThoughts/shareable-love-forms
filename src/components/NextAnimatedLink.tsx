@@ -12,6 +12,7 @@ const NextAnimatedLink = forwardRef<
 >(({
   href,
   onClick,
+  className,
   children,
   ...rest
 }, ref) => {
@@ -21,6 +22,7 @@ const NextAnimatedLink = forwardRef<
         href={href}
         onClick={onClick}
         ref={ref}
+        className={`rounded-sm outline-none focus-visible:border-opacity-80 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-opacity-80 focus-visible:ring-offset-4 focus-visible:ring-offset-app-bg ${className}`}
         {...rest}
       >
         <AnimatedUnderline>

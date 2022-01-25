@@ -1,6 +1,5 @@
 import React, {forwardRef} from 'react';
 import Link from 'next/link';
-import AnimatedUnderline from './AnimatedUnderline';
 
 type NextLinkProps = {
   href: string;
@@ -12,6 +11,7 @@ const NextLink = forwardRef<
 >(({
   href,
   onClick,
+  className,
   children,
   ...rest
 }, ref) => {
@@ -21,11 +21,15 @@ const NextLink = forwardRef<
         href={href}
         onClick={onClick}
         ref={ref}
+        className={`outline-none
+        focus-visible:border-opacity-80 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-opacity-80
+        focus-visible:ring-offset-1 focus-visible:ring-offset-primary/[.15]
+        hover:border-opacity-80 hover:ring-2 hover:ring-primary hover:ring-opacity-80
+        hover:ring-offset-1 hover:ring-offset-primary/[.15]
+        ${className}`}
         {...rest}
       >
-        <AnimatedUnderline>
-          {children}
-        </AnimatedUnderline>
+        {children}
       </a>
     </Link>
   );
