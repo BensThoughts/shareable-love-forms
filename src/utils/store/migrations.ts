@@ -24,7 +24,6 @@ const persistMigrations: MigrationManifest = {
     console.log('Migrating to AppStateV1');
     return undefined;
   },
-
   /**
    * * Use this to do a complete state wipe
    *

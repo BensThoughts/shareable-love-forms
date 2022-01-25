@@ -16,7 +16,7 @@ const DEFAULT_RESPONSE: string = 'N/A';
 
 const nonEscalatorMenu: FormState = {
   formId: 'non-escalator-relationship',
-  formName: 'Non Escalator Relationship',
+  formName: 'Non Escalator Relationship Form',
   formDescription: '',
   formVersion: 0,
   formLastUpdatedDate: '2022-01-21',
