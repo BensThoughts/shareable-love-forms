@@ -83,7 +83,7 @@ export default function FieldGroupLayout({
       case 'selectField': {
         const field = fields[id] as FormSelectField;
         return (
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-3">
             <Label label={field.label} tooltipText={field.tooltipText} />
             <SelectMenu
               options={field.valueOptions}
