@@ -1,31 +1,37 @@
-import Title from '../Title';
-
 type TitleCardProps = {
-  title: string;
+  header?: React.ReactChild;
+  title?: string;
+  description?: string;
   footer?: React.ReactNode;
 } & React.HTMLAttributes<HTMLDivElement>
 
-export default function TitleCard({
-  title,
-  footer,
-  children,
-}: TitleCardProps) {
+function TitleHeader({className, children}: {className?: string, children: React.ReactNode}) {
   return (
-    <div className="max-w-3xl rounded-md p-[3px] ">
-      <div className="flex flex-col gap-2 p-4 bg-neutral-dark">
-        <div className="p-2 border-b-8 border-secondary">
-          <Title className="text-neutral-lightest">{title}</Title>
-        </div>
-        <div className="p-2">
-          <span className="text-neutral-lighter">
-            {children}
-
-          </span>
-        </div>
-        <div>
-          {footer}
-        </div>
-      </div>
-    </div>
+    <div className={`flex items-center px-4 py-4 rounded-t sm:px-8 sm:py-6 ${className}`}>{children}</div>
   );
 }
+
+const TitleCard = ({
+  header = undefined,
+  footer = undefined,
+  title,
+  description,
+  className,
+  children,
+}: TitleCardProps) => {
+  return (
+    <div className={`relative ${className}`}>
+      {header && <>{header}</>}
+      <div className="px-2 py-4 sm:px-8 sm:pb-8">
+        {title && <div className="mb-4 text-2xl font-bold">{title}</div>}
+        {description && <div className="text-base text-secondary">{description}</div>}
+        {children}
+      </div>
+      {footer && <>{footer}</>}
+    </div>
+  );
+};
+
+TitleCard.TitleHeader = TitleHeader;
+
+export default TitleCard;
