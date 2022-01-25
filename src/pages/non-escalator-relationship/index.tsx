@@ -7,7 +7,7 @@ import Title from '@app/components/Title';
 import AnimatedLink from '@app/components/AnimatedLink';
 
 export const NON_ESCALATOR_FORM_ID = 'non-escalator-relationship';
-export const NON_ESCALATOR_FORM_NAME = 'Non Escalator Relationship Form';
+export const NON_ESCALATOR_FORM_NAME = 'Non-Escalator Relationship Form';
 
 export default function NonEscalatorRelationshipHomePage() {
   return (
@@ -42,12 +42,12 @@ export default function NonEscalatorRelationshipHomePage() {
         {/* Escalator About */}
         <FlexSection>
           <TitleCard
-            title="What is an Escalator Relationship?"
+            title="What Is The Relationship Escalator?"
             className="max-w-2xl rounded-md bg-neutral-dark text-neutral-lightest"
           >
             <div className="flex flex-col gap-4 mt-4 text-neutral-lighter">
               <p>
-                Before jumping into what a non escalator relationship is, it makes sense to understand what the
+                Before jumping into what a non-escalator relationship is, it makes sense to understand what the
                 relationship escalator is.
               </p>
               <p>
@@ -77,7 +77,7 @@ export default function NonEscalatorRelationshipHomePage() {
           </TitleCard>
         </FlexSection>
 
-        {/* Non Escalator About */}
+        {/* Non-Escalator About */}
         <FlexSection>
           <TitleCard
             title="What is a Non-Escalator Relationship?"
@@ -98,7 +98,7 @@ export default function NonEscalatorRelationshipHomePage() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                 Navigating Non Escalator Relationships
+                 Navigating Non-Escalator Relationships
                 </AnimatedLink>
                 &nbsp;-&nbsp;
                 <span className="italic font-bold">
@@ -137,7 +137,7 @@ export default function NonEscalatorRelationshipHomePage() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Navigating Non Escalator Relationships
+                  Navigating Non-Escalator Relationships
                 </AnimatedLink>
                 &nbsp;-&nbsp;
                 <span className="italic font-bold">
@@ -153,7 +153,7 @@ export default function NonEscalatorRelationshipHomePage() {
                 </p>
               </div>
               <p>
-                Relationships run a spectrum from very traditional to radically non-traditional. The Non Escalator
+                Relationships run a spectrum from very traditional to radically non-traditional. The Non-Escalator
                 Relationship Form can help you to get clarity on the priorities and values you seek in a current
                 relationship or one that is soon to be.
               </p>
