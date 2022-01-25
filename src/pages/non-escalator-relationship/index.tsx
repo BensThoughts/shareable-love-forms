@@ -42,7 +42,7 @@ export default function NonEscalatorRelationshipHomePage() {
         {/* Escalator About */}
         <FlexSection>
           <TitleCard
-            title="What Is The Relationship Escalator?"
+            title="What Is the Relationship Escalator?"
             className="max-w-2xl rounded-md bg-neutral-dark text-neutral-lightest"
           >
             <div className="flex flex-col gap-4 mt-4 text-neutral-lighter">
@@ -80,7 +80,7 @@ export default function NonEscalatorRelationshipHomePage() {
         {/* Non-Escalator About */}
         <FlexSection>
           <TitleCard
-            title="What is a Non-Escalator Relationship?"
+            title="What Is a Non-Escalator Relationship?"
             className="max-w-2xl rounded-md bg-neutral-dark text-neutral-lightest"
           >
             <div className="flex flex-col gap-4 mt-4 text-neutral-lighter">

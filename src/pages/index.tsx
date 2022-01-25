@@ -69,7 +69,7 @@ export default function Home() {
           className="rounded-md"
         >
           <Card
-            title="Non Escalator Relationship Form"
+            title="Non-Escalator Relationship Form"
             className={`self-center max-w-md`}
           >
             This is a form designed to help you think and talk about what you want in a relationship.
