@@ -49,7 +49,7 @@ export default function MenuDrawer({
           >
             <div className="flex overflow-hidden z-50 flex-col justify-between p-6 w-full max-w-sm text-left align-middle bg-opacity-70 rounded-br-md shadow-xl backdrop-filter backdrop-blur-sm bg-neutral-dark">
               <div>
-                <Dialog.Title className="text-2xl font-bold md:text-4xl text-secondary">{title}</Dialog.Title>
+                <Dialog.Title className="text-2xl font-bold md:text-4xl text-primary">{title}</Dialog.Title>
                 <Dialog.Description>{description}</Dialog.Description>
                 {children}
               </div>
