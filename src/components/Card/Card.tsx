@@ -1,14 +1,10 @@
-import CardFooter from './CardFooter';
-
 type CardProps = {
   title: string;
   href?: string;
-  footer?: React.ReactNode;
 } & React.HTMLAttributes<HTMLDivElement>
 
 export default function Card({
   title,
-  href,
   children,
   className,
 }: CardProps) {
@@ -19,9 +15,6 @@ export default function Card({
         <span className="text-neutral-lighter">
           {children}
         </span>
-        {href && <div>
-          <CardFooter href={href} />
-        </div>}
       </div>
     </div>
   );
