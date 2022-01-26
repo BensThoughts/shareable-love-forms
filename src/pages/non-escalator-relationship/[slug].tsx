@@ -71,7 +71,7 @@ export default function NonEscalatorRelationshipPage({
   return (
     <>
       <NextSeo
-        title={`${NON_ESCALATOR_FORM_NAME} - ${fieldGroupLabel}`}
+        title={`${NON_ESCALATOR_FORM_NAME} | ${fieldGroupLabel}`}
         description="The non-escalator relationship form is designed help you determine what you need, want, and will not accept in a romantic relationship."
       />
       <BootstrapForm formId={NON_ESCALATOR_FORM_ID}>

@@ -15,7 +15,7 @@ export default function LoadingFormPage({
   return (
     <>
       <NextSeo
-        title={`${formName} - Loading Form`}
+        title={`${formName} | Loading Form`}
         description="The non-escalator relationship form is designed help you determine what you need, want, and will not accept in a romantic relationship."
       />
       <BootstrapForm formId={formId}>
