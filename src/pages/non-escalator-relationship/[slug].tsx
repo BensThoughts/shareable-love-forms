@@ -2,16 +2,17 @@ import {GetStaticPaths, GetStaticProps} from 'next';
 import GridWrapper from '../../components/GridWrapper';
 import FlexSection from '@app/components/FlexSection';
 import type {ReactElement} from 'react';
+import {NextSeo} from 'next-seo';
+
 import SlideAnimationProvider from '@app/utils/context/SlideAnimationContext';
 import {useAppSelector} from '@app/utils/store/hooks';
 import {selectFormById} from '@app/utils/store/features/forms/formsSlice';
-import LoadingSpinner from '@app/components/LoadingSpinner';
 import Title from '@app/components/Title';
-
 import BootstrapForm from '@app/utils/store/features/forms/BootstrapForm';
-import {NON_ESCALATOR_FORM_ID, NON_ESCALATOR_FORM_NAME} from './index';
 import {getForm} from '@app/utils/store/data/nonEscalatorFormData';
 import FieldGroupLayout from '@app/components/Form/FieldGroupLayout';
+import {NON_ESCALATOR_FORM_ID, NON_ESCALATOR_FORM_NAME} from './index';
+import LoadingFormPage from '@app/components/NonEscalatorRelationship/LoadingFormPage';
 
 export const getStaticPaths: GetStaticPaths = (params) => {
   const form = getForm(NON_ESCALATOR_FORM_ID);
@@ -60,14 +61,7 @@ export default function NonEscalatorRelationshipPage({
 
   if (!form) {
     return (
-      <BootstrapForm formId={NON_ESCALATOR_FORM_ID}>
-        <GridWrapper>
-          <FlexSection>
-            <Title className="text-center">Loading Form</Title>
-            <LoadingSpinner size='large' />
-          </FlexSection>
-        </GridWrapper>
-      </BootstrapForm>
+      <LoadingFormPage formId={NON_ESCALATOR_FORM_ID} formName={NON_ESCALATOR_FORM_NAME} />
     );
   }
 
@@ -75,24 +69,30 @@ export default function NonEscalatorRelationshipPage({
   const fieldGroupLabel = fieldGroup.fieldGroupLabel;
 
   return (
-    <BootstrapForm formId={NON_ESCALATOR_FORM_ID}>
-      <GridWrapper>
-        <FlexSection>
-          <Title className="text-center text-neutral-lightest">
-            {NON_ESCALATOR_FORM_NAME}
-          </Title>
-          <h2 className="text-2xl text-center text-neutral-lighter">
-            {fieldGroupLabel}
-          </h2>
-        </FlexSection>
-        <FlexSection className="mb-[105px]">
-          <FieldGroupLayout
-            formId={NON_ESCALATOR_FORM_ID}
-            fieldGroup={fieldGroup}
-          />
-        </FlexSection>
-      </GridWrapper>
-    </BootstrapForm>
+    <>
+      <NextSeo
+        title={`${NON_ESCALATOR_FORM_NAME} - ${fieldGroupLabel}`}
+        description="The non-escalator relationship form is designed help you determine what you need, want, and will not accept in a romantic relationship."
+      />
+      <BootstrapForm formId={NON_ESCALATOR_FORM_ID}>
+        <GridWrapper>
+          <FlexSection>
+            <Title className="text-center text-neutral-lightest">
+              {NON_ESCALATOR_FORM_NAME}
+            </Title>
+            <h2 className="text-2xl text-center text-neutral-lighter">
+              {fieldGroupLabel}
+            </h2>
+          </FlexSection>
+          <FlexSection className="mb-[105px]">
+            <FieldGroupLayout
+              formId={NON_ESCALATOR_FORM_ID}
+              fieldGroup={fieldGroup}
+            />
+          </FlexSection>
+        </GridWrapper>
+      </BootstrapForm>
+    </>
   );
 }
 

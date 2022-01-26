@@ -1,3 +1,4 @@
+import {NextSeo} from 'next-seo';
 import dynamic from 'next/dynamic';
 const FinishedFormLink = dynamic(() => import('../../components/NonEscalatorRelationship/PDF/FinishedFormLink'), {
   ssr: false,
@@ -5,19 +6,17 @@ const FinishedFormLink = dynamic(() => import('../../components/NonEscalatorRela
     <DownloadButtonPDF isLoading />
   ),
 });
-
 // import FinishedFormLink from '@app/components/NonEscalatorRelationship/FinishedFormLink';
 
+import {selectFormById} from '@app/utils/store/features/forms/formsSlice';
+import {useAppSelector} from '@app/utils/store/hooks';
 import GridWrapper from '../../components/GridWrapper';
 import FlexSection from '@app/components/FlexSection';
 import TitleCard from '@app/components/Card/TitleCard';
 import BootstrapForm from '@app/utils/store/features/forms/BootstrapForm';
-import {NON_ESCALATOR_FORM_ID} from './index';
-import {selectFormById} from '@app/utils/store/features/forms/formsSlice';
-import {useAppSelector} from '@app/utils/store/hooks';
-import LoadingSpinner from '@app/components/LoadingSpinner';
-import Title from '@app/components/Title';
+import {NON_ESCALATOR_FORM_ID, NON_ESCALATOR_FORM_NAME} from './index';
 import DownloadButtonPDF from '@app/components/NonEscalatorRelationship/PDF/DownloadButtonPDF';
+import LoadingFormPage from '@app/components/NonEscalatorRelationship/LoadingFormPage';
 
 
 export default function NonEscalatorRelationshipFinishedFormPage() {
@@ -25,38 +24,37 @@ export default function NonEscalatorRelationshipFinishedFormPage() {
 
   if (!form) {
     return (
-      <BootstrapForm formId={NON_ESCALATOR_FORM_ID}>
-        <GridWrapper>
-          <FlexSection>
-            <Title>Loading Form</Title>
-            <LoadingSpinner size='large' />
-          </FlexSection>
-        </GridWrapper>
-      </BootstrapForm>
+      <LoadingFormPage formId={NON_ESCALATOR_FORM_ID} formName={NON_ESCALATOR_FORM_NAME} />
     );
   }
 
   return (
-    <BootstrapForm formId={NON_ESCALATOR_FORM_ID}>
-      <GridWrapper>
-        {/* <FinishedFormLink formId={formId} /> */}
-        <FlexSection>
-          <TitleCard title="Results">
-            <div className="flex flex-col gap-4">
-              <div>
+    <>
+      <NextSeo
+        title={`${NON_ESCALATOR_FORM_NAME} - Finished Form`}
+        description="The non-escalator relationship form is designed help you determine what you need, want, and will not accept in a romantic relationship."
+      />
+      <BootstrapForm formId={NON_ESCALATOR_FORM_ID}>
+        <GridWrapper>
+          {/* <FinishedFormLink formId={formId} /> */}
+          <FlexSection>
+            <TitleCard title="Results">
+              <div className="flex flex-col gap-4">
+                <div>
                 Click the button below after your results have been processed to open
                 a PDF that displays your answers. The PDF can be downloaded from there.
+                </div>
+                <div className="flex justify-center w-full">
+                  <FinishedFormLink form={form}/>
+                </div>
               </div>
-              <div className="flex justify-center w-full">
-                <FinishedFormLink form={form}/>
-              </div>
-            </div>
-          </TitleCard>
-        </FlexSection>
+            </TitleCard>
+          </FlexSection>
 
-        {/* <FinishedFormPDF formData={formState}/> */}
-      </GridWrapper>
-    </BootstrapForm>
+          {/* <FinishedFormPDF formData={formState}/> */}
+        </GridWrapper>
+      </BootstrapForm>
+    </>
   );
 }
 
