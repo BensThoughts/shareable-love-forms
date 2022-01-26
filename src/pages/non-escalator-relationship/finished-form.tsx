@@ -38,8 +38,11 @@ export default function NonEscalatorRelationshipFinishedFormPage() {
         <GridWrapper>
           {/* <FinishedFormLink formId={formId} /> */}
           <FlexSection>
-            <TitleCard title="Results">
-              <div className="flex flex-col gap-4">
+            <TitleCard
+              title="Results"
+              className="max-w-2xl rounded-md bg-neutral-dark text-neutral-lightest"
+            >
+              <div className="flex flex-col gap-4 text-neutral-lighter">
                 <div>
                 Click the button below after your results have been processed to open
                 a PDF that displays your answers. The PDF can be downloaded from there.
