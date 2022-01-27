@@ -1,6 +1,6 @@
 import {NextSeo} from 'next-seo';
 
-import TitleCard from '@app/components/Card/TitleCard';
+import Card from '@app/components/Card/Card';
 import NextLinkButton from '@app/components/NextLinkButton';
 import GridWrapper from '@app/components/GridWrapper';
 import FlexSection from '@app/components/FlexSection';
@@ -23,12 +23,12 @@ export default function NonEscalatorRelationshipHomePage() {
 
           {/* About Form */}
           <FlexSection>
-            <TitleCard className="max-w-2xl rounded-md bg-neutral-dark">
-              <TitleCard.TitleHeader>
+            <Card className="max-w-2xl rounded-md bg-neutral-dark">
+              <Card.Header>
                 <div className="pb-4 w-full text-center border-b-8 border-secondary">
                   <Title className="text-neutral-lightest">{NON_ESCALATOR_FORM_NAME}</Title>
                 </div>
-              </TitleCard.TitleHeader>
+              </Card.Header>
               <div className="flex flex-col gap-2 text-neutral-lighter">
                 <h2 className="text-xl text-neutral-lightest">About The Form</h2>
                 <p>
@@ -43,12 +43,12 @@ export default function NonEscalatorRelationshipHomePage() {
                   </NextLinkButton>
                 </div>
               </div>
-            </TitleCard>
+            </Card>
           </FlexSection>
 
           {/* Escalator About */}
           <FlexSection>
-            <TitleCard
+            <Card
               title="What Is the Relationship Escalator?"
               className="max-w-2xl rounded-md bg-neutral-dark text-neutral-lightest"
             >
@@ -81,12 +81,12 @@ export default function NonEscalatorRelationshipHomePage() {
                   </p>
                 </div>
               </div>
-            </TitleCard>
+            </Card>
           </FlexSection>
 
           {/* Non-Escalator About */}
           <FlexSection>
-            <TitleCard
+            <Card
               title="What Is a Non-Escalator Relationship?"
               className="max-w-2xl rounded-md bg-neutral-dark text-neutral-lightest"
             >
@@ -125,12 +125,12 @@ export default function NonEscalatorRelationshipHomePage() {
                   </p>
                 </div>
               </div>
-            </TitleCard>
+            </Card>
           </FlexSection>
 
           {/* You Have Questions, There are Answers */}
           <FlexSection>
-            <TitleCard
+            <Card
               title="You Have Questions, There are Answers"
               className="max-w-2xl rounded-md bg-neutral-dark text-neutral-lightest"
             >
@@ -170,7 +170,7 @@ export default function NonEscalatorRelationshipHomePage() {
                   </NextLinkButton>
                 </div>
               </div>
-            </TitleCard>
+            </Card>
           </FlexSection>
         </GridWrapper>
       </BootstrapForm>

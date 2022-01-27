@@ -12,7 +12,7 @@ import {selectFormById} from '@app/utils/store/features/forms/formsSlice';
 import {useAppSelector} from '@app/utils/store/hooks';
 import GridWrapper from '../../components/GridWrapper';
 import FlexSection from '@app/components/FlexSection';
-import TitleCard from '@app/components/Card/TitleCard';
+import Card from '@app/components/Card/Card';
 import BootstrapForm from '@app/utils/store/features/forms/BootstrapForm';
 import {NON_ESCALATOR_FORM_ID, NON_ESCALATOR_FORM_NAME} from './index';
 import DownloadButtonPDF from '@app/components/NonEscalatorRelationship/PDF/DownloadButtonPDF';
@@ -38,7 +38,7 @@ export default function NonEscalatorRelationshipFinishedFormPage() {
         <GridWrapper>
           {/* <FinishedFormLink formId={formId} /> */}
           <FlexSection>
-            <TitleCard
+            <Card
               title="Results"
               className="max-w-2xl rounded-md bg-neutral-dark text-neutral-lightest"
             >
@@ -51,7 +51,7 @@ export default function NonEscalatorRelationshipFinishedFormPage() {
                   <FinishedFormLink form={form}/>
                 </div>
               </div>
-            </TitleCard>
+            </Card>
           </FlexSection>
 
           {/* <FinishedFormPDF formData={formState}/> */}

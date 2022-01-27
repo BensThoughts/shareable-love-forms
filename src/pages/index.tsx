@@ -1,9 +1,9 @@
 // import type {NextPage} from 'next';
-import Card from '@app/components/Card/Card';
+import GradientBorderCard from '@app/components/Card/GradientBorderCard';
 import GridWrapper from '@app/components/GridWrapper';
 import FlexSection from '@app/components/FlexSection';
 import LogoSVG from '@app/components/Layout/Background/LogoSVG';
-import TitleCard from '@app/components/Card/TitleCard';
+import Card from '@app/components/Card/Card';
 import {ChevronDoubleRightIcon} from '@heroicons/react/solid';
 import Title from '@app/components/Title';
 import NextLink from '@app/components/NextLink';
@@ -49,7 +49,7 @@ export default function Home() {
         />
       </FlexSection>
       <FlexSection>
-        <TitleCard
+        <Card
           className="max-w-2xl rounded-md bg-neutral-dark"
         >
           <div className="pb-4 w-full border-b-8 border-secondary">
@@ -61,14 +61,14 @@ export default function Home() {
           or shared as a link.
           </div>
 
-        </TitleCard>
+        </Card>
       </FlexSection>
       <FlexSection>
         <NextLink
           href="/non-escalator-relationship"
           className="rounded-md"
         >
-          <Card
+          <GradientBorderCard
             title="Non-Escalator Relationship Form"
             className={`self-center max-w-md`}
           >
@@ -78,7 +78,7 @@ export default function Home() {
                 goto <ChevronDoubleRightIcon className="inline-block w-5 h-5" />
               </span>
             </div>
-          </Card>
+          </GradientBorderCard>
         </NextLink>
 
       </FlexSection>
