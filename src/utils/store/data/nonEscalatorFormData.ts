@@ -197,8 +197,7 @@ const nonEscalatorMenu: FormState = {
         },
         'penetration': {
           id: 'penetration',
-          label: 'Penetration/PIV',
-          tooltipText: 'PIV: Penis in Vagina',
+          label: 'Penetration',
           type: 'selectField',
           valueOptions: DEFAULT_RESPONSE_OPTIONS,
           value: DEFAULT_RESPONSE,
