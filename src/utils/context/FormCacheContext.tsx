@@ -1,4 +1,4 @@
-import {createContext, ReactNode, useReducer} from 'react';
+import { createContext, ReactNode, useReducer } from 'react';
 
 type UpdateFormFieldsAction = {
   type: 'UpdateFormFields';
@@ -85,7 +85,7 @@ const FormCacheProvider = ({
   initialState,
 }: FormCacheProviderProps) => {
   const [state, dispatch] = useReducer(FormCacheReducer, initialState);
-  const value = {state, dispatch};
+  const value = { state, dispatch };
   return (
     <FormCacheContext.Provider value={value}>
       {children}

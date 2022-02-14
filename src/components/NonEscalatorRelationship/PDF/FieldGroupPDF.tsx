@@ -1,7 +1,7 @@
-import {FormFieldGroup} from '@app/utils/context/FormCacheContext';
-import {StyleSheet, View, Text} from '@react-pdf/renderer';
-import {RESPONSE_COLOR} from './FinishedFormPDF';
-import {LikeToHaveIcon, MaybeIcon, MustHaveIcon, OffLimitsIcon} from '../../Icons';
+import { FormFieldGroup } from '@app/utils/context/FormCacheContext';
+import { StyleSheet, View, Text } from '@react-pdf/renderer';
+import { RESPONSE_COLOR } from './FinishedFormPDF';
+import { LikeToHaveIcon, MaybeIcon, MustHaveIcon, OffLimitsIcon } from '../../Icons';
 
 export default function FieldGroupPDF({
   fieldGroup,

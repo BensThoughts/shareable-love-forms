@@ -3,9 +3,12 @@
     "next",
     "next/core-web-vitals",
     // "plugin:@typescript-eslint/recommended",
-    "google"
+    "google",
+    "prettier"
   ],
   "rules": {
+    "object-curly-spacing": ["error", "always", {"arraysInObjects": false}],
+    "operator-linebreak": ["error", "after", {"overrides": { "?": "before", ":": "before"}}],
     "@next/next/no-img-element": "off",
     "require-jsdoc": "off",
     "max-len": "off"

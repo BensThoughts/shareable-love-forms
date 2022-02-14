@@ -1,4 +1,4 @@
-import {NextSeo} from 'next-seo';
+import { NextSeo } from 'next-seo';
 
 import Card from '@app/components/Card/Card';
 import GridWrapper from '@app/components/GridWrapper';

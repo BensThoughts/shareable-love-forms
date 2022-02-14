@@ -4,7 +4,7 @@ import GridWrapper from '@app/components/GridWrapper';
 import FlexSection from '@app/components/FlexSection';
 import LogoSVG from '@app/components/Layout/Background/LogoSVG';
 import Card from '@app/components/Card/Card';
-import {ChevronDoubleRightIcon} from '@heroicons/react/solid';
+import { ChevronDoubleRightIcon } from '@heroicons/react/solid';
 import Title from '@app/components/Title';
 import NextLink from '@app/components/NextLink';
 

@@ -1,6 +1,6 @@
-import {MigrationManifest} from 'redux-persist';
-import {PersistedState} from 'redux-persist/es/types';
-import {AppState} from './store';
+import { MigrationManifest } from 'redux-persist';
+import { PersistedState } from 'redux-persist/es/types';
+import { AppState } from './store';
 
 // type AppStateV0 = {
 //   [P in keyof Omit<AppStateV1, 'forms'>]: AppStateV1[P]

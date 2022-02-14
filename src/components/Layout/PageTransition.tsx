@@ -1,4 +1,4 @@
-import {motion} from 'framer-motion';
+import { motion } from 'framer-motion';
 
 export default function PageTransition({
   slideDirection,
@@ -12,9 +12,9 @@ export default function PageTransition({
   const animationInverse = slideDirection === 'left' ? 1 : -1;
 
   const variants = {
-    hidden: {opacity: 0, x: 200 * animationInverse, y: 0},
-    enter: {opacity: 1, x: 0, y: 0},
-    exit: {opacity: 0, x: -200 * animationInverse, y: 0},
+    hidden: { opacity: 0, x: 200 * animationInverse, y: 0 },
+    enter: { opacity: 1, x: 0, y: 0 },
+    exit: { opacity: 0, x: -200 * animationInverse, y: 0 },
   };
   return (
     <motion.div
@@ -22,7 +22,7 @@ export default function PageTransition({
       initial="hidden"
       animate="enter"
       exit="exit"
-      transition={{type: 'linear'}}
+      transition={{ type: 'linear' }}
       className={className}
     >
       {children}

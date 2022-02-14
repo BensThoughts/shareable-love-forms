@@ -1,6 +1,6 @@
-import FormCacheProvider, {FormState} from '@app/utils/context/FormCacheContext';
+import FormCacheProvider, { FormState } from '@app/utils/context/FormCacheContext';
 import SlideAnimationProvider from '@app/utils/context/SlideAnimationContext';
-import type {ReactElement} from 'react';
+import type { ReactElement } from 'react';
 
 interface FormContextLayoutProps {
   page: ReactElement;

@@ -1,4 +1,4 @@
-import {FormState} from '@app/utils/store/features/forms/formsSlice';
+import { FormState } from '@app/utils/store/features/forms/formsSlice';
 
 export type ResponseOption = 'N/A' | 'Must Have' | 'Like To Have' | 'Maybe' | 'Off Limits';
 
@@ -31,7 +31,7 @@ const nonEscalatorMenu: FormState = {
           label: 'Marriage',
           type: 'selectField',
           valueOptions: DEFAULT_RESPONSE_OPTIONS,
-          value: DEFAULT_RESPONSE},
+          value: DEFAULT_RESPONSE },
         'sharing-pets': {
           id: 'sharing-pets',
           label: 'Sharing pet(s)',

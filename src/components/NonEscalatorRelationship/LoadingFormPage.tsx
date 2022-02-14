@@ -1,4 +1,4 @@
-import {NextSeo} from 'next-seo';
+import { NextSeo } from 'next-seo';
 import BootstrapForm from '@app/utils/store/features/forms/BootstrapForm';
 import GridWrapper from '../GridWrapper';
 import FlexSection from '../FlexSection';

@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import { useState } from 'react';
 import styled from '@emotion/styled';
 
 // import ThemeToggle from '@app/components/ThemeToggle';
@@ -8,7 +8,7 @@ import IconButton from '../../IconButton';
 // import MenuItem from './MenuItem';
 import NavHider from './NavHider';
 
-import {menuItems} from './menuItems';
+import { menuItems } from './menuItems';
 
 import {
   MenuIcon,
@@ -53,7 +53,7 @@ type NavBarProps = {
   className?: string;
 }
 
-export default function Navbar({className, ...rest}: NavBarProps) {
+export default function Navbar({ className, ...rest }: NavBarProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (

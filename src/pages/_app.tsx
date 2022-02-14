@@ -1,11 +1,11 @@
 import '../styles/globals.css';
 import React from 'react';
-import type {ReactElement, ReactNode} from 'react';
+import type { ReactElement, ReactNode } from 'react';
 import type {
   AppProps,
   // NextWebVitalsMetric
 } from 'next/app';
-import type {NextPage} from 'next';
+import type { NextPage } from 'next';
 
 
 type NextPageWithLayout = NextPage & {
@@ -21,14 +21,14 @@ import Footer from '../components/Layout/Footer';
 
 import styled from '@emotion/styled';
 
-import {AnimatePresence} from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 
-import {Provider} from 'react-redux';
-import {store} from '@app/utils/store/store';
-import {PersistGate} from 'redux-persist/integration/react';
-import {persistor} from '@app/utils/store/store';
+import { Provider } from 'react-redux';
+import { store } from '@app/utils/store/store';
+import { PersistGate } from 'redux-persist/integration/react';
+import { persistor } from '@app/utils/store/store';
 
-import {DefaultSeo} from 'next-seo';
+import { DefaultSeo } from 'next-seo';
 import seoConfig from '@app/utils/seo.config';
 
 const PageWrapper = styled.div`

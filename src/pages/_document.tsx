@@ -1,9 +1,9 @@
-import Document, {Html, Head, Main, NextScript, DocumentContext} from 'next/document';
+import Document, { Html, Head, Main, NextScript, DocumentContext } from 'next/document';
 
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
     const initialProps = await Document.getInitialProps(ctx);
-    return {...initialProps};
+    return { ...initialProps };
   }
 
   render() {
@@ -21,7 +21,7 @@ class MyDocument extends Document {
         <Head>
           <link rel="shortcut icon" href="/favicon.ico?v=8" />
           {/* <link rel="mask-icon" href="/HeartIcon.svg" /> */}
-          <script dangerouslySetInnerHTML={{__html: gtmHead}} />
+          <script dangerouslySetInnerHTML={{ __html: gtmHead }} />
         </Head>
         <body>
           <noscript>
@@ -29,7 +29,7 @@ class MyDocument extends Document {
               src="https://www.googletagmanager.com/ns.html?id=GTM-5KKGNJJ"
               height="0"
               width="0"
-              style={{display: 'none', visibility: 'hidden'}}
+              style={{ display: 'none', visibility: 'hidden' }}
             />
           </noscript>
           <Main />

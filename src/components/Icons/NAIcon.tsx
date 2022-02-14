@@ -1,6 +1,6 @@
-import {Path, Svg} from '@react-pdf/renderer';
+import { Path, Svg } from '@react-pdf/renderer';
 
-export default function NAIcon({stroke = 'black'}) {
+export default function NAIcon({ stroke = 'black' }) {
   return (
     <Svg
       // height={16}

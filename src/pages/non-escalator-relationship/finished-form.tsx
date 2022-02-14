@@ -1,4 +1,4 @@
-import {NextSeo} from 'next-seo';
+import { NextSeo } from 'next-seo';
 import dynamic from 'next/dynamic';
 const FinishedFormLink = dynamic(() => import('../../components/NonEscalatorRelationship/PDF/FinishedFormLink'), {
   ssr: false,
@@ -8,13 +8,13 @@ const FinishedFormLink = dynamic(() => import('../../components/NonEscalatorRela
 });
 // import FinishedFormLink from '@app/components/NonEscalatorRelationship/FinishedFormLink';
 
-import {selectFormById} from '@app/utils/store/features/forms/formsSlice';
-import {useAppSelector} from '@app/utils/store/hooks';
+import { selectFormById } from '@app/utils/store/features/forms/formsSlice';
+import { useAppSelector } from '@app/utils/store/hooks';
 import GridWrapper from '../../components/GridWrapper';
 import FlexSection from '@app/components/FlexSection';
 import Card from '@app/components/Card/Card';
 import BootstrapForm from '@app/utils/store/features/forms/BootstrapForm';
-import {NON_ESCALATOR_FORM_ID, NON_ESCALATOR_FORM_NAME} from './index';
+import { NON_ESCALATOR_FORM_ID, NON_ESCALATOR_FORM_NAME } from './index';
 import DownloadButtonPDF from '@app/components/NonEscalatorRelationship/PDF/DownloadButtonPDF';
 import LoadingFormPage from '@app/components/NonEscalatorRelationship/LoadingFormPage';
 

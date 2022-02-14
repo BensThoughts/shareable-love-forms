@@ -1,6 +1,6 @@
 
 
-import {FormState} from '@app/utils/store/features/forms/formsSlice';
+import { FormState } from '@app/utils/store/features/forms/formsSlice';
 // import useFormCache from '@app/utils/hooks/useFormCache';
 import {
   // PDFDownloadLink,
@@ -24,10 +24,10 @@ export default function FinishedFormLink({
 
   return (
     <BlobProvider document={<FinishedFormPDF formData={form} />}>
-      {({blob, url, loading, error}) =>
-      loading ?
-        <DownloadButtonPDF isLoading /> :
-        <a
+      {({ blob, url, loading, error }) =>
+      loading
+        ? <DownloadButtonPDF isLoading />
+        : <a
           href={url as string}
           target="_blank"
           rel="noreferrer noopener"

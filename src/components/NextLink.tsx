@@ -1,4 +1,4 @@
-import React, {forwardRef} from 'react';
+import React, { forwardRef } from 'react';
 import Link from 'next/link';
 
 type NextLinkProps = {

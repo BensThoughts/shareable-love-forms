@@ -5,7 +5,7 @@ type TitleCardProps = {
   footer?: React.ReactNode;
 } & React.HTMLAttributes<HTMLDivElement>
 
-function Header({className, children}: {className?: string, children: React.ReactNode}) {
+function Header({ className, children }: {className?: string, children: React.ReactNode}) {
   return (
     <div className={`flex items-center px-4 py-4 rounded-t sm:px-8 sm:py-6 ${className}`}>{children}</div>
   );

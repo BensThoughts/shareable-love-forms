@@ -5,7 +5,7 @@ import {
   createEntityAdapter,
 } from '@reduxjs/toolkit';
 
-import {AppState} from '@app/utils/store/store';
+import { AppState } from '@app/utils/store/store';
 
 export type FieldType = 'selectField' | 'inputField';
 export interface IField {
@@ -105,7 +105,7 @@ const {
   // selectIds: selectFormIds,
 } = formsAdapter.getSelectors((state: AppState) => state.forms);
 
-export {selectFormById};
+export { selectFormById };
 
 export default formsSlice.reducer;
 

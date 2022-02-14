@@ -1,5 +1,5 @@
-import {useContext} from 'react';
-import {SlideAnimationContext} from '../context/SlideAnimationContext';
+import { useContext } from 'react';
+import { SlideAnimationContext } from '../context/SlideAnimationContext';
 
 export default function useSlideAnimation() {
   const context = useContext(SlideAnimationContext);

@@ -1,6 +1,6 @@
-import {InformationCircleIcon} from '@heroicons/react/solid';
-import React, {useState, useRef, useEffect} from 'react';
-import {usePopper} from 'react-popper';
+import { InformationCircleIcon } from '@heroicons/react/solid';
+import React, { useState, useRef, useEffect } from 'react';
+import { usePopper } from 'react-popper';
 // import styled from 'styled-components';
 import styled from '@emotion/styled';
 
@@ -16,7 +16,7 @@ const Tooltip = ({
   // the ref for the arrow must be a callback ref
   const [arrowRef, setArrowRef] = useState<HTMLDivElement | null>(null);
 
-  const {styles, attributes} = usePopper(
+  const { styles, attributes } = usePopper(
       buttonRef.current,
       popperRef.current,
       {

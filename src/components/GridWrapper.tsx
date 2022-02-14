@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import styled from '@emotion/styled';
 
 const Wrapper = styled.div<{
@@ -13,7 +13,7 @@ const Wrapper = styled.div<{
   align-items: center;
   row-gap: 3rem;
   column-gap: 0;
-  grid-template-columns: ${({charWidth = 90}) => `1fr min(${charWidth}ch, 100%) 1fr`};
+  grid-template-columns: ${({ charWidth = 90 }) => `1fr min(${charWidth}ch, 100%) 1fr`};
   * {
     grid-column: 1 / -1;
   }
@@ -21,7 +21,7 @@ const Wrapper = styled.div<{
     display: grid;
     margin-left: auto;
     margin-right: auto;
-    grid-template-columns: ${({charWidth = 90}) => `1fr min(${charWidth}ch, 100%) 1fr`};
+    grid-template-columns: ${({ charWidth = 90 }) => `1fr min(${charWidth}ch, 100%) 1fr`};
     padding-right: 2rem;
     padding-left: 2rem;
     row-gap: 5rem;

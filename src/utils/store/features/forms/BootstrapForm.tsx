@@ -1,7 +1,7 @@
-import {useAppDispatch, useAppSelector} from '@app/utils/store/hooks';
-import {selectFormById, setOneForm} from './formsSlice';
+import { useAppDispatch, useAppSelector } from '@app/utils/store/hooks';
+import { selectFormById, setOneForm } from './formsSlice';
 
-import {getForm} from '../../data/nonEscalatorFormData'; // This will eventually be async on a server
+import { getForm } from '../../data/nonEscalatorFormData'; // This will eventually be async on a server
 
 export default function BootstrapForm({
   formId,
@@ -27,7 +27,7 @@ export default function BootstrapForm({
 
   if (!reduxForm || reduxForm.formVersion != serverForm.formVersion) {
     // dispatch(upsertForm({form: serverForm}));
-    dispatch(setOneForm({form: serverForm}));
+    dispatch(setOneForm({ form: serverForm }));
   }
 
   return (

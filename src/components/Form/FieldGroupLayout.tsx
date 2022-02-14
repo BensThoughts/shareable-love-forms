@@ -1,12 +1,12 @@
-import React, {useReducer} from 'react';
+import React, { useReducer } from 'react';
 import SelectMenu from './SelectMenu';
-import {FormFieldGroup, FormSelectField, FormInputField, updateFieldGroup} from '@app/utils/store/features/forms/formsSlice';
+import { FormFieldGroup, FormSelectField, FormInputField, updateFieldGroup } from '@app/utils/store/features/forms/formsSlice';
 import FormInput from './Input';
 import NextLinkButton from '../NextLinkButton';
 import useSlideAnimation from '@app/utils/hooks/useSlideAnimation';
 import PageTransition from '../Layout/PageTransition';
 import Label from './Label';
-import {useAppDispatch} from '@app/utils/store/hooks';
+import { useAppDispatch } from '@app/utils/store/hooks';
 // import PageTransition from '../Layout/PageTransition';
 
 type UpdateFieldAction = {
@@ -89,7 +89,7 @@ export default function FieldGroupLayout({
               options={field.valueOptions}
               initialValue={field.value}
               onChange={(e) => {
-                localFieldGroupDispatch({type: 'UpdateField', payload: {fieldId: id, value: e}});
+                localFieldGroupDispatch({ type: 'UpdateField', payload: { fieldId: id, value: e } });
               }}
             />
           </div>
@@ -129,7 +129,7 @@ export default function FieldGroupLayout({
               href={`/non-escalator-relationship/${previousFieldGroupId}`}
               onClick={() => {
                 setSlideAnimationDirection('right');
-                appDispatch(updateFieldGroup({formId, fieldGroup: localFieldGroupState}));
+                appDispatch(updateFieldGroup({ formId, fieldGroup: localFieldGroupState }));
               }}
             >
               Previous
@@ -141,7 +141,7 @@ export default function FieldGroupLayout({
               href={`/non-escalator-relationship/${nextFieldGroupId}`}
               onClick={() => {
                 setSlideAnimationDirection('left');
-                appDispatch(updateFieldGroup({formId, fieldGroup: localFieldGroupState}));
+                appDispatch(updateFieldGroup({ formId, fieldGroup: localFieldGroupState }));
               }}
             >
               {nextFieldGroupId == 'finished-form' ? 'Submit' : 'Next'}

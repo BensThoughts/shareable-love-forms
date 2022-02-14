@@ -1,5 +1,5 @@
-import {Page, Text, View, Document, StyleSheet} from '@react-pdf/renderer';
-import {FormState} from '@app/utils/store/features/forms/formsSlice';
+import { Page, Text, View, Document, StyleSheet } from '@react-pdf/renderer';
+import { FormState } from '@app/utils/store/features/forms/formsSlice';
 import FieldGroupPDF from './FieldGroupPDF';
 // const DEFAULT_RESPONSE_OPTIONS: string[]= ['N/A', 'Must Have', 'Like To Have', 'Maybe', 'Off Limits'];
 

@@ -1,6 +1,6 @@
-import {Fragment} from 'react';
+import { Fragment } from 'react';
 import styled from '@emotion/styled';
-import {Transition} from '@headlessui/react';
+import { Transition } from '@headlessui/react';
 
 import useScrollDirection from '../../../utils/hooks/useScrollDirection';
 
@@ -13,8 +13,8 @@ type NavHiderProps = {
   children: React.ReactNode;
 }
 
-export default function NavHider({className, children}: NavHiderProps) {
-  const {scrollDirection, y} = useScrollDirection();
+export default function NavHider({ className, children }: NavHiderProps) {
+  const { scrollDirection, y } = useScrollDirection();
   return (
     <Transition
       as={Fragment}

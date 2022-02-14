@@ -1,4 +1,4 @@
-import {Path, Svg, Circle} from '@react-pdf/renderer';
+import { Path, Svg, Circle } from '@react-pdf/renderer';
 
 export default function MaybeIcon({
   stroke = 'black',

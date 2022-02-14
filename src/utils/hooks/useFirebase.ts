@@ -1,5 +1,5 @@
-import {initializeApp} from 'firebase/app';
-import {getAnalytics} from 'firebase/analytics';
+import { initializeApp } from 'firebase/app';
+import { getAnalytics } from 'firebase/analytics';
 
 const firebaseConfig = {
   apiKey: process.env.API_KEY,

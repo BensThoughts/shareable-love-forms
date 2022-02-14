@@ -1,4 +1,4 @@
-import {Path, Svg} from '@react-pdf/renderer';
+import { Path, Svg } from '@react-pdf/renderer';
 
 export default function LikeToHaveIcon({
   stroke = 'black',

@@ -1,4 +1,4 @@
-import {createContext, Dispatch, ReactNode, SetStateAction, useState} from 'react';
+import { createContext, Dispatch, ReactNode, SetStateAction, useState } from 'react';
 
 export type SlideAnimationDirection = 'left' | 'right';
 
@@ -11,11 +11,11 @@ interface SlideAnimationProviderProps {
   children: ReactNode
 }
 
-const SlideAnimationProvider = ({children}: SlideAnimationProviderProps) => {
+const SlideAnimationProvider = ({ children }: SlideAnimationProviderProps) => {
   const [slideAnimationDirection, setSlideAnimationDirection] = useState<SlideAnimationDirection>('left');
 
   return (
-    <SlideAnimationContext.Provider value={{slideAnimationDirection, setSlideAnimationDirection}}>
+    <SlideAnimationContext.Provider value={{ slideAnimationDirection, setSlideAnimationDirection }}>
       {children}
     </SlideAnimationContext.Provider>
   );

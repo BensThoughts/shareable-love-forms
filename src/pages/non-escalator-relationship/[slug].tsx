@@ -1,17 +1,17 @@
-import {GetStaticPaths, GetStaticProps} from 'next';
+import { GetStaticPaths, GetStaticProps } from 'next';
 import GridWrapper from '../../components/GridWrapper';
 import FlexSection from '@app/components/FlexSection';
-import type {ReactElement} from 'react';
-import {NextSeo} from 'next-seo';
+import type { ReactElement } from 'react';
+import { NextSeo } from 'next-seo';
 
 import SlideAnimationProvider from '@app/utils/context/SlideAnimationContext';
-import {useAppSelector} from '@app/utils/store/hooks';
-import {selectFormById} from '@app/utils/store/features/forms/formsSlice';
+import { useAppSelector } from '@app/utils/store/hooks';
+import { selectFormById } from '@app/utils/store/features/forms/formsSlice';
 import Title from '@app/components/Title';
 import BootstrapForm from '@app/utils/store/features/forms/BootstrapForm';
-import {getForm} from '@app/utils/store/data/nonEscalatorFormData';
+import { getForm } from '@app/utils/store/data/nonEscalatorFormData';
 import FieldGroupLayout from '@app/components/Form/FieldGroupLayout';
-import {NON_ESCALATOR_FORM_ID, NON_ESCALATOR_FORM_NAME} from './index';
+import { NON_ESCALATOR_FORM_ID, NON_ESCALATOR_FORM_NAME } from './index';
 import LoadingFormPage from '@app/components/NonEscalatorRelationship/LoadingFormPage';
 
 export const getStaticPaths: GetStaticPaths = (params) => {
@@ -40,7 +40,7 @@ export const getStaticPaths: GetStaticPaths = (params) => {
   };
 };
 
-export const getStaticProps: GetStaticProps = async ({params}) => {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
   if (!params) {
     throw new Error(`No params in getStaticProps: ${params}`);
   }

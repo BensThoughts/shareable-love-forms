@@ -1,4 +1,4 @@
-import {forwardRef, MouseEventHandler} from 'react';
+import { forwardRef, MouseEventHandler } from 'react';
 import AnimatedUnderline from './AnimatedUnderline';
 
 type AProps = {
