@@ -1,12 +1,13 @@
 import {NextSeo} from 'next-seo';
 
 import Card from '@app/components/Card/Card';
-import NextLinkButton from '@app/components/NextLinkButton';
 import GridWrapper from '@app/components/GridWrapper';
 import FlexSection from '@app/components/FlexSection';
 import BootstrapForm from '@app/utils/store/features/forms/BootstrapForm';
 import Title from '@app/components/Title';
 import AnimatedLink from '@app/components/AnimatedLink';
+import NextLink from '@app/components/NextLink';
+import LargeGradientButton from '@app/components/LargeGradientButton';
 
 export const NON_ESCALATOR_FORM_ID = 'non-escalator-relationship';
 export const NON_ESCALATOR_FORM_NAME = 'Non-Escalator Relationship Form';
@@ -37,11 +38,22 @@ export default function NonEscalatorRelationshipHomePage() {
                   You can also fill it out and share it with someone else. Try comparing your responses to those of a current romantic partner
                   to find out where your interests align and where you may need to have further discussion.
                 </p>
-                <div className="self-center">
-                  <NextLinkButton href="non-escalator-relationship/commitment" className="max-w-md">
-                    Start Form
-                  </NextLinkButton>
+                <div className="flex items-center self-center">
+                  <NextLink
+                    href="non-escalator-relationship/commitment"
+                    className="rounded-md"
+                  >
+                    <LargeGradientButton>
+                      Start Form
+                    </LargeGradientButton>
+                  </NextLink>
                 </div>
+
+                  {/* <GradientBorderCard title='Start Form'>
+                    <NextLinkButton href="non-escalator-relationship/commitment" className="max-w-md">
+                      Let&apos;s G0!
+                    </NextLinkButton>
+                  </GradientBorderCard> */}
               </div>
             </Card>
           </FlexSection>
@@ -164,10 +176,15 @@ export default function NonEscalatorRelationshipHomePage() {
                   Relationship Form can help you to get clarity on the priorities and values you seek in a current
                   relationship or one that is soon to be.
                 </p>
-                <div className="self-center">
-                  <NextLinkButton href="non-escalator-relationship/commitment" className="max-w-md">
-                    Start Form
-                  </NextLinkButton>
+                <div className="flex items-center self-center">
+                  <NextLink
+                    href="non-escalator-relationship/commitment"
+                    className="rounded-md"
+                  >
+                    <LargeGradientButton>
+                      Start Form
+                    </LargeGradientButton>
+                  </NextLink>
                 </div>
               </div>
             </Card>
