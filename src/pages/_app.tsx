@@ -1,5 +1,5 @@
 import '../styles/globals.css';
-import React from 'react';
+import React, { useEffect } from 'react';
 import type { ReactElement, ReactNode } from 'react';
 import type {
   AppProps,
@@ -31,6 +31,9 @@ import { persistor } from '@app/utils/store/store';
 import { DefaultSeo } from 'next-seo';
 import seoConfig from '@app/utils/seo.config';
 
+import * as Fathom from 'fathom-client';
+import { useRouter } from 'next/router';
+
 const PageWrapper = styled.div`
   padding-top: 3.5rem;
   margin-top: 0rem;
@@ -55,7 +58,6 @@ const FooterWrap = styled.div`
 function MyApp({
   Component,
   pageProps,
-  router,
 }: AppPropsWithLayout) {
   // useEffect(() => {
   //   const APP_VERSION = process.env.NEXT_PUBLIC_APP_VERSION;
@@ -64,6 +66,29 @@ function MyApp({
   //   console.log('Redux Schema Version: ' + REDUX_SCHEMA_VERSION);
   //   // localStorage.clear();
   // }, []);
+  const router = useRouter();
+
+  useEffect(() => {
+    // Initialize Fathom when the app loads
+    // Example: yourdomain.com
+    //  - Do not include https://
+    //  - This must be an exact match of your domain.
+    //  - If you're using www. for your domain, make sure you include that here.
+    Fathom.load('ZMXBSTVH', {
+      includedDomains: ['shareloveforms.com', 'www.shareloveforms.com'],
+    });
+
+    function onRouteChangeComplete() {
+      Fathom.trackPageview();
+    }
+    // Record a pageview when route changes
+    router.events.on('routeChangeComplete', onRouteChangeComplete);
+
+    // Unassign event listener
+    return () => {
+      router.events.off('routeChangeComplete', onRouteChangeComplete);
+    };
+  }, []);
 
   const getLayout = Component.getLayout ?? ((page) => page);
 
