@@ -45,7 +45,10 @@ export default function NonEscalatorRelationshipFinishedFormPage() {
               <div className="flex flex-col gap-4 text-neutral-lighter">
                 <div>
                 Click the button below after your results have been processed to open
-                a PDF that displays your answers. The PDF can be downloaded from there.
+                a PDF with your personalized results!{` `}
+                <strong className="font-semibold">
+                  The PDF can be printed or downloaded from there.
+                </strong>
                 </div>
                 <div className="flex justify-center w-full">
                   <FinishedFormLink form={form}/>
