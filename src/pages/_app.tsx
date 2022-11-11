@@ -88,6 +88,7 @@ function MyApp({
     return () => {
       router.events.off('routeChangeComplete', onRouteChangeComplete);
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const getLayout = Component.getLayout ?? ((page) => page);
