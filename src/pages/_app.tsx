@@ -75,6 +75,7 @@ function MyApp({
     //  - This must be an exact match of your domain.
     //  - If you're using www. for your domain, make sure you include that here.
     Fathom.load('ZMXBSTVH', {
+      url: 'https://ideal-great.shareloveforms.com/script.js',
       includedDomains: ['shareloveforms.com', 'www.shareloveforms.com'],
     });
 
